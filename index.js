@@ -29,13 +29,13 @@ Styledown.defaults = {
    */
   template: [
     "<!doctype html>",
-    "<html>",
+    "<html class='-sm'>",
     "<head>",
     "<meta charset='utf-8'>",
     "<title>Styledown</title>",
     "<link rel='stylesheet' href='styledown.css'>",
     "</head>",
-    "<body sm-body>",
+    "<body sm-body class='-sm'>",
     "</body>",
     "</html>"
   ].join("\n"),
