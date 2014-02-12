@@ -1,45 +1,23 @@
 Fancy style guide
 =================
 
-    ~ head
+    <!-- head styles -->
     <link rel="stylesheet" href="mystyles.css">
-
-Typography
-----------
-
-### Basic text (.formatted)
-
-    h2 Formatted text example
-    p Lorem ipsum dolor sit amet
-
-### Heading type (+heading-type)
-
-    .heading-type(style="font-size: 24pt")
-      | Hello there, world
-
-### Lite heading type (+lite-heading-type)
-
-    .lite-heading-type
-      | Create new venues today
-
-### Section headings
-
-    ~ background=white width=500px
-    .heading.section
-      .content
-        .actions
-          a.button.primary Action here
-      h1 Content here
 
 Forms
 -----
 
-### Form
-
-    form.form
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 ### Radio buttons
 
+Vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+    <!-- .white .padded -->
     form.form
       label.radio
         input(type='radio')
@@ -52,6 +30,10 @@ Forms
 Buttons
 -------
 
+Add a class of .breadcrumbs to a ul element. List items will automatically be 
+styled, and you can add .current or .unavailable classes to list items to denote 
+their state.
+
 ### Normal button
 
 Use the `.button` class.
@@ -59,7 +41,11 @@ Use the `.button` class.
     a.button Confirm
     a.button.primary Success
 
-Color palette
--------------
+### Button sizes
 
- * $orange - #382092
+Use the `.button` class.
+
+    a.button.small Confirm
+    br
+    a.button.large Success
+

@@ -1,4 +1,29 @@
 /*
+ * Reset
+ */
+
+html.-sm, body.-sm, div.-sm, span.-sm, applet.-sm, object.-sm, iframe.-sm, h1.-sm, h2.-sm, h3.-sm, h4.-sm, h5.-sm, h6.-sm, p.-sm, blockquote.-sm, pre.-sm, a.-sm, abbr.-sm, acronym.-sm, address.-sm, big.-sm, cite.-sm, code.-sm, del.-sm, dfn.-sm, em.-sm, img.-sm, ins.-sm, kbd.-sm, q.-sm, s.-sm, samp.-sm, small.-sm, strike.-sm, strong.-sm, sub.-sm, sup.-sm, tt.-sm, var.-sm, b.-sm, u.-sm, i.-sm, center.-sm, dl.-sm, dt.-sm, dd.-sm, ol.-sm, ul.-sm, li.-sm, fieldset.-sm, form.-sm, label.-sm, legend.-sm, table.-sm, caption.-sm, tbody.-sm, tfoot.-sm, thead.-sm, tr.-sm, th.-sm, td.-sm, article.-sm, aside.-sm, canvas.-sm, details.-sm, embed.-sm,  figure.-sm, figcaption.-sm, footer.-sm, header.-sm, hgroup.-sm,  menu.-sm, nav.-sm, output.-sm, ruby.-sm, section.-sm, summary.-sm, time.-sm, mark.-sm, audio.-sm, video.-sm {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article.-sm, aside.-sm, details.-sm, figcaption.-sm, figure.-sm, footer.-sm, header.-sm, hgroup.-sm, menu.-sm, nav.-sm, section.-sm {
+  display: block;
+}
+
+ol.-sm, ul.-sm {
+  list-style: none;
+}
+
+blockquote.-sm, q.-sm {
+  quotes: none;
+}
+
+/*
  * Styledown
  */
 
@@ -19,22 +44,17 @@ body.-sm {
 
 .-sm-example {
   float: right;
-  width: 800px;
+  width: 70%;
   min-height: 50px;
   outline: solid 1px rgba(90, 90, 90, 0.1);
   margin-bottom: 20px;
 }
 
-h1.-sm, h2.-sm {
-  clear: both;
-}
-
+h1.-sm, h2.-sm,
 h3.-sm, h4.-sm, h5.-sm, h6.-sm,
 p.-sm, ul.-sm, blockquote.-sm {
   clear: both;
-  float: left;
-  width: 180px;
-  color: #888;
+  margin-bottom: 10px;
 }
 
 /*
@@ -45,4 +65,8 @@ h2.-sm {
   border-bottom: solid 1px #ddd;
   padding-bottom: 10px;
   color: #888;
+}
+
+h3.-sm {
+  font-weight: bold;
 }
