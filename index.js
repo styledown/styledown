@@ -1,35 +1,72 @@
 var Marked = require('marked');
 var Jade = require('jade');
+var Cheerio = require('cheerio');
 var extend = require('util')._extend;
 
-var Styledown = module.exports;
+module.exports = Styledown;
 
 /**
- * Parses a document.
+ * Document.
  */
 
-Styledown.parse = function(src) {
-  return new Document(src).toHTML();
-};
-
-Styledown.Document = Document;
-
-/**
- * Document
- */
-
-function Document(src) {
+function Styledown(src, options) {
   this.raw = src;
-  var html = Marked(src);
-  this.$ = require('cheerio').load(html);
+  this.options = extend(extend({}, Styledown.defaults), options || {});
+  this.$ = Cheerio.load(Marked(src));
 
   this._addClasses(this.$);
   this._unpackExamples(this.$);
 }
 
-Document.prototype = {
+Styledown.defaults = {
+  /**
+   * Disable template if true
+   */
+  bare: false,
+
+  /**
+   * HTML template
+   */
+  template: [
+    "<!doctype html>",
+    "<html>",
+    "<head>",
+    "<meta charset='utf-8'>",
+    "<title>Styledown</title>",
+    "<link rel='stylesheet' href='styledown.css'>",
+    "</head>",
+    "<body sm-body>",
+    "</body>",
+    "</html>"
+  ].join("\n"),
+
+  /**
+   * Things to put into `head`
+   */
+  head: "",
+};
+
+/**
+ * Shorthand for parsing.
+ */
+
+Styledown.parse = function (source, options) {
+  return new Styledown(source, options).toHTML();
+};
+
+Styledown.prototype = {
   toHTML: function() {
-    return this.$.html();
+    var html = this.$.html();
+
+    if (!this.options.bare) {
+      var $ = Cheerio.load(this.options.template);
+      $('[sm-body]').append(html).removeAttr('sm-body');
+      $('head').append(this.options.head);
+
+      html = $.html();
+    }
+
+    return html;
   },
 };
 
@@ -59,5 +96,4 @@ var Filters = {
   }
 };
 
-extend(Document.prototype, Filters);
-
+extend(Styledown.prototype, Filters);

@@ -27,6 +27,13 @@ describe 'styledown', ->
       expect(@$("h1").is('.-sm')).be.true
       expect(@$("p").is('.-sm')).be.true
 
+    it 'html template', ->
+      expect(@html).match /doctype html/
+      expect(@html).match /body/
+      expect(@html).match /head/
+      expect(@$("meta[charset]").attr('charset')).eql('utf-8')
+      expect(@$("title").text().length).gt 0
+
   describe 'jade technologies', ->
     beforeEach ->
       @load '''

@@ -1,7 +1,7 @@
 Fancy style guide
 =================
 
-    ~ head:
+    ~ head
     <link rel="stylesheet" href="mystyles.css">
 
 Typography
@@ -24,7 +24,7 @@ Typography
 
 ### Section headings
 
-    # background=white width=500px
+    ~ background=white width=500px
     .heading.section
       .content
         .actions
@@ -63,17 +63,3 @@ Color palette
 -------------
 
  * $orange - #382092
-
------
-
-Output:
-
-<h2 class='sg'>Typography</h2>
-
-<h3 class='sg'>Basic text <code>.formatted</code></h3>
-<p class='sg'>Here's some basic things.</p>
-
-<div class="sg-example">
-  <h2>Formatted text example</h2>
-  <p>Lorem ipsum dolor sit amet</p>
-</div>
