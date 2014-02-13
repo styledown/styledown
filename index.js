@@ -106,7 +106,7 @@ var Filters = {
 
       var canvas = "<div class='"+pre+"-canvas'>"+html+"</div>";
       var codeblock = "<pre class='"+pre+"-code'>"+highlight(html)+"</pre>";
-      canvas = codeblock + canvas;
+      canvas = "<div class='"+pre+"-code-block'>" + codeblock + canvas + "</div>";
 
       var x = $(this).replaceWith(canvas);
     });
@@ -120,7 +120,7 @@ extend(Styledown.prototype, Filters);
  */
 
 function highlight (html) {
-  html = Html.prettyPrint(html);
+  html = Html.prettyPrint(html, { indent_size: 2 });
   html = esc(html);
   return html;
 }

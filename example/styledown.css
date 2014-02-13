@@ -70,3 +70,61 @@ h2.sg {
 h3.sg {
   font-weight: bold;
 }
+
+.sg-code-block {
+  margin: 1em 0;
+}
+
+.sg-code-block:after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.sg-code-block .sg-code {
+  margin: 0;
+  padding: 0;
+}
+
+.sg-code-block .sg-canvas {
+  float: right;
+  width: 65%;
+}
+
+.sg-code-block .sg-code {
+  float: left;
+  width: 30%;
+  font-size: 0.8em;
+  font-family: menlo, monospace;
+  line-height: 1.3;
+  padding: 10px;
+  border: solid 1px #ddd;
+  overflow: auto;
+}
+
+/*
+ * Lol
+ */
+
+.button {
+  display: inline-block;
+  padding: 5px 20px;
+  border: solid 1px #ddd;
+  background: #f0f0f0;
+  border-radius: 2px;
+}
+
+.table {
+  width: 100%;
+}
+
+.table th,
+.table td {
+  text-align: center;
+}
+
+.table th,
+.table td {
+  padding: 5px;
+  border-bottom: solid 1px #ddd;
+}
