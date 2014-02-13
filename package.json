@@ -29,6 +29,7 @@
   "dependencies": {
     "marked": "~0.3.1",
     "cheerio": "0.13.0",
-    "jade": "~1.1.5"
+    "jade": "~1.1.5",
+    "html": "0.0.7"
   }
 }

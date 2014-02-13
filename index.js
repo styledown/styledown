@@ -1,6 +1,7 @@
 var Marked = require('marked');
 var Jade = require('jade');
 var Cheerio = require('cheerio');
+var Html = require('html');
 var extend = require('util')._extend;
 
 module.exports = Styledown;
@@ -102,9 +103,34 @@ var Filters = {
     $('pre').each(function() {
       var code = $(this).text();
       var html = Jade.render(code);
-      var x = $(this).replaceWith("<div class='"+pre+"-canvas'>"+html);
+
+      var canvas = "<div class='"+pre+"-canvas'>"+html+"</div>";
+      var codeblock = "<pre class='"+pre+"-code'>"+highlight(html)+"</pre>";
+      canvas = codeblock + canvas;
+
+      var x = $(this).replaceWith(canvas);
     });
   }
 };
 
 extend(Styledown.prototype, Filters);
+
+/**
+ * Syntax highlight?
+ */
+
+function highlight (html) {
+  html = Html.prettyPrint(html);
+  html = esc(html);
+  return html;
+}
+
+/**
+ * Escape HTML helper
+ */
+
+function esc (html) {
+  return html
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
