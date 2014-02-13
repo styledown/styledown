@@ -1,9 +1,6 @@
 Fancy style guide
 =================
 
-    <!--* global show-html toc -->
-    <link rel="stylesheet" href="mystyles.css">
-
 Buttons
 -------
 
@@ -66,3 +63,5 @@ no sea takimata sanctus est Lorem ipsum dolor sit amet.
         input(type='radio')
         span Radio button 2
 
+<!--* global show-html toc -->
+<link rel="stylesheet" href="mystyles.css">

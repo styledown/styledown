@@ -29,13 +29,13 @@ Styledown.defaults = {
    */
   template: [
     "<!doctype html>",
-    "<html class='-sm'>",
+    "<html>",
     "<head>",
     "<meta charset='utf-8'>",
     "<title>Styledown</title>",
     "<link rel='stylesheet' href='styledown.css'>",
     "</head>",
-    "<body sm-body class='-sm'>",
+    "<body sg-content>",
     "</body>",
     "</html>"
   ].join("\n"),
@@ -44,6 +44,11 @@ Styledown.defaults = {
    * Things to put into `head`
    */
   head: "",
+
+  /**
+   * Prefix for classnames
+   */
+  prefix: 'sg',
 };
 
 /**
@@ -59,8 +64,10 @@ Styledown.prototype = {
     var html = this.$.html();
 
     if (!this.options.bare) {
+      // Unpack template
       var $ = Cheerio.load(this.options.template);
-      $('[sm-body]').append(html).removeAttr('sm-body');
+      $('[sg-content]').append(html).removeAttr('sg-content');
+      $('html, body').addClass(this.options.prefix);
       $('head').append(this.options.head);
 
       html = $.html();
@@ -80,7 +87,9 @@ var Filters = {
    */
 
   _addClasses: function($) {
-    $("*").addClass('-sm');
+    var prefix = this.options.prefix;
+
+    $("*").addClass(prefix);
   },
 
   /**
@@ -88,10 +97,12 @@ var Filters = {
    */
 
   _unpackExamples: function($) {
+    var pre = this.options.prefix;
+
     $('pre').each(function() {
       var code = $(this).text();
       var html = Jade.render(code);
-      var x = $(this).replaceWith("<div class='-sm-example'>"+html);
+      var x = $(this).replaceWith("<div class='"+pre+"-canvas'>"+html);
     });
   }
 };

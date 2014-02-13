@@ -2,7 +2,7 @@
  * Reset
  */
 
-html.-sm, body.-sm, div.-sm, span.-sm, applet.-sm, object.-sm, iframe.-sm, h1.-sm, h2.-sm, h3.-sm, h4.-sm, h5.-sm, h6.-sm, p.-sm, blockquote.-sm, pre.-sm, a.-sm, abbr.-sm, acronym.-sm, address.-sm, big.-sm, cite.-sm, code.-sm, del.-sm, dfn.-sm, em.-sm, img.-sm, ins.-sm, kbd.-sm, q.-sm, s.-sm, samp.-sm, small.-sm, strike.-sm, strong.-sm, sub.-sm, sup.-sm, tt.-sm, var.-sm, b.-sm, u.-sm, i.-sm, center.-sm, dl.-sm, dt.-sm, dd.-sm, ol.-sm, ul.-sm, li.-sm, fieldset.-sm, form.-sm, label.-sm, legend.-sm, table.-sm, caption.-sm, tbody.-sm, tfoot.-sm, thead.-sm, tr.-sm, th.-sm, td.-sm, article.-sm, aside.-sm, canvas.-sm, details.-sm, embed.-sm,  figure.-sm, figcaption.-sm, footer.-sm, header.-sm, hgroup.-sm,  menu.-sm, nav.-sm, output.-sm, ruby.-sm, section.-sm, summary.-sm, time.-sm, mark.-sm, audio.-sm, video.-sm {
+html.sg, body.sg, div.sg, span.sg, applet.sg, object.sg, iframe.sg, h1.sg, h2.sg, h3.sg, h4.sg, h5.sg, h6.sg, p.sg, blockquote.sg, pre.sg, a.sg, abbr.sg, acronym.sg, address.sg, big.sg, cite.sg, code.sg, del.sg, dfn.sg, em.sg, img.sg, ins.sg, kbd.sg, q.sg, s.sg, samp.sg, small.sg, strike.sg, strong.sg, sub.sg, sup.sg, tt.sg, var.sg, b.sg, u.sg, i.sg, center.sg, dl.sg, dt.sg, dd.sg, ol.sg, ul.sg, li.sg, fieldset.sg, form.sg, label.sg, legend.sg, table.sg, caption.sg, tbody.sg, tfoot.sg, thead.sg, tr.sg, th.sg, td.sg, article.sg, aside.sg, canvas.sg, details.sg, embed.sg,  figure.sg, figcaption.sg, footer.sg, header.sg, hgroup.sg,  menu.sg, nav.sg, output.sg, ruby.sg, section.sg, summary.sg, time.sg, mark.sg, audio.sg, video.sg {
   margin: 0;
   padding: 0;
   border: 0;
@@ -11,15 +11,15 @@ html.-sm, body.-sm, div.-sm, span.-sm, applet.-sm, object.-sm, iframe.-sm, h1.-s
   vertical-align: baseline;
 }
 
-article.-sm, aside.-sm, details.-sm, figcaption.-sm, figure.-sm, footer.-sm, header.-sm, hgroup.-sm, menu.-sm, nav.-sm, section.-sm {
+article.sg, aside.sg, details.sg, figcaption.sg, figure.sg, footer.sg, header.sg, hgroup.sg, menu.sg, nav.sg, section.sg {
   display: block;
 }
 
-ol.-sm, ul.-sm {
+ol.sg, ul.sg {
   list-style: none;
 }
 
-blockquote.-sm, q.-sm {
+blockquote.sg, q.sg {
   quotes: none;
 }
 
@@ -27,12 +27,12 @@ blockquote.-sm, q.-sm {
  * Styledown
  */
 
-html.-sm {
+html.sg {
   margin: 0;
   padding: 20px 0;
 }
 
-body.-sm {
+body.sg {
   font-family: sans-serif;
   font-size: 14px;
   line-height: 1.6;
@@ -42,7 +42,7 @@ body.-sm {
   padding: 0;
 }
 
-.-sm-example {
+.sg-example {
   float: right;
   width: 70%;
   min-height: 50px;
@@ -50,9 +50,9 @@ body.-sm {
   margin-bottom: 20px;
 }
 
-h1.-sm, h2.-sm,
-h3.-sm, h4.-sm, h5.-sm, h6.-sm,
-p.-sm, ul.-sm, blockquote.-sm {
+h1.sg, h2.sg,
+h3.sg, h4.sg, h5.sg, h6.sg,
+p.sg, ul.sg, blockquote.sg {
   clear: both;
   margin-bottom: 10px;
 }
@@ -61,12 +61,12 @@ p.-sm, ul.-sm, blockquote.-sm {
  * Headings
  */
 
-h2.-sm {
+h2.sg {
   border-bottom: solid 1px #ddd;
   padding-bottom: 10px;
   color: #888;
 }
 
-h3.-sm {
+h3.sg {
   font-weight: bold;
 }
