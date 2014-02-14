@@ -1,13 +1,5 @@
 require './setup'
 
-Styledown = require '.'
-Cheerio = require 'cheerio'
-
-before ->
-  @load = (html, options={}) ->
-    @html = Styledown.parse(html, options)
-    @$ = Cheerio.load(@html)
-
 describe 'styledown', ->
   it '#parse', ->
     expect(Styledown.parse).be.function
@@ -88,5 +80,23 @@ describe 'wrapping', ->
         a.button.success Success button
     '''
 
-  it 'splits', ->
-    console.log @html
+  it 'sg-code', ->
+    expect(@$('.sg-code').length).eq 2
+
+  it 'sg-canvas', ->
+    expect(@$('.sg-canvas').length).eq 2
+
+describe 'syntax highlight', ->
+  beforeEach ->
+    @load '''
+    ### Buttons
+
+        a.button.primary Primary button
+        a.button.success Success button
+    '''
+
+  it 'should work', ->
+    expect(@$('.sg-code .hljs-tag').length).gte 4
+    expect(@$('.sg-code .hljs-value').length).gte 2
+    expect(@$('.sg-code .hljs-attribute').length).gte 2
+    expect(@$('.sg-code').html()).match /&lt;/
