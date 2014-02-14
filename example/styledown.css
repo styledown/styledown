@@ -2,7 +2,7 @@
  * Reset
  */
 
-html.sg, body.sg, div.sg, span.sg, applet.sg, object.sg, iframe.sg, h1.sg, h2.sg, h3.sg, h4.sg, h5.sg, h6.sg, p.sg, blockquote.sg, pre.sg, a.sg, abbr.sg, acronym.sg, address.sg, big.sg, cite.sg, code.sg, del.sg, dfn.sg, em.sg, img.sg, ins.sg, kbd.sg, q.sg, s.sg, samp.sg, small.sg, strike.sg, strong.sg, sub.sg, sup.sg, tt.sg, var.sg, b.sg, u.sg, i.sg, center.sg, dl.sg, dt.sg, dd.sg, ol.sg, ul.sg, li.sg, fieldset.sg, form.sg, label.sg, legend.sg, table.sg, caption.sg, tbody.sg, tfoot.sg, thead.sg, tr.sg, th.sg, td.sg, article.sg, aside.sg, canvas.sg, details.sg, embed.sg,  figure.sg, figcaption.sg, footer.sg, header.sg, hgroup.sg,  menu.sg, nav.sg, output.sg, ruby.sg, section.sg, summary.sg, time.sg, mark.sg, audio.sg, video.sg {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -11,20 +11,20 @@ html.sg, body.sg, div.sg, span.sg, applet.sg, object.sg, iframe.sg, h1.sg, h2.sg
   vertical-align: baseline;
 }
 
-article.sg, aside.sg, details.sg, figcaption.sg, figure.sg, footer.sg, header.sg, hgroup.sg, menu.sg, nav.sg, section.sg {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-ol.sg, ul.sg {
+ol, ul {
   list-style: none;
 }
 
-blockquote.sg, q.sg {
+blockquote, q {
   quotes: none;
 }
 
 /*
- * Styledown
+ * Styledown: layout and stuff
  */
 
 html.sg {
@@ -42,24 +42,12 @@ body.sg {
   padding: 0;
 }
 
-.sg-example {
-  float: right;
-  width: 70%;
-  min-height: 50px;
-  outline: solid 1px rgba(90, 90, 90, 0.1);
-  margin-bottom: 20px;
-}
-
 h1.sg, h2.sg,
 h3.sg, h4.sg, h5.sg, h6.sg,
 p.sg, ul.sg, blockquote.sg {
   clear: both;
   margin-bottom: 10px;
 }
-
-/*
- * Headings
- */
 
 h2.sg {
   color: #7bd;
@@ -79,6 +67,10 @@ h3.sg + p.sg {
   color: #90909f;
 }
 
+/**
+ * Styleguide: code block
+ */
+
 .sg-code-block {
   margin: 1em 0;
   float: right;
@@ -87,18 +79,16 @@ h3.sg + p.sg {
   margin-top: -10px;
 }
 
-.sg-code-block .sg-code {
-  margin: 0;
-  padding: 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 0 2px rgba(0,0,0,0.1);
-}
-
-.sg-code-block .sg-canvas {
+.sg-canvas {
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 0 2px rgba(0,0,0,0.1);
 }
 
-.sg-code-block .sg-code {
+.sg-code {
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 0 2px rgba(0,0,0,0.1);
+
   display: none !important;
 
   font-size: 0.85em;
@@ -107,6 +97,15 @@ h3.sg + p.sg {
   padding: 20px;
   background: #fafaff;
 }
+
+/*
+ * Styleguide: syntax highlighting
+ */
+
+.hljs-tag { color: #999; }
+.hljs-title { color: #35a; font-weight: bold; }
+.hljs-attribute { color: #35a; }
+.hljs-value { color: #7db; }
 
 /*
  * Lol
@@ -134,15 +133,6 @@ h3.sg + p.sg {
   padding: 5px;
   border-bottom: solid 1px #ddd;
 }
-
-/*
- * hljs
- */
-
-.hljs-tag { color: #999; }
-.hljs-title { color: #35a; font-weight: bold; }
-.hljs-attribute { color: #35a; }
-.hljs-value { color: #7db; }
 
 code.sg {
   background: #eaeafa;
