@@ -62,44 +62,50 @@ p.sg, ul.sg, blockquote.sg {
  */
 
 h2.sg {
-  border-bottom: solid 1px #ddd;
-  padding-bottom: 10px;
-  color: #888;
+  color: #7bd;
+  font-size: 2em;
 }
 
 h3.sg {
+  border-top: solid 1px #eee;
+  margin: 20px 0 0px 0;
+  padding-top: 20px;
   font-weight: bold;
+}
+
+h3.sg + p.sg {
+  float: left;
+  width: 28%;
+  color: #90909f;
 }
 
 .sg-code-block {
   margin: 1em 0;
-}
-
-.sg-code-block:after {
-  content: '';
-  clear: both;
-  display: table;
+  float: right;
+  width: 65%;
+  margin-bottom: 40px;
+  margin-top: -10px;
 }
 
 .sg-code-block .sg-code {
   margin: 0;
   padding: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 0 2px rgba(0,0,0,0.1);
 }
 
 .sg-code-block .sg-canvas {
-  float: right;
-  width: 65%;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 0 2px rgba(0,0,0,0.1);
 }
 
 .sg-code-block .sg-code {
-  float: left;
-  width: 30%;
-  font-size: 0.8em;
+  display: none !important;
+
+  font-size: 0.85em;
   font-family: menlo, monospace;
-  line-height: 1.3;
-  padding: 10px;
-  border: solid 1px #ddd;
-  overflow: auto;
+  line-height: 1.5;
+  padding: 20px;
+  background: #fafaff;
 }
 
 /*
@@ -127,4 +133,27 @@ h3.sg {
 .table td {
   padding: 5px;
   border-bottom: solid 1px #ddd;
+}
+
+/*
+ * hljs
+ */
+
+.hljs-tag { color: #999; }
+.hljs-title { color: #35a; font-weight: bold; }
+.hljs-attribute { color: #35a; }
+.hljs-value { color: #7db; }
+
+code.sg {
+  background: #eaeafa;
+  font-size: 0.9em;
+  padding: 2px 8px;
+  border-radius: 2px;
+  color: #358;
+}
+
+
+.dropdown-menu {
+  width: 300px;
+  background: #eee;
 }

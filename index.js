@@ -1,7 +1,6 @@
 var Marked = require('marked');
 var Jade = require('jade');
 var Cheerio = require('cheerio');
-var Html = require('html');
 var extend = require('util')._extend;
 
 module.exports = Styledown;
@@ -106,7 +105,7 @@ var Filters = {
 
       var canvas = "<div class='"+pre+"-canvas'>"+html+"</div>";
       var codeblock = "<pre class='"+pre+"-code'>"+highlight(html)+"</pre>";
-      canvas = "<div class='"+pre+"-code-block'>" + codeblock + canvas + "</div>";
+      canvas = "<div class='"+pre+"-code-block'>" + canvas + codeblock + "</div>";
 
       var x = $(this).replaceWith(canvas);
     });
@@ -120,17 +119,10 @@ extend(Styledown.prototype, Filters);
  */
 
 function highlight (html) {
+  var Html = require('html');
+  var Hljs = require('highlight.js');
+
   html = Html.prettyPrint(html, { indent_size: 2 });
-  html = esc(html);
+  html = Hljs.highlight('html', html).value;
   return html;
-}
-
-/**
- * Escape HTML helper
- */
-
-function esc (html) {
-  return html
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
 }

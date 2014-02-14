@@ -22,6 +22,18 @@ Use the `.button` class.
     br
     a.button.large Success
 
+dropdowns
+---------
+
+### Menu item
+
+They look like this:
+
+    .dropdown-menu
+      ul
+        li
+          a(href='#') Home
+
 Tables
 ------
 
@@ -52,7 +64,8 @@ no sea takimata sanctus est Lorem ipsum dolor sit amet.
 Vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
 no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-    <!--* white padded -->
+
+    @ class="white"
     form.form
       label.radio
         input(type='radio')
@@ -63,5 +76,36 @@ no sea takimata sanctus est Lorem ipsum dolor sit amet.
         input(type='radio')
         span Radio button 2
 
-<!--* global show-html toc -->
+Labels
+------
+
+### Subtle text
+`span.subtle-text` - Use sparingly.
+
+    .subtle-text Subtle text
+
+### Time stamp
+`span.time-stamp` - Did something happen at a specific time? Tell people when 
+with this style.
+
+    .time-stamp 2 hours ago
+
+### Labels
+Labels or tags that you can append inline with text.
+
+    .ylabel Bruce Lee
+
 <link rel="stylesheet" href="mystyles.css">
+
+<!--
+head:
+
+    <link rel="stylesheet" href="mystyles.css">
+
+body:
+
+    div.styleguide
+      div(sg-content)
+
+@font-example 32px Comic Sans
+-->
