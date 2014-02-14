@@ -95,7 +95,8 @@ Labels or tags that you can append inline with text.
 
     .ylabel Bruce Lee
 
-<link rel="stylesheet" href="mystyles.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="styledown.css">
 
 <!--
 head:

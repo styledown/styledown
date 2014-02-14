@@ -33,7 +33,6 @@ Styledown.defaults = {
     "<head>",
     "<meta charset='utf-8'>",
     "<title>Styledown</title>",
-    "<link rel='stylesheet' href='styledown.css'>",
     "</head>",
     "<body sg-content>",
     "</body>",
