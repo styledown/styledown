@@ -10,13 +10,13 @@ var Filters = Styledown.filters = {};
  * Document.
  */
 
-function Styledown(src, options) {
+function Styledown (src, options) {
   this.raw = src;
   this.options = extend(extend({}, Styledown.defaults), options || {});
   this.$ = Cheerio.load(Marked(src));
 
-  this._addClasses(this.$);
-  this._unpackExamples(this.$);
+  Filters.addClasses(this.$, this.options);
+  Filters.unpackExamples(this.$, this.options);
 }
 
 Styledown.defaults = {
@@ -86,8 +86,8 @@ Filters = {
    * Adds HTML classnames to things
    */
 
-  _addClasses: function($) {
-    var prefix = this.options.prefix;
+  addClasses: function ($, options) {
+    var prefix = options.prefix;
 
     $("*").addClass(prefix);
   },
@@ -96,8 +96,8 @@ Filters = {
    * Unpacks `pre` blocks into examples.
    */
 
-  _unpackExamples: function($) {
-    var pre = this.options.prefix;
+  unpackExamples: function ($, options) {
+    var pre = options.prefix;
 
     $('pre').each(function() {
       var code = $(this).text();
@@ -109,10 +109,8 @@ Filters = {
 
       var x = $(this).replaceWith(canvas);
     });
-  }
+  },
 };
-
-extend(Styledown.prototype, Filters);
 
 /**
  * Syntax highlight?
