@@ -4,6 +4,7 @@ var Cheerio = require('cheerio');
 var extend = require('util')._extend;
 
 module.exports = Styledown;
+var Filters = Styledown.filters = {};
 
 /**
  * Document.
@@ -80,7 +81,7 @@ Styledown.prototype = {
  * Filters mixin
  */
 
-var Filters = {
+Filters = {
   /**
    * Adds HTML classnames to things
    */
