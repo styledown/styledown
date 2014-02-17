@@ -38,18 +38,23 @@ describe 'prefix', ->
     expect(@$("html").is('.styleguide')).be.true
     expect(@$("body").is('.styleguide')).be.true
 
-describe 'bare', ->
+describe 'bare h2', ->
   beforeEach ->
     @load "## hello", bare: true
 
-  it 'has no template', ->
-    expect(@html).not.match /doctype html/
-    expect(@html).not.match /body/
-    expect(@html).not.match /head/
+  it 'is bare', ->
+    expect(@html).htmleql '''
+      <section class='sg-section hello'><h2 id='hello' class='sg'>hello</h2></section>
+    '''
+
+describe 'bare h3', ->
+  beforeEach ->
+    @load "### hello", bare: true
 
   it 'is bare', ->
-    expect(@html).match /^\s*<h2 /
-    expect(@html).match /<\/h2>\s*$/
+    expect(@html).htmleql '''
+      <section class='sg-block hello'><h3 id='hello' class='sg'>hello</h3></section>
+    '''
 
 describe 'jade', ->
   beforeEach ->
@@ -85,6 +90,13 @@ describe 'wrapping', ->
 
   it 'sg-canvas', ->
     expect(@$('.sg-canvas').length).eq 2
+
+  it 'block length', ->
+    expect(@$('.sg-block')).have.length 2
+
+  it 'block classnames', ->
+    expect(@$('.sg-block').eq(0).is('.buttons')).true
+    expect(@$('.sg-block').eq(1).is('.colors')).true
 
 describe 'syntax highlight', ->
   beforeEach ->

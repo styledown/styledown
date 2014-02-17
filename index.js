@@ -17,6 +17,8 @@ function Styledown (src, options) {
 
   Filters.addClasses(this.$, this.options);
   Filters.unpackExamples(this.$, this.options);
+  Filters.sectionize(this.$, 'h2', { 'class': this.options.prefix + '-section' });
+  Filters.sectionize(this.$, 'h3', { 'class': this.options.prefix + '-block' });
 }
 
 Styledown.defaults = {
