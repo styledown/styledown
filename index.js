@@ -81,7 +81,7 @@ Styledown.prototype = {
  * Filters mixin
  */
 
-Filters = {
+extend(Filters, {
   /**
    * Adds HTML classnames to things
    */
@@ -100,17 +100,38 @@ Filters = {
     var pre = options.prefix;
 
     $('pre').each(function() {
-      var code = $(this).text();
+      var code = this.text();
       var html = Jade.render(code);
 
       var canvas = "<div class='"+pre+"-canvas'>"+html+"</div>";
       var codeblock = "<pre class='"+pre+"-code'>"+highlight(html)+"</pre>";
       canvas = "<div class='"+pre+"-code-block'>" + canvas + codeblock + "</div>";
 
-      var x = $(this).replaceWith(canvas);
+      var x = this.replaceWith(canvas);
     });
   },
-};
+
+  /**
+   * Break it apart into sections
+   */
+
+  sectionize: function ($, tag, options) {
+    options = extend({
+      class: ''
+    }, options);
+
+    $(tag).each(function (i) {
+      var $heading = this;
+      var $extras = $heading.nextUntil(tag);
+      $heading.before("<section class='"+options.class+"'>");
+
+      var $div = $("section").eq(-1);
+      $div.addClass($heading.attr('id'));
+      $div.append($heading.remove());
+      $div.append($extras.remove());
+    });
+  }
+});
 
 /**
  * Syntax highlight?
