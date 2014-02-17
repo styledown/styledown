@@ -15,10 +15,12 @@ function Styledown (src, options) {
   this.options = extend(extend({}, Styledown.defaults), options || {});
   this.$ = Cheerio.load(Marked(src));
 
+  var pre = this.options.prefix;
+
   Filters.addClasses(this.$, this.options);
   Filters.unpackExamples(this.$, this.options);
-  Filters.sectionize(this.$, 'h2', { 'class': this.options.prefix + '-section' });
-  Filters.sectionize(this.$, 'h3', { 'class': this.options.prefix + '-block' });
+  Filters.sectionize(this.$, 'h3', { 'class': pre+'-block' });
+  Filters.sectionize(this.$, 'h2', { 'class': pre+'-section', until: 'h1, h2' });
 }
 
 Styledown.defaults = {
@@ -119,15 +121,16 @@ extend(Filters, {
 
   sectionize: function ($, tag, options) {
     options = extend({
-      class: ''
+      'class': '',
+      'until': 'h1, h2, h3, section'
     }, options);
 
     $(tag).each(function (i) {
       var $heading = this;
-      var $extras = $heading.nextUntil(tag);
+      var $extras = $heading.nextUntil(options.until);
       $heading.before("<section class='"+options.class+"'>");
 
-      var $div = $("section").eq(-1);
+      var $div = $("section."+options.class).eq(-1);
       $div.addClass($heading.attr('id'));
       $div.append($heading.remove());
       $div.append($extras.remove());
