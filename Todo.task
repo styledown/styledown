@@ -3,9 +3,11 @@ Basic generation:
 	- Bin @done(2014-02-13)
 
 Basic styleguide:
-	- Wrap sections into .sg-example blocks
-	- Adding `options.body`
-	- <!-- head --> declarations
+	- Wrap h2 sections into .sg-section blocks @done(2014-02-18)
+	- Wrap h3 sections into .sg-block blocks @done(2014-02-18)
+	- Add .sg-block-with-example
+	- Adding `options.body` for body template
+	- proper head declarations
 
 Later features:
 	- jade-less mode
