@@ -39,7 +39,7 @@ Styledown.defaults = {
     "<meta charset='utf-8'>",
     "<title>Styledown</title>",
     "</head>",
-    "<body sg-content>",
+    "<body>",
     "</body>",
     "</html>"
   ].join("\n"),
@@ -48,6 +48,8 @@ Styledown.defaults = {
    * Things to put into `head`
    */
   head: "",
+
+  body: "<div sg-content></div>",
 
   /**
    * Prefix for classnames
@@ -70,6 +72,7 @@ Styledown.prototype = {
     if (!this.options.bare) {
       // Unpack template
       var $ = Cheerio.load(this.options.template);
+      $('body').append(this.options.body);
       $('[sg-content]').append(html).removeAttr('sg-content');
       $('html, body').addClass(this.options.prefix);
       $('head').append(this.options.head);
