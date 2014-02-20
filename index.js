@@ -17,6 +17,9 @@ function Styledown (src, options) {
 
   var pre = this.options.prefix;
 
+  Filters.processConfig(src, this.options);
+  Filters.removeConfig(this.$);
+
   Filters.addClasses(this.$, this.options);
   Filters.unpackExamples(this.$, this.options);
   Filters.sectionize(this.$, 'h3', { 'class': pre+'-block' });
@@ -138,6 +141,30 @@ extend(Filters, {
       $div.append($heading.remove());
       $div.append($extras.remove());
     });
+  },
+
+  /**
+   * Remove the configuration block.
+   *
+   * Removes the "Styleguide options" block from the DOM in `$`.
+   */
+
+  removeConfig: function ($) {
+    var $h1 = $('h1#styleguide-options');
+    $h1.nextUntil('h1').remove();
+    $h1.remove();
+  },
+  
+  /**
+   * Process the configuration block
+   */
+
+  processConfig: function (src, options) {
+    var Mdconf = require('mdconf');
+    var data = Mdconf(src);
+    data = (data && data['styleguide options']);
+
+    if (data) extend(options, data);
   }
 });
 
