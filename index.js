@@ -63,9 +63,11 @@ Styledown.defaults = {
  * Shorthand for parsing.
  */
 
-Styledown.parse = function (source, options) {
+Styledown.parseSync = function (source, options) {
   return new Styledown(source, options).toHTML();
 };
+
+Styledown.parse = Styledown.parseSync;
 
 Styledown.prototype = {
   toHTML: function() {
