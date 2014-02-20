@@ -13,7 +13,6 @@ describe 'inline options', ->
            <div sg-content id="my-body">
     '''
 
-
   it 'no errors', ->
 
   it 'should remove config blocks', ->
@@ -27,6 +26,3 @@ describe 'inline options', ->
 
   it 'should render with correct head', ->
     expect(@$('#my-script')).have.length 1
-
-
-

@@ -1,5 +1,4 @@
 var Marked = require('marked');
-var Jade = require('jade');
 var Cheerio = require('cheerio');
 var extend = require('util')._extend;
 
@@ -75,10 +74,10 @@ Styledown.prototype = {
     if (!this.options.bare) {
       // Unpack template
       var $ = Cheerio.load(this.options.template);
-      $('body').append(this.options.body);
+      $('body').append(htmlize(this.options.body));
       $('[sg-content]').append(html).removeAttr('sg-content');
       $('html, body').addClass(this.options.prefix);
-      $('head').append(this.options.head);
+      $('head').append(htmlize(this.options.head));
 
       html = $.html();
     }
@@ -111,7 +110,7 @@ extend(Filters, {
 
     $('pre').each(function() {
       var code = this.text();
-      var html = Jade.render(code);
+      var html = htmlize(code);
 
       var canvas = "<div class='"+pre+"-canvas'>"+html+"</div>";
       var codeblock = "<pre class='"+pre+"-code'>"+highlight(html)+"</pre>";
@@ -152,7 +151,7 @@ extend(Filters, {
   removeConfig: function ($) {
     var $h1 = $('h1#styleguide-options');
     $h1.nextUntil('h1').remove();
-    $h1.remove();
+    $h1.remove(); 
   },
   
   /**
@@ -179,4 +178,16 @@ function highlight (html) {
   html = Html.prettyPrint(html, { indent_size: 2 });
   html = Hljs.highlight('html', html).value;
   return html;
+}
+
+function htmlize (src) {
+  // Mdconf processes them as arrays
+  if (src.constructor === Array) src = src[0];
+
+  if (src.substr(0, 1) === '<') {
+    return src;
+  } else {
+    var Jade = require('jade');
+    return Jade.render(src);
+  }
 }
