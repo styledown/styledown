@@ -1,4 +1,4 @@
-var extend = require('node.extend');
+var extend = require('util')._extend;
 var Fs = require('fs');
 var Path = require('path');
 var Styledown = require('.');
@@ -19,7 +19,9 @@ var defaults = {
  */
 
 function Middleware (options) {
-  this.options = extend(true, {}, defaults, options);
+  this.options = {};
+  extend(this.options, defaults);
+  extend(this.options, options);
 }
 
 Middleware.prototype = {

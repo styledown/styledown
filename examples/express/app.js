@@ -4,8 +4,8 @@ var styledownHandler = require('../../connect');
 
 app.configure(function() {
   app.set('port', process.env.PORT || 3000);
-  app.set(Express.bodyParser());
-  app.set(Express.methodOverride());
+  app.use(Express.bodyParser());
+  app.use(Express.methodOverride());
   app.use(Express.logger('dev'));
   app.use(app.router);
   app.use(styledownHandler({

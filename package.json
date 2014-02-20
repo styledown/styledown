@@ -36,7 +36,6 @@
     "jade": "~1.1.5",
     "html": "0.0.7",
     "highlight.js": "~8.0.0",
-    "mdconf": "0.0.2",
-    "node.extend": "~1.0.9"
+    "mdconf": "0.0.2"
   }
 }

@@ -11,8 +11,9 @@ var styledownHandler = require('styledown/connect');
 app.use(styledownHandler({
   path: '/styleguides',
   root: Dir.cwd(),
-  source: {
-    all: 'styles.md'
+  guides: {
+    index: 'styles.md',
+    forms: 'forms.md'
   }
 });
 ```
