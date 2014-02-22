@@ -103,9 +103,18 @@ Styledown.prototype = {
       html = $.html();
     }
 
-    html = prettyprint(html);
+    html = this._prettyprint(html);
     return html;
   },
+
+  /**
+   * Reindents HTML based on indent size option
+   */
+
+  _prettyprint: function (html) {
+    var Html = require('html')
+    return Html.prettyPrint(html, { indent_size: this.options.indentSize });
+  }
 };
 
 /**
@@ -207,7 +216,6 @@ function highlight (html) {
  */
 
 function prettyprint (html) {
-  var Html = require('html');
   return require('html').prettyPrint(html, { indent_size: 2 });
 }
 
