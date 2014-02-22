@@ -6,18 +6,20 @@ describe 'Wrapping', ->
       @load "## hello", bare: true
 
     it 'is bare with wrapping', ->
-      expect(@html).htmleql '''
-        <section class='sg-section sg-hello'><h2 id='hello' class='sg'>hello</h2></section>
-      '''
+      expect(@$(".sg-section > h2#hello")).have.length 1
+      expect(@$(".sg-section > h2#hello.sg")).have.length 1
+      expect(@$(".sg-section.sg-section-hello")).have.length 1
+      expect(@$(".sg-section:root")).have.length 1
 
   describe 'bare h3', ->
     beforeEach ->
       @load "### hello", bare: true
 
     it 'is bare with wrapping', ->
-      expect(@html).htmleql '''
-        <section class='sg-block sg-hello'><h3 id='hello' class='sg'>hello</h3></section>
-      '''
+      expect(@$(".sg-block > h3#hello")).have.length 1
+      expect(@$(".sg-block > h3#hello.sg")).have.length 1
+      expect(@$(".sg-block.sg-section-hello")).have.length 1
+      expect(@$(".sg-block:root")).have.length 1
 
   describe 'mixed case wrapping', ->
     beforeEach ->
@@ -33,12 +35,12 @@ describe 'Wrapping', ->
       ''', bare: true
 
     it 'should work', ->
-      expect(@$(".sg-block.sg-button")).have.length 1
-      expect(@$(".sg-block.sg-button > h3#button")).have.length 1
-      expect(@$(".sg-block.sg-button > .sg-code-block")).have.length 1
-      expect(@$(".sg-section.sg-forms")).have.length 1
-      expect(@$(".sg-section.sg-forms > h2#forms")).have.length 1
-      expect(@$(".sg-section.sg-forms > .sg-block.sg-input")).have.length 1
-      expect(@$(".sg-section.sg-forms > .sg-block.sg-input > h3#input")).have.length 1
+      expect(@$(".sg-block.sg-section-button")).have.length 1
+      expect(@$(".sg-block.sg-section-button > h3#button")).have.length 1
+      expect(@$(".sg-block.sg-section-button > .sg-code-block")).have.length 1
+      expect(@$(".sg-section.sg-section-forms")).have.length 1
+      expect(@$(".sg-section.sg-section-forms > h2#forms")).have.length 1
+      expect(@$(".sg-section.sg-section-forms > .sg-block.sg-section-input")).have.length 1
+      expect(@$(".sg-section.sg-section-forms > .sg-block.sg-section-input > h3#input")).have.length 1
 
 

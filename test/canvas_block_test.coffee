@@ -1,6 +1,6 @@
 require './setup'
 
-describe 'canvas block wrapping', ->
+describe 'Canvas block', ->
   beforeEach ->
     @load '''
     ### Buttons
@@ -23,6 +23,6 @@ describe 'canvas block wrapping', ->
     expect(@$('.sg-block')).have.length 2
 
   it 'block classnames', ->
-    expect(@$('.sg-block').eq(0).is('.sg-buttons')).true
-    expect(@$('.sg-block').eq(1).is('.sg-colors')).true
+    expect(@$('.sg-block').eq(0).is('.sg-section-buttons')).true
+    expect(@$('.sg-block').eq(1).is('.sg-section-colors')).true
 

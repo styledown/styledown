@@ -139,7 +139,7 @@ extend(Filters, {
       $heading.before("<section class='"+options.class+"'>");
 
       var $div = $("section."+options.class).eq(-1);
-      $div.addClass(options.prefix + '-' + $heading.attr('id'));
+      $div.addClass(options.prefix + '-section-' + $heading.attr('id'));
       $div.append($heading.remove());
       $div.append($extras.remove());
     });
