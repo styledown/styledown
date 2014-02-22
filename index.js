@@ -63,6 +63,11 @@ Styledown.defaults = {
    * Prefix for classnames
    */
   prefix: 'sg',
+
+  /**
+   * Indentation spaces
+   */
+  indentSize: 2
 };
 
 /**
@@ -76,6 +81,9 @@ Styledown.parseSync = function (source, options) {
 Styledown.parse = Styledown.parseSync;
 
 Styledown.prototype = {
+  /**
+   * Converts to HTML
+   */
   toHTML: function() {
     var html = this.$.html();
 
@@ -95,6 +103,7 @@ Styledown.prototype = {
       html = $.html();
     }
 
+    html = prettyprint(html);
     return html;
   },
 };
@@ -186,12 +195,20 @@ extend(Filters, {
  */
 
 function highlight (html) {
-  var Html = require('html');
   var Hljs = require('highlight.js');
 
-  html = Html.prettyPrint(html, { indent_size: 2 });
+  html = prettyprint(html);
   html = Hljs.highlight('html', html).value;
   return html;
+}
+
+/**
+ * Pretty print with nice indentations
+ */
+
+function prettyprint (html) {
+  var Html = require('html');
+  return require('html').prettyPrint(html, { indent_size: 2 });
 }
 
 function htmlize (src) {

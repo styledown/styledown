@@ -1,6 +1,6 @@
 require './setup'
 
-describe 'inline options', ->
+describe 'Inline Options', ->
   beforeEach ->
     @load '''
        # My guides
@@ -19,7 +19,8 @@ describe 'inline options', ->
     expect(@$('h2#styleguide-options')).have.length 0
 
   it 'should have not much', ->
-    expect(@$('body').text().trim()).eql "My guides\nhello"
+    expect(@$('body').text().trim()).match /^My guides/
+    expect(@$('body').text().trim()).match /hello$/
 
   it 'should render with correct body', ->
     expect(@$('#my-body')).have.length 1
