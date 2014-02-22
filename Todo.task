@@ -9,6 +9,8 @@ Basic styleguide:
 	- proper head declarations @done(2014-02-22)
 
 For project:
+	- Wrap text elements
+	- Trim
 	- `@ example padded` for padded examples
 	- `@ example full`
 	- `@ example width=500`
