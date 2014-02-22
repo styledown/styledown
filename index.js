@@ -47,6 +47,12 @@ Styledown.defaults = {
   ].join("\n"),
 
   /**
+   * Default CSS and JS
+   */
+  defaultCss: true,
+  defaultJs: true,
+
+  /**
    * Things to put into `head`
    */
   head: "",
@@ -80,6 +86,11 @@ Styledown.prototype = {
       $('[sg-content]').append(html).removeAttr('sg-content');
       $('html, body').addClass(this.options.prefix);
       $('head').append(htmlize(this.options.head));
+
+      if (this.options.defaultCss)
+        $('head').append('<link rel="stylesheet" href="styledown.css" type="text/css">');
+      if (this.options.defaultJs)
+        $('head').append('<script src="styledown.js"></script>');
 
       html = $.html();
     }
