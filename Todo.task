@@ -5,13 +5,13 @@ Basic generation:
 Basic styleguide:
 	- Wrap h2 sections into .sg-section blocks @done(2014-02-18)
 	- Wrap h3 sections into .sg-block blocks @done(2014-02-18)
-	- Add .sg-block-with-example
 	- Adding `options.body` for body template @done(2014-02-18)
-	- proper head declarations
-
+	- proper head declarations @done(2014-02-22)
+	- Add .sg-block-with-example
+	-
 Later features:
 	- jade-less mode
 	- @full for full examples
-	- @padded
-	- @code (for code examples)
+	- @padded ?
+	- @example
 	- @input @result (for sass examples)
