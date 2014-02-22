@@ -162,9 +162,9 @@ extend(Filters, {
    */
 
   processConfig: function (src, options) {
-    var Mdconf = require('mdconf');
-    var data = Mdconf(src);
-    data = (data && data['styleguide options']);
+    var Mdconf = require('./lib/mdconf');
+    var data = Mdconf(src, { normalizer: 'camelcase' });
+    data = (data && data.styleguideOptions);
 
     if (data) extend(options, data);
   }
