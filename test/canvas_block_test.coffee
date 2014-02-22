@@ -23,6 +23,6 @@ describe 'canvas block wrapping', ->
     expect(@$('.sg-block')).have.length 2
 
   it 'block classnames', ->
-    expect(@$('.sg-block').eq(0).is('.buttons')).true
-    expect(@$('.sg-block').eq(1).is('.colors')).true
+    expect(@$('.sg-block').eq(0).is('.sg-buttons')).true
+    expect(@$('.sg-block').eq(1).is('.sg-colors')).true
 

@@ -7,11 +7,17 @@ Basic styleguide:
 	- Wrap h3 sections into .sg-block blocks @done(2014-02-18)
 	- Adding `options.body` for body template @done(2014-02-18)
 	- proper head declarations @done(2014-02-22)
-	- Add .sg-block-with-example
-	-
+
+For project:
+	- `@ example padded` for padded examples
+	- `@ example full`
+	- `@ example width=500`
+	- `@ font="100 proxima nova"` 
+	- `@ colors`
+
 Later features:
+	- Add .sg-block-with-example
 	- jade-less mode
 	- @full for full examples
-	- @padded ?
 	- @example
 	- @input @result (for sass examples)

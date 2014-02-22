@@ -20,9 +20,9 @@ function Styledown (src, options) {
   Filters.removeConfig(this.$);
 
   Filters.addClasses(this.$, this.options);
+  Filters.sectionize(this.$, 'h3', { 'class': pre+'-block', prefix: pre });
+  Filters.sectionize(this.$, 'h2', { 'class': pre+'-section', until: 'h1, h2', prefix: pre });
   Filters.unpackExamples(this.$, this.options);
-  Filters.sectionize(this.$, 'h3', { 'class': pre+'-block' });
-  Filters.sectionize(this.$, 'h2', { 'class': pre+'-section', until: 'h1, h2' });
 }
 
 Styledown.defaults = {
@@ -129,7 +129,8 @@ extend(Filters, {
   sectionize: function ($, tag, options) {
     options = extend({
       'class': '',
-      'until': 'h1, h2, h3, section'
+      'until': 'h1, h2, h3, section',
+      'prefix': ''
     }, options);
 
     $(tag).each(function (i) {
@@ -138,7 +139,7 @@ extend(Filters, {
       $heading.before("<section class='"+options.class+"'>");
 
       var $div = $("section."+options.class).eq(-1);
-      $div.addClass($heading.attr('id'));
+      $div.addClass(options.prefix + '-' + $heading.attr('id'));
       $div.append($heading.remove());
       $div.append($extras.remove());
     });
