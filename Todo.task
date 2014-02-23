@@ -9,13 +9,19 @@ Basic styleguide:
 	- proper head declarations @done(2014-02-22)
 
 For project:
-	- Wrap text elements
-	- Trim
-	- `@ example padded` for padded examples
-	- `@ example full`
-	- `@ example width=500`
-	- `@ font="100 proxima nova"` 
-	- `@ colors`
+	- Wrapping
+		- Wrap text elements of an .sg-block
+	- Tags
+		- `@ example padded` for padded examples
+		- `@ example full`
+		- `@ example width=500`
+		- `@ example`
+		- `@ font="100 proxima nova"` 
+		- `@ colors`
+	- Trimming
+		- trim (sg:trim) to ellipsis
+		- remove (sg:isolate)
+
 
 Later features:
 	- Add .sg-block-with-example

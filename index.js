@@ -14,10 +14,10 @@ function Styledown (src, options) {
   this.options = extend(extend({}, Styledown.defaults), options || {});
   this.$ = Cheerio.load(Marked(src));
 
-  var pre = this.options.prefix;
-
   Filters.processConfig(src, this.options);
   Filters.removeConfig(this.$);
+
+  var pre = this.options.prefix;
 
   Filters.addClasses(this.$, this.options);
   Filters.sectionize(this.$, 'h3', { 'class': pre+'-block', prefix: pre });
