@@ -33,7 +33,9 @@ chai.Assertion.addMethod 'selector', (val, msg) ->
   @assert(
     @_obj(val).length > 0,
     "expected $ to have a selector '"+val+"'",
-    "expected $ to not have a selector '"+val+"'")
+    "expected $ to not have a selector '"+val+"'",
+    val,
+    @_obj.html())
 
 chai.Assertion.addMethod 'selectors', (val, msg) ->
   val.forEach @selector.bind(this)

@@ -13,19 +13,16 @@ For project:
 		- Wrap text elements of an .sg-block
 	- Tags
 		- `@ example padded`
-		- `@ example padded .light`
+		- `@ example .light` (classnames) @done(2014-02-24)
 		- `@ example full`
-		- `@ example`
+		- `@ example` @done(2014-02-24)
 		- `@ font="100 proxima nova"` 
 		- `@ colors`
 	- Trimming
 		- trim (sg:trim) to ellipsis
 		- remove (sg:isolate)
 
-
 Later features:
 	- Add .sg-block-with-example
-	- jade-less mode
-	- @full for full examples
-	- @example
-	- @input @result (for sass examples)
+	- jade-less mode @done(2014-02-24)
+	- `@input @result` (for sass examples)

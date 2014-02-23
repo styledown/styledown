@@ -22,7 +22,7 @@ function Styledown (src, options) {
   Filters.addClasses(this.$, this.options);
   Filters.sectionize(this.$, 'h3', { 'class': pre+'-block', prefix: pre });
   Filters.sectionize(this.$, 'h2', { 'class': pre+'-section', until: 'h1, h2', prefix: pre });
-  Filters.unpackExamples(this.$, this.options, this._highlight.bind(this));
+  Filters.unpackExamples(this.$, this.options, this._highlightHTML.bind(this));
 }
 
 Styledown.defaults = {
@@ -112,7 +112,7 @@ Styledown.prototype = {
    * Syntax highlighting helper
    */
 
-  _highlight: function (html) {
+  _highlightHTML: function (html) {
     var Hljs = require('highlight.js');
 
     html = this._prettyprint(html);
@@ -152,13 +152,39 @@ extend(Filters, {
         var html = htmlize(block.code);
         var canvas = "<div class='"+pre+"-canvas'>"+html+"</div>";
         var codeblock = "<pre class='"+pre+"-code'>"+highlight(html)+"</pre>";
-        canvas = Cheerio.load("<div class='"+pre+"-code-block'>" + canvas + codeblock + "</div>");
+        var $block = Cheerio.load("<div class='"+pre+"-code-block'>" + canvas + codeblock + "</div>");
 
-        // if (padded) .sg-canvas
+        if (tags['class']) {
+          var klass = Filters.prefixClass(tags['class'], pre);
+          $block(':root').addClass(klass);
+        }
 
-        this.replaceWith(canvas.root());
+        this.replaceWith($block.root());
+      } else {
+        var klass = this.find('code').attr('class');
+        var m = klass.match(/lang-([a-z]+)/);
+
+        if (m) {
+          var lang = m[1];
+          var Hljs = require('highlight.js');
+          this.html(Hljs.highlight(lang, this.text()).value);
+          this.addClass(pre+'-lang-'+lang);
+        }
       }
     });
+  },
+
+  /**
+   * Prefixes classnames.
+   *
+   *     prefixClass('white', 'sg')     => 'sg-white'
+   *     prefixClass('pad dark', 'sg')  => 'sg-pad sg-dark'
+   */
+
+  prefixClass: function (klass, prefix) {
+    return klass.split(' ').map(function (n) {
+      return n.length > 0 ? (prefix + '-' + n) : n;
+    }).join(' ');
   },
 
   /**
@@ -213,10 +239,14 @@ extend(Filters, {
 
   processConfig: function (src, options) {
     var Mdconf = require('./lib/mdconf');
-    var data = Mdconf(src, { normalizer: 'camelcase' });
-    data = (data && data.styleguideOptions);
+    try {
+      var data = Mdconf(src, { normalizer: 'camelcase' });
+      data = (data && data.styleguideOptions);
 
-    if (data) extend(options, data);
+      if (data) extend(options, data);
+    } catch (e) {
+      // Don't bother if mdconf fails.
+    }
   },
 
   /**
