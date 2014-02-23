@@ -10,7 +10,9 @@ Basic styleguide:
 
 For project:
 	- Wrapping
-		- Wrap text elements of an .sg-block
+		- `.sg-block-text` - Wrap text elements of an .sg-block (!)
+		- `.sg-example` - rename code-block to this @done(2014-02-24)
+		- `.sg-block` should include `.sg-with-example`
 	- Tags
 		- `@ example padded`
 		- `@ example .light` (classnames) @done(2014-02-24)
@@ -18,6 +20,7 @@ For project:
 		- `@ example` @done(2014-02-24)
 		- `@ font="100 proxima nova"` 
 		- `@ colors`
+		- classes should apply to .sg-canvas not .sg-example
 	- Trimming
 		- trim (sg:snip) to ellipsis
 		- remove (sg:isolate)
