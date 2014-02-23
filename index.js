@@ -150,7 +150,9 @@ extend(Filters, {
 
       var canvas = "<div class='"+pre+"-canvas'>"+html+"</div>";
       var codeblock = "<pre class='"+pre+"-code'>"+highlight(html)+"</pre>";
-      canvas = "<div class='"+pre+"-code-block'>" + canvas + codeblock + "</div>";
+      canvas = $.parseHTML("<div class='"+pre+"-code-block'>" + canvas + codeblock + "</div>");
+
+      // if (padded) .sg-canvas
 
       var x = this.replaceWith(canvas);
     });
@@ -212,6 +214,32 @@ extend(Filters, {
     data = (data && data.styleguideOptions);
 
     if (data) extend(options, data);
+  },
+
+  /**
+   * Parse tags
+   */
+
+  parseTags: function (str) {
+    var m;
+    var obj = {};
+
+    while (true) {
+      if (m = str.match(/^([a-z\-]+)="([^"]+)"\s*/)) {
+        obj[m[1]] = m[2];
+      } else if (m = str.match(/^([a-z\-]+)='([^']+)'\s*/)) {
+        obj[m[1]] = m[2];
+      } else if (m = str.match(/^([a-z\-]+)=([^\s]+)\s*/)) {
+        obj[m[1]] = m[2];
+      } else if (m = str.match(/^([a-z\-]+)\s*/)) {
+        obj[m[1]] = true;
+      } else {
+        return obj;
+      }
+
+      // Trim
+      str = str.substr(m[0].length);
+    }
   }
 });
 

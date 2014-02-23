@@ -12,9 +12,9 @@ For project:
 	- Wrapping
 		- Wrap text elements of an .sg-block
 	- Tags
-		- `@ example padded` for padded examples
+		- `@ example padded`
+		- `@ example padded .light`
 		- `@ example full`
-		- `@ example width=500`
 		- `@ example`
 		- `@ font="100 proxima nova"` 
 		- `@ colors`
