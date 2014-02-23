@@ -1,46 +1,43 @@
 require './setup'
 
 describe 'Wrapping', ->
-  describe 'bare h2', ->
-    beforeEach ->
-      @load "## hello", bare: true
+  it 'bare h2', ->
+    @load "## hello", bare: true
 
-    it 'is bare with wrapping', ->
-      expect(@$(".sg-section > h2#hello")).have.length 1
-      expect(@$(".sg-section > h2#hello.sg")).have.length 1
-      expect(@$(".sg-section.sg-section-hello")).have.length 1
-      expect(@$(".sg-section:root")).have.length 1
+    expect(@$).have.selectors [
+      ".sg-section > h2#hello"
+      ".sg-section > h2#hello.sg"
+      ".sg-section.sg-section-hello"
+      ".sg-section:root"
+    ]
 
-  describe 'bare h3', ->
-    beforeEach ->
-      @load "### hello", bare: true
+  it 'bare h3', ->
+    @load "### hello", bare: true
 
-    it 'is bare with wrapping', ->
-      expect(@$(".sg-block > h3#hello")).have.length 1
-      expect(@$(".sg-block > h3#hello.sg")).have.length 1
-      expect(@$(".sg-block.sg-section-hello")).have.length 1
-      expect(@$(".sg-block:root")).have.length 1
+    expect(@$).have.selectors [
+      ".sg-block > h3#hello"
+      ".sg-block > h3#hello.sg"
+      ".sg-block.sg-section-hello"
+      ".sg-block:root"
+    ]
 
-  describe 'mixed case wrapping', ->
-    beforeEach ->
-      @load '''
-        ### button
+  it 'mixed case wrapping', ->
+    @load '''
+      ### button
 
-            button
+          button
 
-        ## Forms
-        ### input
+      ## Forms
+      ### input
 
-            input
-      ''', bare: true
+          input
+    ''', bare: true
 
-    it 'should work', ->
-      expect(@$(".sg-block.sg-section-button")).have.length 1
-      expect(@$(".sg-block.sg-section-button > h3#button")).have.length 1
-      expect(@$(".sg-block.sg-section-button > .sg-code-block")).have.length 1
-      expect(@$(".sg-section.sg-section-forms")).have.length 1
-      expect(@$(".sg-section.sg-section-forms > h2#forms")).have.length 1
-      expect(@$(".sg-section.sg-section-forms > .sg-block.sg-section-input")).have.length 1
-      expect(@$(".sg-section.sg-section-forms > .sg-block.sg-section-input > h3#input")).have.length 1
-
-
+    expect(@$).have.selectors [
+      ".sg-block.sg-section-button > h3#button"
+      ".sg-block.sg-section-button > .sg-code-block"
+      ".sg-section.sg-section-forms"
+      ".sg-section.sg-section-forms > h2#forms"
+      ".sg-section.sg-section-forms > .sg-block.sg-section-input"
+      ".sg-section.sg-section-forms > .sg-block.sg-section-input > h3#input"
+    ]

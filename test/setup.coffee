@@ -34,3 +34,6 @@ chai.Assertion.addMethod 'selector', (val, msg) ->
     @_obj(val).length > 0,
     'expected $ to have a selector '+val,
     'expected $ to not have a selector '+val)
+
+chai.Assertion.addMethod 'selectors', (val, msg) ->
+  val.forEach @selector.bind(this)
