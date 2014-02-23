@@ -37,7 +37,7 @@ describe 'Wrapping', ->
 
     expect(@$).have.selectors [
       ".sg-block.sg-section-button > h3#button"
-      ".sg-block.sg-section-button > .sg-code-block"
+      ".sg-block.sg-section-button > .sg-example"
       ".sg-section.sg-section-forms"
       ".sg-section.sg-section-forms > h2#forms"
       ".sg-section.sg-section-forms > .sg-block.sg-section-input"

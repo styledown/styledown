@@ -9,8 +9,8 @@ describe 'Tags', ->
           div
     '''
 
-    expect(@$).have.selector '.sg-code-block'
-    expect(@$).have.selector '.sg-code-block.sg-white'
+    expect(@$).have.selector '.sg-example'
+    expect(@$).have.selector '.sg-example.sg-white'
 
   it 'two classes', ->
     @load '''
@@ -20,5 +20,5 @@ describe 'Tags', ->
           div
     '''
 
-    expect(@$).have.selector '.sg-code-block'
-    expect(@$).have.selector '.sg-code-block.sg-white.sg-pad'
+    expect(@$).have.selector '.sg-example'
+    expect(@$).have.selector '.sg-example.sg-white.sg-pad'

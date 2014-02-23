@@ -153,7 +153,7 @@ extend(Filters, {
         var html = htmlize(block.code);
         var canvas = "<div class='"+pre+"-canvas'>"+html+"</div>";
         var codeblock = "<pre class='"+pre+"-code'>"+highlight(html)+"</pre>";
-        var $block = Cheerio.load("<div class='"+pre+"-code-block'>" + canvas + codeblock + "</div>");
+        var $block = Cheerio.load("<div class='"+pre+"-example'>" + canvas + codeblock + "</div>");
 
         if (tags['class']) {
           klass = Filters.prefixClass(tags['class'], pre);
