@@ -142,6 +142,7 @@ extend(Filters, {
 
   unpackExamples: function ($, options, highlight) {
     var pre = options.prefix;
+    var klass;
 
     $('pre').each(function() {
       var code = this.text();
@@ -155,13 +156,13 @@ extend(Filters, {
         var $block = Cheerio.load("<div class='"+pre+"-code-block'>" + canvas + codeblock + "</div>");
 
         if (tags['class']) {
-          var klass = Filters.prefixClass(tags['class'], pre);
+          klass = Filters.prefixClass(tags['class'], pre);
           $block(':root').addClass(klass);
         }
 
         this.replaceWith($block.root());
       } else {
-        var klass = this.find('code').attr('class');
+        klass = this.find('code').attr('class');
         var m = klass.match(/lang-([a-z]+)/);
 
         if (m) {
@@ -188,7 +189,13 @@ extend(Filters, {
   },
 
   /**
-   * Get the tags and code out of the code text
+   * Get the tags and code out of the code text.
+   *
+   *     parseCodeText('@example\nhello')
+   *     => { tag: 'example', code: 'hello' }
+   *
+   *     parseCodeText('hello')
+   *     => { tag: null, code: 'hello' }
    */
 
   parseCodeText: function (code) {
@@ -199,7 +206,9 @@ extend(Filters, {
   },
 
   /**
-   * Break it apart into sections
+   * Break it apart into sections.
+   *
+   * Puts <h3> blocks into <section> blocks.
    */
 
   sectionize: function ($, tag, options) {
