@@ -1,0 +1,98 @@
+/**
+ * Basic normalize
+ */
+
+h2.sg, h3.sg, ul.sg, p.sg { margin: 20px 0; }
+h2.sg { font-size: 1.4em; font-weight: bold; }
+h3.sg { font-size: 1.2em; font-weight: bold; }
+h3.sg + .sg { margin-top: -10px; }
+
+.sg-block > h3,
+.sg-block > p,
+.sg-block > ul {
+  float: left;
+  clear: left;
+  width: 28%;
+}
+
+code.sg {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-size: 0.9em;
+}
+
+/**
+ * Elements
+ */
+
+.sg-code-block {
+  float: right;
+  width: 70%;
+}
+
+/**
+ * An <h3> block.
+ */
+
+.sg-block {
+  border-top: solid 1px rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+  margin: 20px 0;
+}
+
+.sg-block > :first-child {
+  margin-top: 0;
+}
+
+.sg-block:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/**
+ * An example's canvas.
+ */
+
+.sg-canvas {
+  padding-bottom: 20px;
+}
+
+.sg-padded .sg-canvas {
+  padding: 20px;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  border-bottom: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  overflow-x: auto;
+}
+
+/**
+ * <pre> code.
+ */
+
+.sg-code {
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: 0.85em;
+  font-family: menlo, monospace;
+  line-height: 1.5;
+  padding: 20px;
+  background: #fafaff;
+}
+
+/*
+ * Syntax highlighting
+ */
+
+.sg .hljs-tag { color: #999; }
+.sg .hljs-title { color: #345; }
+.sg .hljs-attribute { color: #59a; }
+.sg .hljs-value { color: #7db; }
