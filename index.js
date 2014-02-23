@@ -22,7 +22,7 @@ function Styledown (src, options) {
   Filters.addClasses(this.$, this.options);
   Filters.sectionize(this.$, 'h3', { 'class': pre+'-block', prefix: pre });
   Filters.sectionize(this.$, 'h2', { 'class': pre+'-section', until: 'h1, h2', prefix: pre });
-  Filters.unpackExamples(this.$, this.options);
+  Filters.unpackExamples(this.$, this.options, this._highlight.bind(this));
 }
 
 Styledown.defaults = {
@@ -112,8 +112,20 @@ Styledown.prototype = {
    */
 
   _prettyprint: function (html) {
-    var Html = require('html')
+    var Html = require('html');
     return Html.prettyPrint(html, { indent_size: this.options.indentSize });
+  },
+
+  /**
+   * Syntax highlighting helper
+   */
+
+  _highlight: function (html) {
+    var Hljs = require('highlight.js');
+
+    html = this._prettyprint(html);
+    html = Hljs.highlight('html', html).value;
+    return html;
   }
 };
 
@@ -136,7 +148,7 @@ extend(Filters, {
    * Unpacks `pre` blocks into examples.
    */
 
-  unpackExamples: function ($, options) {
+  unpackExamples: function ($, options, highlight) {
     var pre = options.prefix;
 
     $('pre').each(function() {
@@ -198,26 +210,6 @@ extend(Filters, {
     if (data) extend(options, data);
   }
 });
-
-/**
- * Syntax highlight?
- */
-
-function highlight (html) {
-  var Hljs = require('highlight.js');
-
-  html = prettyprint(html);
-  html = Hljs.highlight('html', html).value;
-  return html;
-}
-
-/**
- * Pretty print with nice indentations
- */
-
-function prettyprint (html) {
-  return require('html').prettyPrint(html, { indent_size: 2 });
-}
 
 function htmlize (src) {
   // Mdconf processes them as arrays
