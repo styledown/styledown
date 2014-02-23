@@ -225,7 +225,10 @@ extend(Filters, {
     var obj = {};
 
     while (true) {
-      if (m = str.match(/^([a-z\-]+)="([^"]+)"\s*/)) {
+      if (m = str.match(/^\.([a-z\-]+)\s*/)) {
+        if (!obj["class"]) obj["class"] = [];
+        obj["class"].push(m[1]);
+      } else if (m = str.match(/^([a-z\-]+)="([^"]+)"\s*/)) {
         obj[m[1]] = m[2];
       } else if (m = str.match(/^([a-z\-]+)='([^']+)'\s*/)) {
         obj[m[1]] = m[2];
@@ -234,6 +237,7 @@ extend(Filters, {
       } else if (m = str.match(/^([a-z\-]+)\s*/)) {
         obj[m[1]] = true;
       } else {
+        if (obj["class"]) obj["class"] = obj["class"].join(' ');
         return obj;
       }
 

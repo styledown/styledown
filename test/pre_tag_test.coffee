@@ -41,6 +41,18 @@ describe 'Pre tag', ->
       expect(obj.name).eq "Bruce Willis"
       expect(obj.role).eq 'actor'
 
+    it 'classes', ->
+      obj = parseTags('example .padded')
+      expect(obj.class).eq 'padded'
+
+    it 'classes, multiple, spaced', ->
+      obj = parseTags('example .padded .a .b')
+      expect(obj.class).eq 'padded a b'
+
+    it 'classes, multiple, no spaces', ->
+      obj = parseTags('example .padded.a.b')
+      expect(obj.class).eq 'padded a b'
+
   describe 'parseCodeText', ->
     it 'with tags', ->
       out = Styledown.filters.parseCodeText '''
@@ -73,4 +85,3 @@ describe 'Pre tag', ->
 
     it 'no tags', ->
       expect(@$("pre").text()).eql '<div class="button"></div>'
-      console.log @html
