@@ -7,7 +7,7 @@ if (process.argv.indexOf('--css') > -1) {
 } else {
   readStdin(function (err, data) {
     var html = Styledown.parse(data);
-    process.stdout.write(html);
+    process.stdout.write(html + "\n");
   });
 }
 
