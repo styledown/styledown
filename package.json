@@ -24,7 +24,8 @@
     "mocha": "~1.17.1",
     "jsdom": "~0.10.1",
     "supertest": "~0.9.0",
-    "express": "~3.4.8"
+    "express": "~3.4.8",
+    "browserify": "~3.30.2"
   },
   "bin": {
     "styledown": "./bin/styledown"

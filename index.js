@@ -145,7 +145,8 @@ extend(Filters, {
 
     $('pre').each(function() {
       var code = this.text();
-      var html = htmlize(code);
+      var block = Filters.parseCodeText(code);
+      var html = htmlize(block.code);
 
       var canvas = "<div class='"+pre+"-canvas'>"+html+"</div>";
       var codeblock = "<pre class='"+pre+"-code'>"+highlight(html)+"</pre>";
@@ -153,6 +154,17 @@ extend(Filters, {
 
       var x = this.replaceWith(canvas);
     });
+  },
+
+  /**
+   * Get the tags and code out of the code text
+   */
+
+  parseCodeText: function (code) {
+    var m = code.trim().match(/^@(.*?)\n(.*?)$/);
+
+    if (m) return { tag: m[1], code: m[2] };
+    return { tag: null, code: code };
   },
 
   /**

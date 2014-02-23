@@ -11,7 +11,8 @@ global.Cheerio = require 'cheerio'
 
 before ->
   @load = (html, options={}) ->
-    @html = Styledown.parse(html, options)
+    @sd = new Styledown(html, options)
+    @html = @sd.toHTML()
     @$ = Cheerio.load(@html)
 
 chai.Assertion.addMethod 'htmleql', (val, msg) ->
