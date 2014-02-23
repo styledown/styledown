@@ -24,6 +24,12 @@ blockquote, q {
   quotes: none;
 }
 
+body {
+  width: 800px;
+  margin: 0 auto;
+  font: 14px/1.5 sans-serif;
+}
+
 /*
  * Styleables
  */

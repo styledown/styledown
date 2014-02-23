@@ -11,15 +11,18 @@ modifier (small, large, etc) and an appearance modifier (primary, success).
 
 Use the `.button` class.
 
+    @example
     a.button Confirm
+    = " "
     a.button.primary Success
 
 ### Button sizes
 
 Use the `.button` class.
 
+    @example
     a.button.small Confirm
-    br
+    = " "
     a.button.large Success
 
 dropdowns
@@ -29,6 +32,7 @@ dropdowns
 
 They look like this:
 
+    @example .padded
     .dropdown-menu
       ul
         li
@@ -41,6 +45,7 @@ Tables
 
 Use `.table` on a table.
 
+    @example
     table.table
       tr
         th One
@@ -65,7 +70,7 @@ Vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
 no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 
-    @ class="white"
+    @example
     form.form
       label.radio
         input(type='radio')
@@ -82,17 +87,20 @@ Labels
 ### Subtle text
 `span.subtle-text` - Use sparingly.
 
+    @example
     .subtle-text Subtle text
 
 ### Time stamp
 `span.time-stamp` - Did something happen at a specific time? Tell people when 
 with this style.
 
+    @example
     .time-stamp 2 hours ago
 
 ### Labels
 Labels or tags that you can append inline with text.
 
+    @example
     .ylabel Bruce Lee
 
 <link rel="stylesheet" href="style.css">
