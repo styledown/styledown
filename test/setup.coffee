@@ -28,3 +28,9 @@ chai.Assertion.addMethod 'htmleql', (val, msg) ->
     b,
     a,
     true)
+
+chai.Assertion.addMethod 'selector', (val, msg) ->
+  @assert(
+    @_obj(val).length > 0,
+    'expected $ to have a selector '+val,
+    'expected $ to not have a selector '+val)

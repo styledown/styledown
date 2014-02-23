@@ -6,20 +6,20 @@ describe 'Default CSS', ->
       @load "### hi"
 
     it 'css', ->
-      expect(@$('link[rel="stylesheet"]')).have.length 1
-      expect(@$('link[rel="stylesheet"]').attr('href')).eq 'styledown.css'
+      expect(@$).have.selector 'link'
+      expect(@$).have.selector 'link[rel="stylesheet"][href="styledown.css"]'
 
     it 'js', ->
-      expect(@$('script')).have.length 1
-      expect(@$('script').attr('src')).eq 'styledown.js'
+      expect(@$).have.selector 'script'
+      expect(@$).have.selector 'script[src="styledown.js"]'
 
   describe 'off', ->
     beforeEach ->
       @load "### hi", head: ''
 
     it 'css', ->
-      expect(@$('link[rel="stylesheet"]')).have.length 0
+      expect(@$).not.have.selector 'link[rel="stylesheet"]'
 
     it 'js', ->
-      expect(@$('script')).have.length 0
+      expect(@$).not.have.selector 'script'
 

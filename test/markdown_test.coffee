@@ -12,13 +12,13 @@ describe 'basic markdown', ->
     expect(@$("p").text()).eql 'there'
 
   it 'classnames', ->
-    expect(@$("h1").is('.sg')).be.true
-    expect(@$("p").is('.sg')).be.true
+    expect(@$).have.selector 'h1.sg'
+    expect(@$).have.selector 'p.sg'
 
   it 'html template', ->
     expect(@html).match /doctype html/
     expect(@html).match /body/
     expect(@html).match /head/
-    expect(@$("meta[charset]").attr('charset')).eql('utf-8')
+    expect(@$).have.selector 'meta[charset="utf-8"]'
     expect(@$("title").text().length).gt 0
 

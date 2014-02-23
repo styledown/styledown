@@ -29,6 +29,7 @@ describe 'Pre tag', ->
       '''
 
     it 'should work', ->
+      expect(@$).have.selector 'pre'
 
     it 'no tags', ->
       expect(@$("pre").text()).eql '<div class="button"></div>'
