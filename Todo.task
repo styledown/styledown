@@ -19,8 +19,11 @@ For project:
 		- `@ font="100 proxima nova"` 
 		- `@ colors`
 	- Trimming
-		- trim (sg:trim) to ellipsis
+		- trim (sg:snip) to ellipsis
 		- remove (sg:isolate)
+	- Bootstrapping
+		- styledown --css @done(2014-02-24)
+		- styledown --new
 
 Later features:
 	- Add .sg-block-with-example

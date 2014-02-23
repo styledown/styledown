@@ -1,10 +1,15 @@
 #!/usr/bin/env node
 Styledown = require('..');
 
-readStdin(function (err, data) {
-  var html = Styledown.parse(data);
-  console.log(html);
-});
+if (process.argv.indexOf('--css') > -1) {
+  process.stdout.write(require('fs').readFileSync(__dirname + '/../data/styledown.css'));
+
+} else {
+  readStdin(function (err, data) {
+    var html = Styledown.parse(data);
+    process.stdout.write(html);
+  });
+}
 
 function readStdin (fn) {
   process.stdin.resume(); /* paused by default */
