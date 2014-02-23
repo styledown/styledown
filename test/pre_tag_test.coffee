@@ -35,6 +35,11 @@ describe 'Pre tag', ->
       expect(obj.isolate).eq true
       expect(obj['no-code']).eq true
 
+    it 'starts with spaces', ->
+      obj = parseTags('  isolate no-code')
+      expect(obj.isolate).eq true
+      expect(obj['no-code']).eq true
+
     it 'multiple', ->
       obj = parseTags('example name="Bruce Willis" role=actor')
       expect(obj.example).eq true
@@ -76,7 +81,7 @@ describe 'Pre tag', ->
       @load '''
       ### hello
 
-          @ example
+          @example
           div.button
       '''
 

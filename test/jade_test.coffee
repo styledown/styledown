@@ -5,6 +5,7 @@ describe 'jade', ->
     @load '''
     ### Button
 
+        @example
         a.button
           | Hello
     '''

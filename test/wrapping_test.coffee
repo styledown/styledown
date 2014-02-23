@@ -25,11 +25,13 @@ describe 'Wrapping', ->
     @load '''
       ### button
 
+          @example
           button
 
       ## Forms
       ### input
 
+          @example
           input
     ''', bare: true
 

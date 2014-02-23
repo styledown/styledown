@@ -1,6 +1,6 @@
 require './setup'
 
-describe 'jade templates', ->
+describe 'Jade Templates', ->
   describe 'head', ->
     beforeEach ->
       @load '''

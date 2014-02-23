@@ -146,15 +146,18 @@ extend(Filters, {
     $('pre').each(function() {
       var code = this.text();
       var block = Filters.parseCodeText(code);
-      var html = htmlize(block.code);
+      var tags = Filters.parseTags(block.tag);
 
-      var canvas = "<div class='"+pre+"-canvas'>"+html+"</div>";
-      var codeblock = "<pre class='"+pre+"-code'>"+highlight(html)+"</pre>";
-      canvas = $.parseHTML("<div class='"+pre+"-code-block'>" + canvas + codeblock + "</div>");
+      if (tags.example) {
+        var html = htmlize(block.code);
+        var canvas = "<div class='"+pre+"-canvas'>"+html+"</div>";
+        var codeblock = "<pre class='"+pre+"-code'>"+highlight(html)+"</pre>";
+        canvas = Cheerio.load("<div class='"+pre+"-code-block'>" + canvas + codeblock + "</div>");
 
-      // if (padded) .sg-canvas
+        // if (padded) .sg-canvas
 
-      var x = this.replaceWith(canvas);
+        this.replaceWith(canvas.root());
+      }
     });
   },
 
@@ -163,9 +166,9 @@ extend(Filters, {
    */
 
   parseCodeText: function (code) {
-    var m = code.trim().match(/^@(.*?)\n(.*?)$/);
+    var m = code.trim().match(/^@([^\n]+)/);
 
-    if (m) return { tag: m[1], code: m[2] };
+    if (m) return { tag: m[1], code: code.substr(m[1].length+2) };
     return { tag: null, code: code };
   },
 
@@ -201,9 +204,9 @@ extend(Filters, {
   removeConfig: function ($) {
     var $h1 = $('h1#styleguide-options');
     $h1.nextUntil('h1').remove();
-    $h1.remove(); 
+    $h1.remove();
   },
-  
+
   /**
    * Process the configuration block
    */
@@ -221,8 +224,11 @@ extend(Filters, {
    */
 
   parseTags: function (str) {
+    if (typeof str !== 'string') return {};
+
     var m;
     var obj = {};
+    str = str.trim();
 
     while (true) {
       if (m = str.match(/^\.([a-z\-]+)\s*/)) {

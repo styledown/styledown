@@ -5,10 +5,12 @@ describe 'Canvas block', ->
     @load '''
     ### Buttons
 
+        @example
         a.button Hello
 
     ### Colors
 
+        @example
         a.button.primary Primary button
         a.button.success Success button
     '''

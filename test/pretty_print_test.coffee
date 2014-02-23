@@ -3,7 +3,7 @@ require './setup'
 describe 'Pretty Print', ->
   describe 'default', ->
     beforeEach ->
-      @load "### Hello\n\n    div"
+      @load "### Hello\n\n    @example\n    div"
 
     it 'should work', ->
 
@@ -21,7 +21,7 @@ describe 'Pretty Print', ->
 
   describe 'custom indentSize', ->
     beforeEach ->
-      @load "### Hello\n\n    div", indentSize: 4
+      @load "### Hello\n\n    @example\n    div", indentSize: 4
 
     it 'should work', ->
 

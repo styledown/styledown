@@ -3,6 +3,8 @@ Styledown
 
 Yep.
 
+[![Status](https://travis-ci.org/rstacruz/styledown.png?branch=master)](https://travis-ci.org/rstacruz/styledown)
+
 Installation
 ------------
 
