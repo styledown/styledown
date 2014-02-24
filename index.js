@@ -171,6 +171,7 @@ extend(Filters, {
           var Hljs = require('highlight.js');
           this.html(Hljs.highlight(lang, this.text()).value);
           this.addClass(pre+'-lang-'+lang);
+          this.addClass(pre+'-code');
         }
       }
     });
@@ -300,10 +301,12 @@ extend(Filters, {
     $('.'+prefix+'-block').each(function() {
       // Check if there's an example block.
       // $('.sg-example', this).length doesn't work.
-      if (this.html().indexOf(prefix+'-example') === -1) return;
+      var noExample = (this.html().indexOf(prefix+'-example') === -1);
+      var noCode    = (this.html().indexOf(prefix+'-code') === -1);
+      if (noExample && noCode) return;
 
       var $first = $('h3', this);
-      var $text = $first.nextUntil('.'+prefix+'-example');
+      var $text = $first.nextUntil('.'+prefix+'-example, .'+prefix+'-code');
 
       var $block = Cheerio.load('<div>');
       this.prepend($block.root());

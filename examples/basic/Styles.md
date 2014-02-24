@@ -25,6 +25,20 @@ Use the `.button` class.
     = " "
     a.button.large Success
 
+JavaScript
+----------
+
+### jQuery
+
+This is an example with jQuery:
+
+``` javascript
+$(function() {
+  /* do things */;
+  alert("Hi");
+});
+```
+
 Dropdown menus
 --------------
 

@@ -121,7 +121,10 @@ code.sg {
  * Syntax highlighting
  */
 
-.sg .hljs-tag { color: #999; }
+/* HTML */
+.sg .hljs-tag,
+.sg .hljs-keyword { color: #999; }
 .sg .hljs-title { color: #345; }
 .sg .hljs-attribute { color: #59a; }
+.sg .hljs-string,
 .sg .hljs-value { color: #7bc; }

@@ -59,4 +59,26 @@ describe.only 'Text block', ->
       '.sg-block > .sg-text + .sg-example'
     ]
 
-    console.log @html
+  it 'account for code', ->
+    @load '''
+      ### Example
+      hello
+
+      hi
+
+      world
+
+      ``` javascript
+      alert('ok')
+      ```
+    '''
+
+    expect(@$).have.selectors [
+      '.sg-block'
+      '.sg-block > .sg-text'
+      '.sg-block > .sg-text > h3#example'
+      '.sg-block > .sg-text > p'
+      '.sg-block > .sg-text > p+p+p'
+      '.sg-block > .sg-text + pre.sg-code'
+    ]
+
