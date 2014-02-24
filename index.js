@@ -302,7 +302,7 @@ extend(Filters, {
       // $('.sg-example', this).length doesn't work.
       if (this.html().indexOf(prefix+'-example') === -1) return;
 
-      var $first = $(':first-child', this);
+      var $first = $('h3', this);
       var $text = $first.nextUntil('.'+prefix+'-example');
 
       var $block = Cheerio.load('<div>');
