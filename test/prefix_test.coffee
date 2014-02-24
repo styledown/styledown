@@ -3,7 +3,7 @@ require './setup'
 describe 'Prefix', ->
   describe 'in options', ->
     beforeEach ->
-      @load "## Hello\n### world\nthere", prefix: "styleguide"
+      @load "## Hello\n### world\nthere", prefix: "styleguide", head: ''
 
     it 'classnames in stuff', ->
       expect(@$("h2").is('.styleguide')).be.true
@@ -27,7 +27,7 @@ describe 'Prefix', ->
 
   describe 'inline options', ->
     beforeEach ->
-      @load "## Hello\n###world\nthere\n\n# Styleguide options\n\n* prefix: styleguide"
+      @load "## Hello\n###world\nthere\n\n# Styleguide options\n\n* prefix: styleguide", head: ''
 
     it 'classnames in stuff', ->
       expect(@$("h2").is('.styleguide')).be.true

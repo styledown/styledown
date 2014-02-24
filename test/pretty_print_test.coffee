@@ -3,7 +3,7 @@ require './setup'
 describe 'Pretty Print', ->
   describe 'default', ->
     beforeEach ->
-      @load "### Hello\n\n    @example\n    div"
+      @load "### Hello\n\n    @example\n    div", head: ''
 
     it 'should work', ->
 
@@ -21,7 +21,7 @@ describe 'Pretty Print', ->
 
   describe 'custom indentSize', ->
     beforeEach ->
-      @load "### Hello\n\n    @example\n    div", indentSize: 4
+      @load "### Hello\n\n    @example\n    div", indentSize: 4, head: ''
 
     it 'should work', ->
 
@@ -36,3 +36,5 @@ describe 'Pretty Print', ->
 
     it 'indent .sg-canvas', ->
       expect(@html).match /\n {20}<div class="sg-canvas/
+
+  xdescribe 'custom indentSize, no head', ->

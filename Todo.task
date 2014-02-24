@@ -12,23 +12,22 @@ For project:
 	- Wrapping
 		- `.sg-text` - Wrap text elements of an .sg-block (!) @done(2014-02-24)
 		- `.sg-example` - rename code-block to this @done(2014-02-24)
-		- `.sg-block` should include `.sg-with-example`
 	- Tags
-		- `@ example padded`
-		- `@ example .light` (classnames) @done(2014-02-24)
-		- `@ example full`
-		- `@ example` @done(2014-02-24)
-		- `@ font="100 proxima nova"` 
-		- `@ colors`
-		- classes should apply to .sg-canvas not .sg-example
+		- `@example` @done(2014-02-24)
+		- `@example.light` (classnames) @done(2014-02-24)
+		- `@example.padded` (bordered) @done(2014-02-24)
+		- `@example.full`
+		- `@specimen weight=100 font="proxima nova" headline=1.5em paragraph=1em`
+		- `@colors`
 	- Trimming
-		- trim (sg:snip) to ellipsis
-		- remove (sg:isolate)
+		- trim to ellipsis (sg:snip)
+		- remove current element (sg:omit)
+	- Refactor
+		- Remove bare:true in favor of head:false
 	- Bootstrapping
 		- styledown --css @done(2014-02-24)
 		- styledown --new
 
 Later features:
-	- Add .sg-block-with-example
 	- jade-less mode @done(2014-02-24)
 	- `@input @result` (for sass examples)

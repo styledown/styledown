@@ -28,11 +28,6 @@ function Styledown (src, options) {
 
 Styledown.defaults = {
   /**
-   * Disable template if true
-   */
-  bare: false,
-
-  /**
    * HTML template
    */
   template: [
@@ -50,10 +45,7 @@ Styledown.defaults = {
   /**
    * Things to put into `head`
    */
-  head: [
-    '<link rel="stylesheet" href="styledown.css" type="text/css">',
-    '<script src="styledown.js"></script>'
-  ].join("\n"),
+  head: false,
 
   body: "<div sg-content></div>",
 
@@ -85,7 +77,7 @@ Styledown.prototype = {
   toHTML: function() {
     var html = this.$.html();
 
-    if (!this.options.bare) {
+    if (this.options.head !== false) {
       // Unpack template
       var $ = Cheerio.load(this.options.template);
       $('body').append(htmlize(this.options.body));

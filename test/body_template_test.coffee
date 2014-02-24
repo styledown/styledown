@@ -1,11 +1,11 @@
 require './setup'
 
-describe 'options.body', ->
+describe 'Body template test', ->
   beforeEach ->
     @load '''
     ## hello
-    '''
+    ''', head: ''
 
   it 'wrap in div', ->
-    expect(@$('body > div')).have.length 1
-    expect(@$('body > div > section')).have.length 1
+    expect(@$).have.selector 'body > div'
+    expect(@$).have.selector 'body > div > section'

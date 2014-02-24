@@ -1,6 +1,6 @@
 require './setup'
 
-describe 'Default CSS', ->
+xdescribe 'Default CSS', ->
   describe 'on', ->
     beforeEach ->
       @load "### hi"

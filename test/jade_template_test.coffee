@@ -22,6 +22,8 @@ describe 'Jade Templates', ->
          hello
 
          # Styleguide options
+         ## head
+             link
          ## body
              #hello(sg-content)
       '''

@@ -6,7 +6,7 @@ describe 'Express', ->
   Expect = chai.expect
   Express = require('express')
 
-  beforeEach ->
+  before ->
     @app = Express()
     @app.use StyledownHandler
       root: __dirname
