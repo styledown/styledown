@@ -18,14 +18,19 @@ function Styledown (src, options) {
   Filters.removeConfig(this.$);
 
   var pre = this.options.prefix;
-
   var addClasses = require('./lib/filters').addClasses,
-      sectionize = require('./lib/filters').sectionize;
+      sectionize = require('./lib/filters').sectionize,
+      highlightHTML = this._highlightHTML.bind(this),
+      unpackExample = Filters.unpackExample;
 
   addClasses(this.$, pre);
   sectionize(this.$, 'h3', { 'class': pre+'-block', prefix: pre });
   sectionize(this.$, 'h2', { 'class': pre+'-section', until: 'h1, h2', prefix: pre });
-  Filters.unpackExamples(this.$, this.options, this._highlightHTML.bind(this));
+
+  this.$('pre').each(function () {
+    unpackExample(this, pre, highlightHTML);
+  });
+
   Filters.isolateTextBlocks(this.$, pre);
 }
 
@@ -126,40 +131,35 @@ extend(Filters, {
    * Unpacks `pre` blocks into examples.
    */
 
-  unpackExamples: function ($, options, highlight) {
-    var pre = options.prefix;
-    var klass;
+  unpackExample: function (parent, pre, highlight) {
+    var code = parent.text();
+    var block = Filters.parseCodeText(code);
+    var tags = Filters.parseTags(block.tag);
 
-    $('pre').each(function() {
-      var code = this.text();
-      var block = Filters.parseCodeText(code);
-      var tags = Filters.parseTags(block.tag);
+    if (tags.example) {
+      var html = htmlize(block.code);
+      var canvas = "<div class='"+pre+"-canvas'>"+html+"</div>";
+      var codeblock = "<pre class='"+pre+"-code'>"+highlight(html)+"</pre>";
+      var $block = Cheerio.load("<div class='"+pre+"-example'>" + canvas + codeblock + "</div>");
 
-      if (tags.example) {
-        var html = htmlize(block.code);
-        var canvas = "<div class='"+pre+"-canvas'>"+html+"</div>";
-        var codeblock = "<pre class='"+pre+"-code'>"+highlight(html)+"</pre>";
-        var $block = Cheerio.load("<div class='"+pre+"-example'>" + canvas + codeblock + "</div>");
-
-        if (tags['class']) {
-          klass = Filters.prefixClass(tags['class'], pre);
-          $block(':root').addClass(klass);
-        }
-
-        this.replaceWith($block.root());
-      } else {
-        klass = this.find('code').attr('class');
-        var m = klass.match(/lang-([a-z]+)/);
-
-        if (m) {
-          var lang = m[1];
-          var Hljs = require('highlight.js');
-          this.html(Hljs.highlight(lang, this.text()).value);
-          this.addClass(pre+'-lang-'+lang);
-          this.addClass(pre+'-code');
-        }
+      if (tags['class']) {
+        klass = Filters.prefixClass(tags['class'], pre);
+        $block(':root').addClass(klass);
       }
-    });
+
+      parent.replaceWith($block.root());
+    } else {
+      klass = parent.find('code').attr('class');
+      var m = klass.match(/lang-([a-z]+)/);
+
+      if (m) {
+        var lang = m[1];
+        var Hljs = require('highlight.js');
+        parent.html(Hljs.highlight(lang, parent.text()).value);
+        parent.addClass(pre+'-lang-'+lang);
+        parent.addClass(pre+'-code');
+      }
+    }
   },
 
   /**
