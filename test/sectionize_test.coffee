@@ -1,6 +1,8 @@
 require './setup'
 
 describe 'Sectionize', ->
+  {sectionize} = require('../lib/filters')
+
   describe 'sectionize filter, simple', ->
     beforeEach ->
       @$ = Cheerio.load '''
@@ -14,7 +16,7 @@ describe 'Sectionize', ->
         <p>2a</p>
         <p>2b</p>
       ''', normalizeWhitespace: true
-      Styledown.filters.sectionize(@$, 'h2', class: 's2')
+      sectionize(@$, 'h2', class: 's2')
 
     it 'left the <p> alone', ->
       expect(@$('p:root')).have.length 1
@@ -44,7 +46,7 @@ describe 'Sectionize', ->
         <h2 id='second-section'>Second section</h2>
         <p>2a</p>
       ''', normalizeWhitespace: true
-      Styledown.filters.sectionize(@$, 'h3', class: 's3')
+      sectionize(@$, 'h3', class: 's3')
 
     it 'left the <p> alone', ->
       expect(@$('p:root')).have.length 2

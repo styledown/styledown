@@ -19,9 +19,12 @@ function Styledown (src, options) {
 
   var pre = this.options.prefix;
 
-  Filters.addClasses(this.$, this.options);
-  Filters.sectionize(this.$, 'h3', { 'class': pre+'-block', prefix: pre });
-  Filters.sectionize(this.$, 'h2', { 'class': pre+'-section', until: 'h1, h2', prefix: pre });
+  var addClasses = require('./lib/filters').addClasses,
+      sectionize = require('./lib/filters').sectionize;
+
+  addClasses(this.$, pre);
+  sectionize(this.$, 'h3', { 'class': pre+'-block', prefix: pre });
+  sectionize(this.$, 'h2', { 'class': pre+'-section', until: 'h1, h2', prefix: pre });
   Filters.unpackExamples(this.$, this.options, this._highlightHTML.bind(this));
   Filters.isolateTextBlocks(this.$, pre);
 }
@@ -120,16 +123,6 @@ Styledown.prototype = {
 
 extend(Filters, {
   /**
-   * Adds HTML classnames to things
-   */
-
-  addClasses: function ($, options) {
-    var prefix = options.prefix;
-
-    $("*").addClass(prefix);
-  },
-
-  /**
    * Unpacks `pre` blocks into examples.
    */
 
@@ -197,31 +190,6 @@ extend(Filters, {
 
     if (m) return { tag: m[1], code: code.substr(m[1].length+2) };
     return { tag: null, code: code };
-  },
-
-  /**
-   * Break it apart into sections.
-   *
-   * Puts <h3> blocks into <section> blocks.
-   */
-
-  sectionize: function ($, tag, options) {
-    options = extend({
-      'class': '',
-      'until': 'h1, h2, h3, section',
-      'prefix': ''
-    }, options);
-
-    $(tag).each(function (i) {
-      var $heading = this;
-      var $extras = $heading.nextUntil(options.until);
-      $heading.before("<section class='"+options.class+"'>");
-
-      var $div = $("section."+options.class).eq(-1);
-      $div.addClass(options.prefix + '-section-' + $heading.attr('id'));
-      $div.append($heading.remove());
-      $div.append($extras.remove());
-    });
   },
 
   /**
