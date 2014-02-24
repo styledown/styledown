@@ -10,7 +10,7 @@ Basic styleguide:
 
 For project:
 	- Wrapping
-		- `.sg-block-text` - Wrap text elements of an .sg-block (!)
+		- `.sg-text` - Wrap text elements of an .sg-block (!) @done(2014-02-24)
 		- `.sg-example` - rename code-block to this @done(2014-02-24)
 		- `.sg-block` should include `.sg-with-example`
 	- Tags

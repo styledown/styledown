@@ -7,14 +7,6 @@ h2.sg { font-size: 1.4em; font-weight: bold; }
 h3.sg { font-size: 1.2em; font-weight: bold; }
 h3.sg + .sg { margin-top: -10px; }
 
-.sg-block > h3,
-.sg-block > p,
-.sg-block > ul {
-  float: left;
-  clear: left;
-  width: 28%;
-}
-
 code.sg {
   background: rgba(0, 0, 0, 0.1);
   padding: 1px 4px;
@@ -23,16 +15,18 @@ code.sg {
 }
 
 /**
- * Elements
- */
-
-.sg-example {
-  float: right;
-  width: 70%;
-}
-
-/**
  * An <h3> block.
+ *
+ * It looks like:
+ *
+ *     .sg-block
+ *       .sg-text       - text items
+ *         h3
+ *         p
+ *         ...
+ *       .sg-example
+ *         .sg-canvas   - canvas where its displayed
+ *         .sg-code     - code snippet
  */
 
 .sg-block {
@@ -41,14 +35,28 @@ code.sg {
   margin: 20px 0;
 }
 
-.sg-block > :first-child {
-  margin-top: 0;
-}
-
 .sg-block:after {
   content: '';
   display: table;
   clear: both;
+}
+
+/**
+ * Text element
+ */
+
+.sg-text {
+  float: left;
+  width: 28%;
+}
+
+.sg-text > :first-child {
+  margin-top: 0;
+}
+
+.sg-text + .sg-example {
+  float: right;
+  width: 70%;
 }
 
 /**

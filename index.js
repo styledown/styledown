@@ -23,6 +23,7 @@ function Styledown (src, options) {
   Filters.sectionize(this.$, 'h3', { 'class': pre+'-block', prefix: pre });
   Filters.sectionize(this.$, 'h2', { 'class': pre+'-section', until: 'h1, h2', prefix: pre });
   Filters.unpackExamples(this.$, this.options, this._highlightHTML.bind(this));
+  Filters.isolateTextBlocks(this.$, pre);
 }
 
 Styledown.defaults = {
@@ -289,6 +290,28 @@ extend(Filters, {
       // Trim
       str = str.substr(m[0].length);
     }
+  },
+
+  /**
+   * Isolates text blocks
+   */
+
+  isolateTextBlocks: function ($, prefix) {
+    $('.'+prefix+'-block').each(function() {
+      // Check if there's an example block.
+      // $('.sg-example', this).length doesn't work.
+      if (this.html().indexOf(prefix+'-example') === -1) return;
+
+      var $first = $(':first-child', this);
+      var $text = $first.nextUntil('.'+prefix+'-example');
+
+      var $block = Cheerio.load('<div>');
+      this.prepend($block.root());
+
+      $block(':root').addClass(prefix + '-text');
+      $block(':root').append($first);
+      $block(':root').append($text);
+    });
   }
 });
 

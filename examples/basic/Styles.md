@@ -32,7 +32,7 @@ dropdowns
 
 They look like this:
 
-    @example .padded
+    @example
     .dropdown-menu
       ul
         li
@@ -45,7 +45,7 @@ Tables
 
 Use `.table` on a table.
 
-    @example
+    @example .padded
     table.table
       tr
         th One
@@ -70,7 +70,7 @@ Vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
 no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 
-    @example
+    @example .padded
     form.form
       label.radio
         input(type='radio')
@@ -103,18 +103,12 @@ Labels or tags that you can append inline with text.
     @example
     .ylabel Bruce Lee
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="styledown.css">
+# Styleguide options
 
-<!--
-head:
+### Head
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styledown.css">
 
-    <link rel="stylesheet" href="mystyles.css">
-
-body:
-
+### Body
     div.styleguide
       div(sg-content)
-
-@font-example 32px Comic Sans
--->
