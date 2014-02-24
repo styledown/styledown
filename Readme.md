@@ -39,6 +39,74 @@ Tables have a class `.table`.
 Differences from regular markdown
 ---------------------------------
 
+Styledown works like Markdown: it merely transforms a document into HTML. In 
+fact, any and all Markdown documents will work as expected in Styledown.
+
+With a few key extensions:
+
+### Example blocks
+
+Example blocks are regular code blocks that begin with `@example`. They're 
+rendered into HTML + source code blocks.
+
+#### Input
+
+``` markdown
+Consider this example:
+
+    @example
+    <a class="button">Button</a>
+    <a class="button primary">Button</a>
+```
+
+#### Output
+
+``` html
+<p>Consider this example:</p>
+
+<div class="sg-example">
+  <!-- Actual HTML code is rendered here in `.sg-canvas` -->
+  <div class="sg-canvas">
+    <a class="button">Button</a>
+    <a class="button primary">Button</a>
+  </div>
+
+  <!-- Syntax-highlighted source code here in `.sg-code` -->
+  <pre class="sg-code">
+    &lt;a class="button"&gt;...
+  </pre>
+</div>
+```
+
+### Syntax highlighting
+
+Syntax highlighting comes for free, without any client-side code. Simply 
+surround your code in a code fence, and it will be highlighted via 
+[highlight.js].
+
+#### Input
+
+    See this code:
+
+    ``` javascript
+    $(function() {
+      alert("Hello");
+    });
+    ```
+
+#### Output
+
+``` html
+<p>See this code:</p>
+
+<pre class="sg-lang-javascript">
+$(<span class='hljs-function'>function</span>() {
+   alert(<span class='hljs-string'>"hello"</span>);
+</pre>
+```
+
+### Also
+
  * Sections
  * blocks
  * Syntax highlighting
@@ -47,7 +115,7 @@ Differences from regular markdown
 Installation
 ------------
 
-``` sh
+``` bash
 $ npm install -g styledown
 ```
 
@@ -56,7 +124,7 @@ Usage
 
 ### Command line
 
-``` sh
+``` bash
 $ styledown < Styles.md > index.html
 ```
 
