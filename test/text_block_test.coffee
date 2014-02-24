@@ -1,6 +1,6 @@
 require './setup'
 
-describe.only 'Text block', ->
+describe 'Text block', ->
   it 'ignore when no example', ->
     @load '''
       ### Example

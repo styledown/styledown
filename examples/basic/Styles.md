@@ -33,10 +33,15 @@ JavaScript
 This is an example with jQuery:
 
 ``` javascript
-$(function() {
-  /* do things */;
-  alert("Hi");
-});
+var Foo = {
+  start: function() {
+    /* do things */;
+    alert("Hi", 2);
+  }
+};
+
+$(function onload() {});
+
 ```
 
 Dropdown menus

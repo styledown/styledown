@@ -1,9 +1,48 @@
 Styledown
 =========
 
-Yep.
+A markdown dialect to help you write CSS styleguides efficiently.
 
 [![Status](https://travis-ci.org/rstacruz/styledown.png?branch=master)](https://travis-ci.org/rstacruz/styledown)
+
+What to do
+----------
+
+Write your CSS documentation with an `h3`, and a code block that begins with 
+`@example`.
+
+``` markdown
+### Button
+
+Create your buttons with a `.button` class.
+
+    @example
+    <a class="button">Button</a>
+    <a class="button primary">Button</a>
+```
+
+Jade is also supported. It's auto-detected for you when you want Jade or HTML.
+
+``` markdown
+### Tables
+
+Tables have a class `.table`.
+
+    @example
+    table.table
+      tr
+        td Item 1
+        td Item 2
+        td Item 3
+```
+
+Differences from regular markdown
+---------------------------------
+
+ * Sections
+ * blocks
+ * Syntax highlighting
+ * Example blocks
 
 Installation
 ------------
