@@ -25,14 +25,14 @@ Use the `.button` class.
     = " "
     a.button.large Success
 
-dropdowns
----------
+Dropdown menus
+--------------
 
 ### Menu item
 
 They look like this:
 
-    @example
+    @example .padded
     .dropdown-menu
       ul
         li
