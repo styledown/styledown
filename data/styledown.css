@@ -31,6 +31,12 @@ code.sg {
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), inset -1px -1px rgba(0,0,0,0.05);
 }
 
+.sg-block, .sg-code, .sg-canvas, .sg-text {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /**
  * An <h3> block.
  *
@@ -76,7 +82,8 @@ code.sg {
   margin-top: 0;
 }
 
-.sg-text + .sg-example {
+.sg-text + .sg-example,
+.sg-text + .sg-code {
   float: right;
   width: 70%;
 }
