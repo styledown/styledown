@@ -5,6 +5,11 @@ var extend = require('util')._extend;
 module.exports = Styledown;
 var Filters = Styledown.filters = {};
 
+var addClasses    = require('./lib/filters').addClasses;
+var sectionize    = require('./lib/filters').sectionize;
+var unpackExample = require('./lib/filters').unpackExample;
+var htmlize       = require('./lib/utils').htmlize;
+
 /**
  * Document.
  */
@@ -17,11 +22,8 @@ function Styledown (src, options) {
   Filters.processConfig(src, this.options);
   Filters.removeConfig(this.$);
 
-  var pre = this.options.prefix;
-  var addClasses = require('./lib/filters').addClasses,
-      sectionize = require('./lib/filters').sectionize,
-      highlightHTML = this._highlightHTML.bind(this),
-      unpackExample = Filters.unpackExample;
+  var pre = this.options.prefix,
+      highlightHTML = this._highlightHTML.bind(this);
 
   addClasses(this.$, pre);
   sectionize(this.$, 'h3', { 'class': pre+'-block', prefix: pre });
@@ -128,71 +130,6 @@ Styledown.prototype = {
 
 extend(Filters, {
   /**
-   * Unpacks `pre` blocks into examples.
-   */
-
-  unpackExample: function (parent, pre, highlight) {
-    var code = parent.text();
-    var block = Filters.parseCodeText(code);
-    var tags = Filters.parseTags(block.tag);
-
-    if (tags.example) {
-      var html = htmlize(block.code);
-      var canvas = "<div class='"+pre+"-canvas'>"+html+"</div>";
-      var codeblock = "<pre class='"+pre+"-code'>"+highlight(html)+"</pre>";
-      var $block = Cheerio.load("<div class='"+pre+"-example'>" + canvas + codeblock + "</div>");
-
-      if (tags['class']) {
-        klass = Filters.prefixClass(tags['class'], pre);
-        $block(':root').addClass(klass);
-      }
-
-      parent.replaceWith($block.root());
-    } else {
-      klass = parent.find('code').attr('class');
-      var m = klass.match(/lang-([a-z]+)/);
-
-      if (m) {
-        var lang = m[1];
-        var Hljs = require('highlight.js');
-        parent.html(Hljs.highlight(lang, parent.text()).value);
-        parent.addClass(pre+'-lang-'+lang);
-        parent.addClass(pre+'-code');
-      }
-    }
-  },
-
-  /**
-   * Prefixes classnames.
-   *
-   *     prefixClass('white', 'sg')     => 'sg-white'
-   *     prefixClass('pad dark', 'sg')  => 'sg-pad sg-dark'
-   */
-
-  prefixClass: function (klass, prefix) {
-    return klass.split(' ').map(function (n) {
-      return n.length > 0 ? (prefix + '-' + n) : n;
-    }).join(' ');
-  },
-
-  /**
-   * Get the tags and code out of the code text.
-   *
-   *     parseCodeText('@example\nhello')
-   *     => { tag: 'example', code: 'hello' }
-   *
-   *     parseCodeText('hello')
-   *     => { tag: null, code: 'hello' }
-   */
-
-  parseCodeText: function (code) {
-    var m = code.trim().match(/^@([^\n]+)/);
-
-    if (m) return { tag: m[1], code: code.substr(m[1].length+2) };
-    return { tag: null, code: code };
-  },
-
-  /**
    * Remove the configuration block.
    *
    * Removes the "Styleguide options" block from the DOM in `$`.
@@ -221,39 +158,6 @@ extend(Filters, {
   },
 
   /**
-   * Parse tags
-   */
-
-  parseTags: function (str) {
-    if (typeof str !== 'string') return {};
-
-    var m;
-    var obj = {};
-    str = str.trim();
-
-    while (true) {
-      if (m = str.match(/^\.([a-z\-]+)\s*/)) {
-        if (!obj["class"]) obj["class"] = [];
-        obj["class"].push(m[1]);
-      } else if (m = str.match(/^([a-z\-]+)="([^"]+)"\s*/)) {
-        obj[m[1]] = m[2];
-      } else if (m = str.match(/^([a-z\-]+)='([^']+)'\s*/)) {
-        obj[m[1]] = m[2];
-      } else if (m = str.match(/^([a-z\-]+)=([^\s]+)\s*/)) {
-        obj[m[1]] = m[2];
-      } else if (m = str.match(/^([a-z\-]+)\s*/)) {
-        obj[m[1]] = true;
-      } else {
-        if (obj["class"]) obj["class"] = obj["class"].join(' ');
-        return obj;
-      }
-
-      // Trim
-      str = str.substr(m[0].length);
-    }
-  },
-
-  /**
    * Isolates text blocks
    */
 
@@ -277,15 +181,3 @@ extend(Filters, {
     });
   }
 });
-
-function htmlize (src) {
-  // Mdconf processes them as arrays
-  if (src.constructor === Array) src = src[0];
-
-  if (src.substr(0, 1) === '<') {
-    return src;
-  } else {
-    var Jade = require('jade');
-    return Jade.render(src);
-  }
-}

@@ -1,7 +1,7 @@
 require './setup'
 
 describe 'Pre tag', ->
-  parseTags = Styledown.filters.parseTags
+  {parseTags, parseCodeText} = require('../lib/utils')
 
   describe 'parseTags', ->
     it 'key-value', ->
@@ -60,7 +60,7 @@ describe 'Pre tag', ->
 
   describe 'parseCodeText', ->
     it 'with tags', ->
-      out = Styledown.filters.parseCodeText '''
+      out = parseCodeText '''
         @example width=500
         div.button
       '''
@@ -69,7 +69,7 @@ describe 'Pre tag', ->
       expect(out.code).eql 'div.button'
 
     it 'no tags', ->
-      out = Styledown.filters.parseCodeText '''
+      out = parseCodeText '''
         div.button
       '''
 
