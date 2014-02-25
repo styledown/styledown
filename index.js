@@ -3,12 +3,14 @@ var Cheerio = require('cheerio');
 var extend = require('util')._extend;
 
 module.exports = Styledown;
-var Filters = Styledown.filters = {};
 
-var addClasses    = require('./lib/filters').addClasses;
-var sectionize    = require('./lib/filters').sectionize;
-var unpackExample = require('./lib/filters').unpackExample;
-var htmlize       = require('./lib/utils').htmlize;
+var addClasses        = require('./lib/filters').addClasses;
+var sectionize        = require('./lib/filters').sectionize;
+var unpackExample     = require('./lib/filters').unpackExample;
+var processConfig     = require('./lib/filters').processConfig;
+var removeConfig      = require('./lib/filters').removeConfig;
+var isolateTextBlocks = require('./lib/filters').isolateTextBlocks;
+var htmlize           = require('./lib/utils').htmlize;
 
 /**
  * Document.
@@ -19,11 +21,12 @@ function Styledown (src, options) {
   this.options = extend(extend({}, Styledown.defaults), options || {});
   this.$ = Cheerio.load(Marked(src));
 
-  Filters.processConfig(src, this.options);
-  Filters.removeConfig(this.$);
+  var highlightHTML = this._highlightHTML.bind(this);
 
-  var pre = this.options.prefix,
-      highlightHTML = this._highlightHTML.bind(this);
+  processConfig(src, this.options);
+  removeConfig(this.$);
+
+  var pre = this.options.prefix;
 
   addClasses(this.$, pre);
   sectionize(this.$, 'h3', { 'class': pre+'-block', prefix: pre });
@@ -33,10 +36,11 @@ function Styledown (src, options) {
     unpackExample(this, pre, highlightHTML);
   });
 
-  Filters.isolateTextBlocks(this.$, pre);
+  isolateTextBlocks(this.$, pre);
 }
 
 Styledown.defaults = {
+
   /**
    * HTML template
    */
@@ -81,9 +85,11 @@ Styledown.parseSync = function (source, options) {
 Styledown.parse = Styledown.parseSync;
 
 Styledown.prototype = {
+
   /**
    * Converts to HTML
    */
+
   toHTML: function() {
     var html = this.$.html();
 
@@ -123,61 +129,3 @@ Styledown.prototype = {
     return html;
   }
 };
-
-/**
- * Filters mixin
- */
-
-extend(Filters, {
-  /**
-   * Remove the configuration block.
-   *
-   * Removes the "Styleguide options" block from the DOM in `$`.
-   */
-
-  removeConfig: function ($) {
-    var $h1 = $('h1#styleguide-options');
-    $h1.nextUntil('h1').remove();
-    $h1.remove();
-  },
-
-  /**
-   * Process the configuration block
-   */
-
-  processConfig: function (src, options) {
-    var Mdconf = require('./lib/mdconf');
-    try {
-      var data = Mdconf(src, { normalizer: 'camelcase' });
-      data = (data && data.styleguideOptions);
-
-      if (data) extend(options, data);
-    } catch (e) {
-      // Don't bother if mdconf fails.
-    }
-  },
-
-  /**
-   * Isolates text blocks
-   */
-
-  isolateTextBlocks: function ($, prefix) {
-    $('.'+prefix+'-block').each(function() {
-      // Check if there's an example block.
-      // $('.sg-example', this).length doesn't work.
-      var noExample = (this.html().indexOf(prefix+'-example') === -1);
-      var noCode    = (this.html().indexOf(prefix+'-code') === -1);
-      if (noExample && noCode) return;
-
-      var $first = $('h3', this);
-      var $text = $first.nextUntil('.'+prefix+'-example, .'+prefix+'-code');
-
-      var $block = Cheerio.load('<div>');
-      this.prepend($block.root());
-
-      $block(':root').addClass(prefix + '-text');
-      $block(':root').append($first);
-      $block(':root').append($text);
-    });
-  }
-});
