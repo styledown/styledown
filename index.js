@@ -11,6 +11,7 @@ var processConfig     = require('./lib/filters').processConfig;
 var removeConfig      = require('./lib/filters').removeConfig;
 var isolateTextBlocks = require('./lib/filters').isolateTextBlocks;
 var htmlize           = require('./lib/utils').htmlize;
+var prefixClass       = require('./lib/utils').prefixClass;
 
 /**
  * Document.
@@ -22,21 +23,22 @@ function Styledown (src, options) {
   this.$ = Cheerio.load(Marked(src));
 
   var highlightHTML = this._highlightHTML.bind(this);
+  var p = this.prefix.bind(this);
 
   processConfig(src, this.options);
   removeConfig(this.$);
 
   var pre = this.options.prefix;
 
-  addClasses(this.$, pre);
-  sectionize(this.$, 'h3', { 'class': pre+'-block', prefix: pre });
-  sectionize(this.$, 'h2', { 'class': pre+'-section', until: 'h1, h2', prefix: pre });
+  addClasses(this.$, p);
+  sectionize(this.$, 'h3', { 'class': p('block'), prefix: pre });
+  sectionize(this.$, 'h2', { 'class': p('section'), until: 'h1, h2', prefix: pre });
 
   this.$('pre').each(function () {
-    unpackExample(this, pre, highlightHTML);
+    unpackExample(this, p, highlightHTML);
   });
 
-  isolateTextBlocks(this.$, pre);
+  isolateTextBlocks(this.$, p);
 }
 
 Styledown.defaults = {
@@ -127,5 +129,15 @@ Styledown.prototype = {
     html = this._prettyprint(html);
     html = Hljs.highlight('html', html).value;
     return html;
+  },
+
+  /**
+   * Prefix classnames.
+   */
+
+  prefix: function(klass) {
+    return klass ?
+      prefixClass(klass, this.options.prefix) :
+      this.options.prefix;
   }
 };
