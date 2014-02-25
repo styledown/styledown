@@ -31,8 +31,8 @@ function Styledown (src, options) {
   var pre = this.options.prefix;
 
   addClasses(this.$, p);
-  sectionize(this.$, 'h3', { 'class': p('block'), prefix: pre });
-  sectionize(this.$, 'h2', { 'class': p('section'), until: 'h1, h2', prefix: pre });
+  sectionize(this.$, 'h3', p, { 'class': p('block') });
+  sectionize(this.$, 'h2', p, { 'class': p('section'), until: 'h1, h2' });
 
   this.$('pre').each(function () {
     unpackExample(this, p, highlightHTML);
