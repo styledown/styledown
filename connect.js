@@ -1,7 +1,7 @@
 var extend = require('util')._extend;
 var Fs = require('fs');
 var Path = require('path');
-var Styledown = require('.');
+var Styledown = require('./index');
 
 /**
  * Defaults
