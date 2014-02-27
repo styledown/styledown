@@ -109,6 +109,7 @@ surround your code in a code fence, and it will be highlighted via
 <pre class="sg-lang-javascript">
 $(<span class='hljs-function'>function</span>() {
    alert(<span class='hljs-string'>"hello"</span>);
+});
 </pre>
 ```
 
