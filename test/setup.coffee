@@ -6,7 +6,7 @@ chai.should()
 beforeEach -> global.sinon = require('sinon').sandbox.create()
 afterEach  -> global.sinon.restore()
 
-global.Styledown = require '.'
+global.Styledown = require '../index'
 global.Cheerio = require 'cheerio'
 
 before ->
