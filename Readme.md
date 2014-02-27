@@ -5,6 +5,13 @@ A markdown dialect to help you write CSS styleguides efficiently.
 
 [![Status](https://travis-ci.org/rstacruz/styledown.png?branch=master)](https://travis-ci.org/rstacruz/styledown)
 
+Warning
+-------
+
+**Work-in-progress** (but usable), not feature-complete (but near), and not 
+fully documented (but will be). Use if you're adventurous (via git clone + npm 
+link).
+
 What to do
 ----------
 
