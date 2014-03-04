@@ -7,7 +7,7 @@
     "styleguide"
   ],
   "author": "Rico Sta. Cruz <hi@ricostacruz.com>",
-  "version": "0.1.0",
+  "version": "0.1.0-pre",
   "repository": {
     "type": "git",
     "url": "https://github.com/rstacruz/styledown.git"
