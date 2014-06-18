@@ -28,13 +28,13 @@ h3.sg + .sg {
 
 /* Colors */
 p.sg, ul.sg {
-  color: #777;
+  color: #555;
 }
 h2.sg {
-  color: #aaa;
+  color: #111;
 }
 h3.sg {
-  color: #404040;
+  color: #333;
 }
 
 code.sg {
