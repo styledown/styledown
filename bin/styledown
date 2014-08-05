@@ -1,21 +1,37 @@
 #!/usr/bin/env node
-Styledown = require('..');
+var Styledown = require('..');
+var read = require('read-input');
 
-if (process.argv.indexOf('--css') > -1) {
+var args = require('minimist')(process.argv.slice(2), {
+  alias: { h: 'help', v: 'version' }
+});
+
+if (args.help) {
+  console.log([
+      'Usage:',
+      '    styledown FILE',
+      '    styledown --css > styledown.css',
+      '    ... | styledown',
+      '',
+      'Options:',
+      '    -h, --help         print usage information',
+      '    -v, --version      show version info and exit',
+      '        --css          prints the css',
+  ].join('\n'));
+  process.exit();
+}
+
+if (args.version) {
+  console.log(require('../package.json').version);
+  process.exit();
+}
+
+if (args.css) {
   process.stdout.write(require('fs').readFileSync(__dirname + '/../data/styledown.css'));
-
-} else {
-  readStdin(function (err, data) {
-    var html = Styledown.parse(data);
-    process.stdout.write(html + "\n");
-  });
+  process.exit();
 }
 
-function readStdin (fn) {
-  process.stdin.resume(); /* paused by default */
-  process.stdin.setEncoding('utf8');
-
-  var data = '';
-  process.stdin.on('data', function(chunk) { data += chunk.toString(); });
-  process.stdin.on('end', function() { fn(null, data); });
-}
+read(args._, function (err, res) {
+  var html = Styledown.parse(res.data);
+  process.stdout.write(html + "\n");
+});
