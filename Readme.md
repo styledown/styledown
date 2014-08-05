@@ -5,18 +5,43 @@ A markdown dialect to help you write CSS styleguides efficiently.
 
 [![Status](https://travis-ci.org/rstacruz/styledown.png?branch=master)](https://travis-ci.org/rstacruz/styledown)
 
-Warning
--------
+Installation
+------------
 
-**Work-in-progress** (but usable), not feature-complete (but near), and not 
-fully documented (but will be). Use if you're adventurous (via git clone + npm 
-link).
+``` bash
+$ npm install -g styledown
+$ styledown --help
+```
 
-What to do
-----------
+Usage
+-----
 
-Write your CSS documentation with an `h3`, and a code block that begins with 
-`@example`.
+Styledown supports 2 modes of operation: Markdown mode (default) and Inline mode 
+(`-i` or `--inline`).
+
+__Markdown mode:__ Use Styledown to generate an `.html` styleguide from one or 
+more `.md` files.
+
+```
+$ mdextract styles.md > styleguide.html
+```
+
+__Inline mode:__ Generate an `.html` styleguide from one or more CSS files with 
+inline comments. (You can use less/styl/sass here, too.)
+
+```
+$ mdextract -i *.css > styleguide.html
+```
+
+Markdown format
+---------------
+
+All Markdown documents are also Styledown documents. That is, all of Markdown 
+will work. Styledown implements a few extensions that helps you create 
+styleguides.
+
+__Example blocks:__ Write your CSS documentation with an `h3`, and a code block 
+that begins with `@example`.
 
 ``` markdown
 ### Button
@@ -28,7 +53,8 @@ Create your buttons with a `.button` class.
     <a class="button primary">Button</a>
 ```
 
-Jade is also supported. It's auto-detected for you when you want Jade or HTML.
+__Jade examples:__ Jade is also supported. It's auto-detected for you when you 
+want Jade or HTML. This allows you to write simpler example code.
 
 ``` markdown
 ### Tables
@@ -43,18 +69,11 @@ Tables have a class `.table`.
         td Item 3
 ```
 
-Differences from regular markdown
----------------------------------
+Example
+-------
 
-Styledown works like Markdown: it merely transforms a document into HTML. In 
-fact, any and all Markdown documents will work as expected in Styledown.
-
-With a few key extensions:
-
-### Example blocks
-
-Example blocks are regular code blocks that begin with `@example`. They're 
-rendered into HTML + source code blocks.
+Example blocks are transformed into `div.sg-example` blocks, containing a 
+`.sg-canvas` (the actual HTML example) and `.sg-code` (with the HTML source).
 
 #### Input
 
@@ -120,20 +139,13 @@ $(<span class='hljs-function'>function</span>() {
  * Syntax highlighting
  * Example blocks
 
-Installation
-------------
-
-``` bash
-$ npm install -g styledown
-```
-
 Usage
 -----
 
 ### Command line
 
 ``` bash
-$ styledown < Styles.md > index.html
+$ styledown Styles.md > index.html
 ```
 
 ### Node.js

@@ -2,6 +2,7 @@
 
  * Implement `--help` and `--version`.
  * Implement opening a file via `styledown FILE`.
+ * Implement `--inline` mode.
 
 ## v0.1.0-pre - March 4, 2014
 

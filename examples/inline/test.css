@@ -1,0 +1,22 @@
+/**
+ * Blank state:
+ * `.blank-state` - awesome.
+ *
+ *     @example
+ *     .blank-state
+ *       h3 Nothing to do
+ *       p Oh well, that's life.
+ */
+
+.blank-state {
+  display: block;
+  border: solid 1px #ddd;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.blank-state h3,
+.blank-state p {
+  display: block;
+  text-align: center;
+}

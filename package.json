@@ -38,6 +38,7 @@
     "jade": "~1.1.5",
     "marked": "~0.3.1",
     "mdconf": "0.0.2",
+    "mdextract": "^1.0.0",
     "minimist": "^0.2.0",
     "read-input": "^0.1.0"
   }
