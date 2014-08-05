@@ -35,10 +35,12 @@ if (args.css) {
 }
 
 read(args._, function (err, res) {
-  var data = res.data;
-
-  if (args.inline)
-    data = mdextract(data, { lang: 'css' }).toMarkdown();
+  var data = res.files.map(function (f) {
+    if (args.inline || f.name && f.name.match(/(sass|scss|styl|less|css)$/)) {
+      return mdextract(f.data, { lang: 'css' }).toMarkdown();
+    }else
+      return f.data;
+  }).join("\n");
 
   var html = Styledown.parse(data);
   process.stdout.write(html + "\n");
