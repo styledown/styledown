@@ -1,3 +1,3 @@
-dist/styledown.js: index.js
-	browserify $^ > $@
+dist/styledown.js: distribution.js
+	browserify $< > $@
 

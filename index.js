@@ -29,13 +29,14 @@ function Styledown (src, options) {
   removeConfig(this.$);
 
   var pre = this.options.prefix;
+  var $ = this.$;
 
-  addClasses(this.$, p);
-  sectionize(this.$, 'h3', p, { 'class': p('block') });
-  sectionize(this.$, 'h2', p, { 'class': p('section'), until: 'h1, h2' });
+  addClasses($, p);
+  sectionize($, 'h3', p, { 'class': p('block') });
+  sectionize($, 'h2', p, { 'class': p('section'), until: 'h1, h2' });
 
-  this.$('pre').each(function () {
-    unpackExample(this, p, highlightHTML);
+  $('pre').each(function () {
+    unpackExample($(this), p, highlightHTML);
   });
 
   isolateTextBlocks(this.$, p);
