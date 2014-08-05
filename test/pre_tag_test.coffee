@@ -76,7 +76,7 @@ describe 'Pre tag', ->
       expect(out.tag).null
       expect(out.code).eql 'div.button'
 
-  describe 'tag parsing', ->
+  describe 'converting examples', ->
     beforeEach ->
       @load '''
       ### hello
@@ -85,8 +85,8 @@ describe 'Pre tag', ->
           div.button
       '''
 
-    it 'should work', ->
+    it 'generates <pre> tags', ->
       expect(@$).have.selector 'pre'
 
-    it 'no tags', ->
+    it 'makes a <pre> HTML code', ->
       expect(@$("pre").text()).eql '<div class="button"></div>'
