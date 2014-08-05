@@ -31,7 +31,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "cheerio": "0.13.0",
+    "cheerio": "0.17.0",
     "highlight.js": "~8.0.0",
     "html": "0.0.7",
     "jade": "~1.1.5",
