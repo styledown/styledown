@@ -13,8 +13,24 @@ var isolateTextBlocks = require('./lib/filters').isolateTextBlocks;
 var htmlize           = require('./lib/utils').htmlize;
 var prefixClass       = require('./lib/utils').prefixClass;
 
-/**
- * Document.
+/***
+ * Styledown : new Styledown(html, [options])
+ * Parses the source `html` into a Styledown document.
+ *
+ *      doc = new Styledown(html);
+ *      doc.toHTML();
+ *
+ * You may also use `Styledown.parse()`.
+ *
+ *      Styledown.parse(html);
+ *
+ * Available options are:
+ *
+ * ~ prefix (String): prefix for classnames. Defaults to `sg`.
+ * ~ template (String): HTML template. Defaults to a simple HTML template.
+ * ~ head (String): HTML to put in the head. Default to `false`.
+ * ~ body (String): HTML to put in the body. Defaults to `<div sg-content></div>`.
+ * ~ indentSize (Number): Number of spaces to indent. Defaults to `2`.
  */
 
 function Styledown (src, options) {
@@ -78,19 +94,21 @@ Styledown.defaults = {
 };
 
 /**
- * Shorthand for parsing.
+ * Styledown.parse() : Styledown.parse(html, [options])
+ * Shorthand for `new Styledown().toHTML()`. Also aliased as `.parseSync()`.
  */
 
-Styledown.parseSync = function (source, options) {
+Styledown.parse = function (source, options) {
   return new Styledown(source, options).toHTML();
 };
 
-Styledown.parse = Styledown.parseSync;
+Styledown.parseSync = Styledown.parse;
 
 Styledown.prototype = {
 
   /**
-   * Converts to HTML
+   * toHTML():
+   * Converts to HTML.
    */
 
   toHTML: function() {
