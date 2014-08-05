@@ -114,21 +114,20 @@ Now open `public/styleguides.html` in your browser.
 Usage
 -----
 
-Styledown supports 2 modes of operation: Markdown mode (default) and Inline mode 
-(`-i | --inline`).
+Styledown generates `.html` styleguides. It can take CSS files or Markdown 
+files.
 
-__Markdown mode:__ Use Styledown to generate an `.html` styleguide from one or 
-more `.md` files.
+__Inline CSS mode:__ Parses comments from CSS files. This is what happens when 
+you pass .css, .sass, .scss, .less and .styl files.
+
+```
+$ mdextract *.css > styleguide.html
+```
+
+__Markdown mode:__ Takes a Markdown files.
 
 ```
 $ mdextract styles.md > styleguide.html
-```
-
-__Inline mode:__ Generate an `.html` styleguide from one or more CSS files with 
-inline comments. (You can use less/styl/sass here, too.)
-
-```
-$ mdextract -i *.css > styleguide.html
 ```
 
 Markdown format
@@ -142,6 +141,7 @@ __Example blocks:__ Write your CSS documentation with an `h3`, and a code block
 that begins with `@example`.
 
 ``` markdown
+<!-- markdown.md -->
 ### Button
 
 Create your buttons with a `.button` class.
@@ -149,6 +149,18 @@ Create your buttons with a `.button` class.
     @example
     <a class="button">Button</a>
     <a class="button primary">Button</a>
+```
+
+``` css
+<!-- style.css -->
+/**
+ * Button:
+ * Create your buttons with a `.button` class.
+ * 
+ *     @example
+ *     <a class="button">Button</a>
+ *     <a class="button primary">Button</a>
+ */
 ```
 
 __Jade examples:__ Jade is also supported. It's auto-detected for you when you 
