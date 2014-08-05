@@ -13,11 +13,13 @@ $ npm install -g styledown
 $ styledown --help
 ```
 
+[![npm version](https://badge.fury.io/js/styledown.svg)](https://npmjs.org/package/styledown "View this project on npm")
+
 Usage
 -----
 
 Styledown supports 2 modes of operation: Markdown mode (default) and Inline mode 
-(`-i` or `--inline`).
+(`-i | --inline`).
 
 __Markdown mode:__ Use Styledown to generate an `.html` styleguide from one or 
 more `.md` files.
@@ -104,7 +106,8 @@ Consider this example:
 </div>
 ```
 
-### Syntax highlighting
+Syntax highlighting
+-------------------
 
 Syntax highlighting comes for free, without any client-side code. Simply 
 surround your code in a code fence, and it will be highlighted via 
@@ -132,78 +135,48 @@ $(<span class='hljs-function'>function</span>() {
 </pre>
 ```
 
-### Also
+Inline mode
+-----------
 
- * Sections
- * blocks
- * Syntax highlighting
- * Example blocks
+You can put your Styledown definitions inline in your CSS files. Use
+JavaDoc-style `/** ... */` comment blocks, and begin your block with a line that
+ends in `:`.
 
-Usage
------
+The rest of the syntax is the same as in the default Markdown mode.
 
-### Command line
+```css
+/**
+ * Section name:
+ * `.your-section-here` - documentation on what your section is.
+ *
+ *     @example
+ *     div.your-section-here
+ *       h3 Sample code
+ *       p goes here
+ */
 
-``` bash
-$ styledown Styles.md > index.html
+.your-section-here {
+  display: block;
+  ...
+}
 ```
 
-### Node.js
+Use `styledown -i` to generate an HTML.
 
-``` js
-var Styledown = require('styledown');
-Styledown.parse(string);
+```bash
+$ styledown -i *.css > styleguides.html
 ```
 
-### Node.js - Express
+Thanks
+------
 
-Use the middleware.
+**Styledown** © 2013+, Rico Sta. Cruz. Released under the [MIT License].<br>
+Authored and maintained by Rico Sta. Cruz with help from [contributors].
 
-``` js
-var styledownHandler = require('styledown/connect');
-app.use(styledownHandler({
-  path: '/styleguides',
-  root: Dir.cwd(),
-  guides: {
-    index: 'styles.md',
-    forms: 'forms.md'
-  }
-});
-```
+> [ricostacruz.com](http://ricostacruz.com) &nbsp;&middot;&nbsp;
+> GitHub [@rstacruz](https://github.com/rstacruz) &nbsp;&middot;&nbsp;
+> Twitter [@rstacruz](https://twitter.com/rstacruz)
 
-### Ruby
-
-To come soon.
-
-### Ruby - Rails
-
-Middleware to come soon.
-
-Getting started
----------------
-
-Write your files in Markdown.
-
-License
--------
-
-Released under the MIT License. Copyright (c) 2014 Rico Sta. Cruz.
-
-> Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
->
-> The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
->
-> THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[MIT License]: http://mit-license.org/
+[contributors]: http://github.com/rstacruz/styledown/contributors
+[highlight.js]: http://highlightjs.org/
