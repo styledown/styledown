@@ -1,3 +1,3 @@
-dist/styledown.js: distribution.js
+dist/styledown.js: lib/distribution.js
 	browserify $< > $@
 
