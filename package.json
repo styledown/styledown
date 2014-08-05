@@ -14,8 +14,7 @@
   },
   "main": "index",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -R spec --recursive --compilers coffee:coffee-script/register",
-    "autotest": "./node_modules/.bin/mocha -R min --recursive --compilers coffee:coffee-script/register --watch"
+    "test": "mocha"
   },
   "devDependencies": {
     "chai": "~1.9.0",
