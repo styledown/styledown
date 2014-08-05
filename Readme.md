@@ -1,7 +1,7 @@
 Styledown
 =========
 
-A markdown dialect to help you write CSS styleguides efficiently.
+Write maintainable CSS styleguides efficiently using a Markdown.
 
 [![Status](https://travis-ci.org/rstacruz/styledown.png?branch=master)](https://travis-ci.org/rstacruz/styledown)
 
@@ -14,6 +14,102 @@ $ styledown --help
 ```
 
 [![npm version](https://badge.fury.io/js/styledown.svg)](https://npmjs.org/package/styledown "View this project on npm")
+
+Quickstart guide
+----------------
+
+Here's a generic guide on getting started with Styledown on any project. We're
+gonna assume that you're using Sass and that your project bundles all CSS files
+into one file.
+
+Let's assume that your files are in `css/`, and that your final styleguide will
+be in `public/styleguide.html`.
+
+```
+                    Example setup
+
+.----------------------.     .---------------------.
+| css/                 |     |                     |
+|   components/        |     |  public/            |
+|     button.scss      | ==> |    styleguide.html  |
+|     forms.scss       |     |                     |
+|     whatever.scss    |     |                     |
+'----------------------'     '---------------------'
+```
+
+#### Step 1: Document
+
+Document your project's stylesheets with `/** ... */` comments.  Let's say this
+is `css/components/your-component.scss`.
+
+This is a Markdown block encapsulated within `/** ... */`. The example blocks
+are auto-detected to be [Jade] templates and will be handled accordingly.
+
+The first line should be the name of the block being documented, ending in `:`.
+
+```css
+/**
+ * Component name:
+ * `.your-component-here` - documentation on what your
+ * component is goes here. Markdown is encouraged.
+ *
+ *     @example
+ *     div.your-component-here
+ *       h3 Sample code
+ *       p goes here
+ */
+
+.your-component-here {
+  display: block;
+  ...
+}
+```
+
+#### Step 2: Configure
+
+Create a file and call it something like `css/styledown/extras.css`. This will
+define what's in the `<head>` of your styleguides (to link to the correct CSS/JS
+files), and define the body template (the element with `sg-content` defines
+where everything goes).
+
+```css
+/**
+ * # Styleguide options
+ *
+ * ### Head
+ *
+ *     link(rel="stylesheet" href="/assets/application.css")
+ *     link(rel="stylesheet" href="/assets/styledown.css")
+ *
+ * ### Body
+ *
+ *     h1 My Awesome Styleguides
+ *     div#styleguides(sg-content)
+ */
+```
+
+The first one (`application.css`) should point to your project's concatenated
+stylesheets. The second one (`styledown.css`) should point to the default
+Styledown stylesheets.
+
+So, put the default Styledown stylesheets in your project. Put this whereever
+convenient. Just make sure that the styleguides links to this (see above).
+
+```bash
+$ styledown --css > css/styledown/styledown.css
+```
+
+#### Step 3: Build
+
+Invoke `styledown` to generate an HTML file.
+
+```bash
+$ styledown -i css/styledown/*.css css/components/*.css > public/styleguides.html
+```
+
+#### Enjoy!
+
+Now open `public/styleguides.html` in your browser.
 
 Usage
 -----
@@ -180,3 +276,4 @@ Authored and maintained by Rico Sta. Cruz with help from [contributors].
 [MIT License]: http://mit-license.org/
 [contributors]: http://github.com/rstacruz/styledown/contributors
 [highlight.js]: http://highlightjs.org/
+[Jade]: http://jade-lang.com/
