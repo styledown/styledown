@@ -16,6 +16,17 @@
   "scripts": {
     "test": "mocha"
   },
+  "dependencies": {
+    "cheerio": "0.17.0",
+    "highlight.js": "8.1.0",
+    "html": "0.0.7",
+    "jade": "1.5.0",
+    "marked": "0.3.1",
+    "mdconf": "0.0.2",
+    "mdextract": "^1.0.0",
+    "minimist": "^0.2.0",
+    "read-input": "^0.1.0"
+  },
   "devDependencies": {
     "chai": "~1.9.0",
     "coffee-script": "~1.7.1",
@@ -29,16 +40,5 @@
   "bin": {
     "styledown": "./bin/styledown"
   },
-  "license": "MIT",
-  "dependencies": {
-    "cheerio": "0.17.0",
-    "highlight.js": "~8.0.0",
-    "html": "0.0.7",
-    "jade": "~1.1.5",
-    "marked": "~0.3.1",
-    "mdconf": "0.0.2",
-    "mdextract": "^1.0.0",
-    "minimist": "^0.2.0",
-    "read-input": "^0.1.0"
-  }
+  "license": "MIT"
 }
