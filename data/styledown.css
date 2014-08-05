@@ -145,7 +145,8 @@ code.sg:first-child {
   font-size: 0.8em;
   font-family: menlo, monospace;
   line-height: 1.5;
-  background: #f6f6ff;
+  background: #fafaff;
+  color: #333;
 }
 
 /*
