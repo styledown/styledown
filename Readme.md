@@ -48,8 +48,8 @@ be in `public/styleguide.html`.
 Document your project's stylesheets with `/** ... */` comments.  Let's say this
 is `css/components/your-component.scss`.
 
-This is a Markdown block encapsulated within `/** ... */`. The example blocks
-are auto-detected to be [Jade] templates and will be handled accordingly.
+This is a Markdown block within a comment. The example blocks
+are can be written as [Jade] or HTML.
 
 The first line should be the name of the block being documented, ending in `:`.
 
@@ -150,7 +150,7 @@ __Example blocks:__ Write your CSS documentation with an `h3`, and a code block
 that begins with `@example`.
 
 ``` markdown
-<!-- markdown.md -->
+<!-- markdown.md (Markdown mode) -->
 ### Button
 
 Create your buttons with a `.button` class.
@@ -161,7 +161,7 @@ Create your buttons with a `.button` class.
 ```
 
 ``` css
-<!-- style.css -->
+<!-- style.css (Inline mode) -->
 /**
  * Button:
  * Create your buttons with a `.button` class.
@@ -176,9 +176,10 @@ __Jade examples:__ Jade is also supported. It's auto-detected for you when you
 want Jade or HTML. This allows you to write simpler example code.
 
 ``` markdown
+<!-- markdown.md (Markdown mode) -->
 ### Tables
 
-Tables have a class `.table`.
+`.table` - tables are styled nicely for you. Just add the class `.table`.
 
     @example
     table.table
@@ -188,100 +189,18 @@ Tables have a class `.table`.
         td Item 3
 ```
 
-Example
--------
-
-Example blocks are transformed into `div.sg-example` blocks, containing a 
-`.sg-canvas` (the actual HTML example) and `.sg-code` (with the HTML source).
-
-#### Input
-
-``` markdown
-Consider this example:
-
-    @example
-    <a class="button">Button</a>
-    <a class="button primary">Button</a>
-```
-
-#### Output
-
-``` html
-<p>Consider this example:</p>
-
-<div class="sg-example">
-  <!-- Actual HTML code is rendered here in `.sg-canvas` -->
-  <div class="sg-canvas">
-    <a class="button">Button</a>
-    <a class="button primary">Button</a>
-  </div>
-
-  <!-- Syntax-highlighted source code here in `.sg-code` -->
-  <pre class="sg-code">
-    &lt;a class="button"&gt;...
-  </pre>
-</div>
-```
-
-Syntax highlighting
--------------------
-
-Syntax highlighting comes for free, without any client-side code. Simply 
-surround your code in a code fence, and it will be highlighted via 
-[highlight.js].
-
-#### Input
-
-    See this code:
-
-    ``` javascript
-    $(function() {
-      alert("Hello");
-    });
-    ```
-
-#### Output
-
-``` html
-<p>See this code:</p>
-
-<pre class="sg-lang-javascript">
-$(<span class='hljs-function'>function</span>() {
-   alert(<span class='hljs-string'>"hello"</span>);
-});
-</pre>
-```
-
-Inline mode
------------
-
-You can put your Styledown definitions inline in your CSS files. Use
-JavaDoc-style `/** ... */` comment blocks, and begin your block with a line that
-ends in `:`.
-
-The rest of the syntax is the same as in the default Markdown mode.
-
-```css
+``` css
+<!-- style.css (Inline mode) -->
 /**
- * Section name:
- * `.your-section-here` - documentation on what your section is.
- *
+ * Tables:
+ * `.table` - tables are styled nicely for you. Just add the class `.table`.
+ * 
  *     @example
- *     div.your-section-here
- *       h3 Sample code
- *       p goes here
- */
-
-.your-section-here {
-  display: block;
-  ...
-}
-```
-
-Use `styledown -i` to generate an HTML.
-
-```bash
-$ styledown -i *.css > styleguides.html
+ *     table.table
+ *       tr
+ *         td Item 1
+ *         td Item 2
+ *         td Item 3
 ```
 
 Thanks
