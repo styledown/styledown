@@ -1,10 +1,10 @@
 Styledown
 =========
 
-<img src="cdn.rawgit.com/rstacruz/styledown/b48d80b/examples/screenshot.png" align="right" width="300">
+Write maintainable CSS styleguides efficiently using a Markdown.
+**[Example here][example]** made from [these sources][example source].
 
-Write maintainable CSS styleguides efficiently using a Markdown.<br>
-**[See this example][example]** generated from [these sources][example source].
+[![Example](https://cdn.rawgit.com/rstacruz/styledown/b48d80b/examples/screenshot.png)][example]
 
 [![Status](https://travis-ci.org/rstacruz/styledown.png?branch=master)](https://travis-ci.org/rstacruz/styledown)
 
