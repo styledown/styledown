@@ -117,7 +117,7 @@ code.sg:first-child {
  */
 
 .sg-canvas {
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .sg-padded .sg-canvas {

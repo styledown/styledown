@@ -1,0 +1,19 @@
+Bootstrap example
+=================
+
+This is an example that documents Bootstrap. It has a few files in here:
+
+    index.html       - this is the styleguides generated from the
+                       CSS files.
+
+    buttons.css      - these are CSS files with inline comments that
+    forms.css          Styledown parses.
+    components.css
+   
+    _extras.css      - contains the Styledown config, and a few overrides
+                       for the default Styledown styles.
+   
+    Makefile         - a small script that invokes Styledown to
+                       generate index.html.
+   
+To build this project, use `make`.

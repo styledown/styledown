@@ -4,7 +4,7 @@
 
 /**
  * Progress bar:
- * `.progress` - for progress bars.
+ * `.progress` - for progress bars. Set the `width` CSS attribute.
  *
  *     @example
  *     .progress
@@ -14,4 +14,66 @@
 
 .progress {
   /* ... */
+}
+
+/**
+ * Alerts:
+ * `.alert` - Provide contextual feedback messages for typical user actions
+ * with the handful of available and flexible alert messages. For inline
+ * dismissal, use the alerts jQuery plugin.
+ *
+ *     @example
+ *     .alert.alert-success
+ *       strong Well done!
+ *       | Things are going well.
+ *     .alert.alert-info
+ *       strong Heads up!
+ *       | You're a wonderful person.
+ */
+
+.alert {
+  /* ... */
+}
+
+/**
+ * Pagination:
+ * `.pagination` - Simple pagination inspired by Rdio, great for apps and
+ * search results. The large block is hard to miss, easily scalable, and
+ * provides large click areas.
+ *
+ *     @example
+ *     ul.pagination
+ *       li
+ *         a(href='#')!= "&laquo;"
+ *       li
+ *         a(href='#') 1
+ *       li
+ *         a(href='#') 2
+ *       li
+ *         a(href='#') 3
+ *       li
+ *         a(href='#') 4
+ *       li
+ *         a(href='#')!= "&raquo;"
+ */
+
+.pagination {
+  /* ... */
+}
+
+/**
+ * List group:
+ * `.list-group` - List groups are a flexible and powerful component for
+ * displaying not only simple lists of elements, but complex ones with custom
+ * content.
+ *
+ *     @example.slim
+ *     ul.list-group
+ *       li.list-group-item Apple
+ *       li.list-group-item Orange
+ *       li.list-group-item Banana
+ *       li.list-group-item Grape
+ */
+
+.list-group {
 }

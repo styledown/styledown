@@ -25,7 +25,8 @@
 
 /**
  * Form inline:
- * `.form-inline` - yep
+ * `.form-inline` - Great for forms that only occupy one line for whatever
+ * reason.
  *
  *     @example
  *     form.form-inline

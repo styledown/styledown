@@ -7,14 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/rstacruz/styledown/v0.2.0/data/styledown.css">
-    <link rel="stylesheet" href="_styledown-extras.css">
+    <link rel="stylesheet" href="_extras.css">
   </head>
   
   <body class="sg">
     <div class="jumbotron">
       <div class="container">
         <h1>Bootstrap styleguides</h1>
-        <p>Powered by Styledown</p>
+        <p>These is a sample styleguide for Bootstrap that was generated using Styledown,
+          a styleguide generator. They were taken from inline comments in the CSS.</p>
       </div>
     </div>
     <div class="container">
@@ -24,7 +25,7 @@
           <section class="sg-block sg-section-button">
             <div class="sg-text">
               <h3 id="button" class="sg">Button</h3>
-              <p class="sg"><code class="sg">.btn</code> - yeah</p>
+              <p class="sg"><code class="sg">.btn</code> - Buttons are the essence of life.</p>
             </div>
             <div class="sg-example">
               <div class="sg-canvas"><a class="btn btn-primary">Primary button</a>
@@ -69,7 +70,8 @@
           <section class="sg-block sg-section-form-inline">
             <div class="sg-text">
               <h3 id="form-inline" class="sg">Form inline</h3>
-              <p class="sg"><code class="sg">.form-inline</code> - yep</p>
+              <p class="sg"><code class="sg">.form-inline</code> - Great for forms that only occupy
+                one line for whatever reason.</p>
             </div>
             <div class="sg-example">
               <div class="sg-canvas">
@@ -105,7 +107,8 @@
           <section class="sg-block sg-section-progress-bar">
             <div class="sg-text">
               <h3 id="progress-bar" class="sg">Progress bar</h3>
-              <p class="sg"><code class="sg">.progress</code> - for progress bars.</p>
+              <p class="sg"><code class="sg">.progress</code> - for progress bars. Set the <code class="sg">width</code> CSS
+                attribute.</p>
             </div>
             <div class="sg-example">
               <div class="sg-canvas">
@@ -117,6 +120,83 @@
   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;width: 60%&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress-bar&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>60%<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
+            </div>
+          </section>
+          <section class="sg-block sg-section-alerts">
+            <div class="sg-text">
+              <h3 id="alerts" class="sg">Alerts</h3>
+              <p class="sg"><code class="sg">.alert</code> - Provide contextual feedback messages for
+                typical user actions with the handful of available and flexible alert messages.
+                For inline dismissal, use the alerts jQuery plugin.</p>
+            </div>
+            <div class="sg-example">
+              <div class="sg-canvas">
+                <div class="alert alert-success"><strong>Well done!</strong>Things are going well.</div>
+                <div class="alert alert-info"><strong>Heads up!</strong>You&apos;re a wonderful person.</div>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;alert alert-success&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">strong</span>&gt;</span>Well done!<span class="hljs-tag">&lt;/<span class="hljs-title">strong</span>&gt;</span>Things are going well.<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;alert alert-info&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">strong</span>&gt;</span>Heads up!<span class="hljs-tag">&lt;/<span class="hljs-title">strong</span>&gt;</span>You&apos;re a wonderful person.<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
+            </div>
+          </section>
+          <section class="sg-block sg-section-pagination">
+            <div class="sg-text">
+              <h3 id="pagination" class="sg">Pagination</h3>
+              <p class="sg"><code class="sg">.pagination</code> - Simple pagination inspired by Rdio,
+                great for apps and search results. The large block is hard to miss, easily
+                scalable, and provides large click areas.</p>
+            </div>
+            <div class="sg-example">
+              <div class="sg-canvas">
+                <ul class="pagination">
+                  <li><a href="#">&#xAB;</a>
+                  </li>
+                  <li><a href="#">1</a>
+                  </li>
+                  <li><a href="#">2</a>
+                  </li>
+                  <li><a href="#">3</a>
+                  </li>
+                  <li><a href="#">4</a>
+                  </li>
+                  <li><a href="#">&#xBB;</a>
+                  </li>
+                </ul>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;pagination&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>&amp;laquo;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>&amp;raquo;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span></pre>
+            </div>
+          </section>
+          <section class="sg-block sg-section-list-group">
+            <div class="sg-text">
+              <h3 id="list-group" class="sg">List group</h3>
+              <p class="sg"><code class="sg">.list-group</code> - List groups are a flexible and powerful
+                component for displaying not only simple lists of elements, but complex
+                ones with custom content.</p>
+            </div>
+            <div class="sg-example sg-slim">
+              <div class="sg-canvas">
+                <ul class="list-group">
+                  <li class="list-group-item">Apple</li>
+                  <li class="list-group-item">Orange</li>
+                  <li class="list-group-item">Banana</li>
+                  <li class="list-group-item">Grape</li>
+                </ul>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Orange<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Grape<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span></pre>
             </div>
           </section>
         </section>

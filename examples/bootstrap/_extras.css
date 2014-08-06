@@ -6,18 +6,30 @@
  *     meta(name="viewport" content="width=device-width, initial-scale=1")
  *     link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
  *     link(rel='stylesheet' href='https://cdn.rawgit.com/rstacruz/styledown/v0.2.0/data/styledown.css')
- *     link(rel='stylesheet' href='_styledown-extras.css')
+ *     link(rel='stylesheet' href='_extras.css')
  * 
  * ### Body
  * 
  *     .jumbotron
  *       .container
  *         h1 Bootstrap styleguides
- *         p Powered by Styledown
+ *         p
+ *           | These is a sample styleguide for Bootstrap that was generated using
+ *           | Styledown, a styleguide generator. They were taken from inline comments
+ *           | in the CSS.
  *     .container
  *       div(sg-content)
  */
 
 h2.sg {
   font-weight: 700;
+}
+
+.sg-canvas {
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+
+.sg-slim .sg-canvas {
+  width: 300px;
 }
