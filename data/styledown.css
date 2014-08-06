@@ -212,12 +212,12 @@ code.sg:first-child {
   display: inline-block;
 
   height: 16px;
-  width: 26px;
+  width: 36px;
   line-height: 16px;
   text-align: center;
 
   font-size: 10px;
-  background: #eee;
+  background: #fafafa;
   border-radius: 3px;
   color: #888;
 
@@ -225,8 +225,8 @@ code.sg:first-child {
 
 .sg-expando:hover:before,
 .sg-expando:focus:before {
-  color: #fff;
-  background: #444;
+  color: #222;
+  background: #ddd;
 }
 
 .sg-expando:active:before {
@@ -235,7 +235,10 @@ code.sg:first-child {
 }
 
 .sg-expando-contract:before {
-  content: '^';
-  line-height: 20px;
+  content: '\2715';
 }
+
+/*
+ * hover behavior
+ */
 
