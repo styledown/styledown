@@ -159,6 +159,50 @@
 <span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span></pre>
             </div>
           </section>
+          <section class="sg-block sg-section-input-groups">
+            <div class="sg-text">
+              <h3 id="input-groups" class="sg">Input groups</h3>
+              <p class="sg"><code class="sg">.input-group</code> - Extend form controls by adding text
+                or buttons before, after, or on both sides of any text-based input. Use
+                <code
+                class="sg">.input-group</code>with an
+<code class="sg">.input-group-addon</code> to
+                  prepend or append elements to a single <code class="sg">.form-control</code>.</p>
+            </div>
+            <div class="sg-example sg-slim">
+              <div class="sg-canvas">
+                <div class="input-group">
+                  <div class="input-group-addon">@</div>
+                  <input placeholder="Username" class="form-control">
+                </div>
+                <br>
+                <div class="input-group">
+                  <input type="text" class="form-control">
+                  <div class="input-group-addon">.00</div>
+                </div>
+                <br>
+                <div class="input-group">
+                  <div class="input-group-addon">$</div>
+                  <input type="text" class="form-control">
+                  <div class="input-group-addon">.00</div>
+                </div>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;input-group&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;input-group-addon&quot;</span>&gt;</span>@<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">placeholder</span>=<span class="hljs-value">&quot;Username&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;form-control&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">br</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;input-group&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;form-control&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;input-group-addon&quot;</span>&gt;</span>.00<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">br</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;input-group&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;input-group-addon&quot;</span>&gt;</span>$<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;form-control&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;input-group-addon&quot;</span>&gt;</span>.00<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
+            </div>
+          </section>
         </section>
         <section class="sg-section sg-section-list-group">
           <h2 id="list-group" class="sg">List group</h2>
@@ -279,26 +323,210 @@
             </div>
           </section>
         </section>
-        <section class="sg-section sg-section-components">
-          <h2 id="components" class="sg">Components</h2>
-          <section class="sg-block sg-section-progress-bar">
+        <section class="sg-section sg-section-tabs">
+          <h2 id="tabs" class="sg">Tabs</h2>
+          <section class="sg-block sg-section-basic-tabs">
             <div class="sg-text">
-              <h3 id="progress-bar" class="sg">Progress bar</h3>
+              <h3 id="basic-tabs" class="sg">Basic tabs</h3>
+              <p class="sg"><code class="sg">.nav-tabs</code> - Note that it requires a <code class="sg">.nav</code> base
+                class.</p>
+            </div>
+            <div class="sg-example sg-padded">
+              <div class="sg-canvas">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a>Home</a>
+                  </li>
+                  <li><a>Messages</a>
+                  </li>
+                  <li><a>Search</a>
+                  </li>
+                </ul>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;nav nav-tabs&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span>Messages<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span></pre>
+            </div>
+          </section>
+          <section class="sg-block sg-section-pill-tabs">
+            <div class="sg-text">
+              <h3 id="pill-tabs" class="sg">Pill tabs</h3>
+              <p class="sg"><code class="sg">.nav-pills</code> - Note that it requires a <code class="sg">.nav</code> base
+                class.</p>
+            </div>
+            <div class="sg-example">
+              <div class="sg-canvas">
+                <ul class="nav nav-pills">
+                  <li class="active"><a>Home</a>
+                  </li>
+                  <li><a>Messages</a>
+                  </li>
+                  <li><a>Search</a>
+                  </li>
+                </ul>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;nav nav-pills&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span>Messages<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span></pre>
+            </div>
+          </section>
+          <section class="sg-block sg-section-verical-pill-tabs">
+            <div class="sg-text">
+              <h3 id="verical-pill-tabs" class="sg">Verical pill tabs</h3>
+              <p class="sg"><code class="sg">.nav-pills.nav-stacked</code>
+              </p>
+            </div>
+            <div class="sg-example sg-slim sg-padded">
+              <div class="sg-canvas">
+                <ul class="nav nav-pills nav-stacked">
+                  <li class="active"><a>Home</a>
+                  </li>
+                  <li><a>Messages</a>
+                  </li>
+                  <li><a>Search</a>
+                  </li>
+                </ul>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;nav nav-pills nav-stacked&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span>Messages<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span></pre>
+            </div>
+          </section>
+        </section>
+        <section class="sg-section sg-section-progress-bars">
+          <h2 id="progress-bars" class="sg">Progress bars</h2>
+          <section class="sg-block sg-section-basic-progress-bar">
+            <div class="sg-text">
+              <h3 id="basic-progress-bar" class="sg">Basic progress bar</h3>
               <p class="sg"><code class="sg">.progress</code> - for progress bars. Set the <code class="sg">width</code> CSS
                 attribute.</p>
             </div>
             <div class="sg-example">
               <div class="sg-canvas">
                 <div class="progress">
-                  <div style="width: 60%" class="progress-bar"><span>60%</span>
+                  <div style="width: 20%" class="progress-bar"><span class="sr-only">30%</span>
                   </div>
                 </div>
               </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;width: 60%&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress-bar&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>60%<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;width: 20%&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress-bar&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;sr-only&quot;</span>&gt;</span>30%<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
             </div>
           </section>
+          <section class="sg-block sg-section-progress-bar-with-label">
+            <div class="sg-text">
+              <h3 id="progress-bar-with-label" class="sg">Progress bar with label</h3>
+              <p class="sg"><code class="sg">.progress</code> - remove the <code class="sg">.sr-only</code> class
+                from the span.</p>
+            </div>
+            <div class="sg-example">
+              <div class="sg-canvas">
+                <div class="progress">
+                  <div style="width: 22%" class="progress-bar"><span>22%</span>
+                  </div>
+                </div>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;width: 22%&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress-bar&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>22%<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
+            </div>
+          </section>
+          <section class="sg-block sg-section-low-percentages">
+            <div class="sg-text">
+              <h3 id="low-percentages" class="sg">Low percentages</h3>
+              <p class="sg"><code class="sg">.progress</code> - Progress bars representing low single
+                digit percentages, as well as 0%, include a <code class="sg">min-width: 20px;</code> for
+                legibility.</p>
+            </div>
+            <div class="sg-example">
+              <div class="sg-canvas">
+                <div class="progress">
+                  <div style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                  class="progress-bar"><span>0%</span>
+                  </div>
+                </div>
+                <div class="progress">
+                  <div style="width: 2%" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"
+                  class="progress-bar"><span>2%</span>
+                  </div>
+                </div>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;width: 0%&quot;</span> <span class="hljs-attribute">aria-valuenow</span>=<span class="hljs-value">&quot;0&quot;</span> <span class="hljs-attribute">aria-valuemin</span>=<span class="hljs-value">&quot;0&quot;</span> <span class="hljs-attribute">aria-valuemax</span>=<span class="hljs-value">&quot;100&quot;</span>
+  <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress-bar&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>0%<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;width: 2%&quot;</span> <span class="hljs-attribute">aria-valuenow</span>=<span class="hljs-value">&quot;2&quot;</span> <span class="hljs-attribute">aria-valuemin</span>=<span class="hljs-value">&quot;0&quot;</span> <span class="hljs-attribute">aria-valuemax</span>=<span class="hljs-value">&quot;100&quot;</span>
+  <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress-bar&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>2%<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
+            </div>
+          </section>
+          <section class="sg-block sg-section-contextual-alternatives">
+            <div class="sg-text">
+              <h3 id="contextual-alternatives" class="sg">Contextual alternatives</h3>
+              <p class="sg"><code class="sg">.progress-bar-*</code> - Progress bars use some of the
+                same button and alert classes for consistent styles.</p>
+            </div>
+            <div class="sg-example">
+              <div class="sg-canvas">
+                <div class="progress">
+                  <div style="width: 10%" class="progress-bar progress-bar-success"></div>
+                </div>
+                <div class="progress">
+                  <div style="width: 30%" class="progress-bar progress-bar-info"></div>
+                </div>
+                <div class="progress">
+                  <div style="width: 20%" class="progress-bar progress-bar-warning"></div>
+                </div>
+                <div class="progress">
+                  <div style="width: 40%" class="progress-bar progress-bar-danger"></div>
+                </div>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;width: 10%&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress-bar progress-bar-success&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;width: 30%&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress-bar progress-bar-info&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;width: 20%&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress-bar progress-bar-warning&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;width: 40%&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress-bar progress-bar-danger&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
+            </div>
+          </section>
+          <section class="sg-block sg-section-striped">
+            <div class="sg-text">
+              <h3 id="striped" class="sg">Striped</h3>
+              <p class="sg"><code class="sg">.progress-bar-stripped</code> - not available in IE8.</p>
+            </div>
+            <div class="sg-example">
+              <div class="sg-canvas">
+                <div class="progress">
+                  <div style="width: 25%" class="progress-bar progress-bar-striped"><span>25%</span>
+                  </div>
+                </div>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;width: 25%&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;progress-bar progress-bar-striped&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>25%<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
+            </div>
+          </section>
+        </section>
+        <section class="sg-section sg-section-components">
+          <h2 id="components" class="sg">Components</h2>
           <section class="sg-block sg-section-alerts">
             <div class="sg-text">
               <h3 id="alerts" class="sg">Alerts</h3>

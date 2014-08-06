@@ -42,3 +42,28 @@
 .form-inline {
   /* ... */
 }
+
+/**
+ * Input groups:
+ * `.input-group` - Extend form controls by adding text or buttons before,
+ * after, or on both sides of any text-based input. Use `.input-group` with an
+ * `.input-group-addon` to prepend or append elements to a single `.form-control`.
+ *
+ *     @example.slim
+ *     .input-group
+ *       .input-group-addon @
+ *       input.form-control(placeholder='Username')
+ *     br
+ *     .input-group
+ *       input.form-control(type='text')
+ *       .input-group-addon .00
+ *     br
+ *     .input-group
+ *       .input-group-addon $
+ *       input.form-control(type='text')
+ *       .input-group-addon .00
+ */
+
+.input-group {
+  /* ... */
+}

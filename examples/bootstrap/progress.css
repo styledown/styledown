@@ -1,0 +1,83 @@
+/***
+ * Progress bars:
+ */
+
+/**
+ * Basic progress bar:
+ * `.progress` - for progress bars. Set the `width` CSS attribute.
+ *
+ *     @example
+ *     .progress
+ *       .progress-bar(style='width: 20%')
+ *         span.sr-only 30%
+ */
+
+.progress {
+  /* ... */
+}
+
+/**
+ * Progress bar with label:
+ * `.progress` - remove the `.sr-only` class from the span.
+ *
+ *     @example
+ *     .progress
+ *       .progress-bar(style='width: 22%')
+ *         span 22%
+ */
+
+.progress {
+  /* ... */
+}
+
+/**
+ * Low percentages:
+ * `.progress` - Progress bars representing low single digit percentages, as
+ * well as 0%, include a `min-width: 20px;` for legibility.
+ *
+ *     @example
+ *     .progress
+ *       .progress-bar(style='width: 0%' aria-valuenow=0 aria-valuemin=0 aria-valuemax=100)
+ *         span 0%
+ *     .progress
+ *       .progress-bar(style='width: 2%' aria-valuenow=2 aria-valuemin=0 aria-valuemax=100)
+ *         span 2%
+ */
+
+.progress {
+  /* ... */
+}
+
+/**
+ * Contextual alternatives:
+ * `.progress-bar-*` - Progress bars use some of the same button and alert
+ * classes for consistent styles.
+ *
+ *     @example
+ *     .progress
+ *       .progress-bar.progress-bar-success(style='width: 10%')
+ *     .progress
+ *       .progress-bar.progress-bar-info(style='width: 30%')
+ *     .progress
+ *       .progress-bar.progress-bar-warning(style='width: 20%')
+ *     .progress
+ *       .progress-bar.progress-bar-danger(style='width: 40%')
+ */
+
+.progress {
+  /* ... */
+}
+
+/**
+ * Striped:
+ * `.progress-bar-stripped` - not available in IE8.
+ *
+ *     @example
+ *     .progress
+ *       .progress-bar.progress-bar-striped(style='width: 25%')
+ *         span 25%
+ */
+
+.progress-bar-striped {
+  /* ... */
+}

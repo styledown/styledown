@@ -1,0 +1,57 @@
+/***
+ * Tabs:
+ */
+
+/**
+ * Basic tabs:
+ * `.nav-tabs` - Note that it requires a `.nav` base class.
+ *
+ *     @example.padded
+ *     ul.nav.nav-tabs
+ *       li.active
+ *         a Home
+ *       li
+ *         a Messages
+ *       li
+ *         a Search
+ */
+
+.nav-tabs {
+  /* ... */
+}
+
+/**
+ * Pill tabs:
+ * `.nav-pills` - Note that it requires a `.nav` base class.
+ *
+ *     @example
+ *     ul.nav.nav-pills
+ *       li.active
+ *         a Home
+ *       li
+ *         a Messages
+ *       li
+ *         a Search
+ */
+
+.nav-tabs {
+  /* ... */
+}
+
+/**
+ * Verical pill tabs:
+ * `.nav-pills.nav-stacked`
+ *
+ *     @example.slim.padded
+ *     ul.nav.nav-pills.nav-stacked
+ *       li.active
+ *         a Home
+ *       li
+ *         a Messages
+ *       li
+ *         a Search
+ */
+
+.nav-tabs {
+  /* ... */
+}

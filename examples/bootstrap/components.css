@@ -3,20 +3,6 @@
  */
 
 /**
- * Progress bar:
- * `.progress` - for progress bars. Set the `width` CSS attribute.
- *
- *     @example
- *     .progress
- *       .progress-bar(style='width: 60%')
- *         span 60%
- */
-
-.progress {
-  /* ... */
-}
-
-/**
  * Alerts:
  * `.alert` - Provide contextual feedback messages for typical user actions
  * with the handful of available and flexible alert messages. For inline
