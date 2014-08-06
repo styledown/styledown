@@ -4,7 +4,7 @@ Styledown
 Write maintainable CSS styleguides efficiently using a Markdown.
 **[Example here][example]** made from [these sources][example source].
 
-[![Example](https://cdn.rawgit.com/rstacruz/styledown/b0d339c/examples/screenshot.png)][example]
+[![Example](https://cdn.rawgit.com/rstacruz/styledown/81a1d9c/examples/screenshot.png)][example]
 
 [![Status](https://travis-ci.org/rstacruz/styledown.png?branch=master)](https://travis-ci.org/rstacruz/styledown)
 
