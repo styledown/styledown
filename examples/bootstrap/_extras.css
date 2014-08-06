@@ -20,6 +20,7 @@
  *           | in the CSS.
  *         p
  *           a.btn.btn-default(href="https://github.com/rstacruz/styledown") Learn about Styledown
+ *           a.btn.btn-default(href="https://github.com/rstacruz/styledown/tree/master/examples/bootstrap") See sources
  *     .container
  *       div(sg-content)
  */
@@ -59,9 +60,15 @@
   font-size: 0.8em;
   letter-spacing: 1px;
   padding: 10px 30px;
-  margin-top: 10px;
+  margin: 10px 5px 0 5px;
   color: #1a8;
   border-color: #ddd;
+}
+
+.jumbotron .btn:hover {
+  background: #1a8;
+  border-color: transparent;
+  color: #fff;
 }
 
 .jumbotron .container {
