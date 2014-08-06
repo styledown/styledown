@@ -1,0 +1,17 @@
+/***
+ * Components:
+ */
+
+/**
+ * Progress bar:
+ * `.progress` - for progress bars.
+ *
+ *     @example
+ *     .progress
+ *       .progress-bar(style='width: 60%')
+ *         span 60%
+ */
+
+.progress {
+  /* ... */
+}

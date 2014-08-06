@@ -101,10 +101,11 @@ $ styledown --css > css/styledown/styledown.css
 
 #### Step 3: Build
 
-Invoke `styledown` to generate an HTML file.
+Invoke `styledown` to generate an HTML file. (Mkae sure that the extras.css is
+passed on the end, since anything after the "Styleguide options" heading is ignored.)
 
 ```bash
-$ styledown -i css/styledown/*.css css/components/*.css > public/styleguides.html
+$ styledown -i css/components/*.css css/styledown/*.css > public/styleguides.html
 ```
 
 #### Enjoy!
