@@ -9,6 +9,9 @@ This is an example that documents Bootstrap. It has a few files in here:
     buttons.css      - these are CSS files with inline comments that
     forms.css          Styledown parses.
     components.css
+    lists.css
+    panels.css
+    ...
    
     _extras.css      - contains the Styledown config, and a few overrides
                        for the default Styledown styles.
