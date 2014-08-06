@@ -15,11 +15,11 @@
  *       .container
  *         h1 Bootstrap styleguides
  *         p
- *           | These is a sample styleguide for Bootstrap that was generated using
+ *           | This is a sample styleguide for Bootstrap that was generated using
  *           | Styledown, a styleguide generator. They were taken from inline comments
  *           | in the CSS.
  *         p
- *           a.btn.btn-default(href="https://github.com/rstacruz/styledown") Learn about Styledown
+ *           a.btn.btn-default(href="https://github.com/rstacruz/styledown") About Styledown
  *           a.btn.btn-default(href="https://github.com/rstacruz/styledown/tree/master/examples/bootstrap") See sources
  *     .container
  *       div(sg-content)
