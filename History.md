@@ -1,3 +1,8 @@
+## v0.5.0 - unreleased
+
+ * CSS: improve appearance of code examples.
+ * CSS: make the layout responsive.
+
 ## v0.4.1 - August 6, 2014
 
  * Update examples. No other changes.
