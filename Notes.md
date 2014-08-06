@@ -4,7 +4,7 @@ Updating versions
     # there will be references to old versions in docs.
     # update them.
 
-      perl -p -i -e "s#styledown/v0.4.1/#styledown/v0.4.1/#g" *.md examples/*/*
+      perl -p -i -e "s#styledown/v^[/]+/#styledown/v0.4.1/#g" Readme.md
 
     # release
 
