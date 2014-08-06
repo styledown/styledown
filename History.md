@@ -1,4 +1,9 @@
-## v0.3.0 - unreleased
+## v0.4.0 - August 6, 2014
+
+ * Implement some JavaScript, which you can get via `styledown --js`.
+ * HTML code is now hidden by default. (Requires the use of JS)
+
+## v0.3.0 - August 6, 2014
 
  * Remove the undocumented Express/Connect middleware.
  * Add more examples.

@@ -85,7 +85,8 @@ where everything goes).
  * ### Head
  *
  *     link(rel="stylesheet" href="/assets/application.css")
- *     link(rel="stylesheet" href="/assets/styledown.css")
+ *     link(rel='stylesheet' href='https://cdn.rawgit.com/rstacruz/styledown/v0.4.0/data/styledown.css')
+ *     script(src='https://cdn.rawgit.com/rstacruz/styledown/v0.4.0/data/styledown.js')
  *
  * ### Body
  *
@@ -95,14 +96,15 @@ where everything goes).
 ```
 
 The first one (`application.css`) should point to your project's concatenated
-stylesheets. The second one (`styledown.css`) should point to the default
-Styledown stylesheets.
+stylesheets. The second and third one (`styledown.css` and `styledown.js`)
+point to the default Styledown CSS/JS files.
 
-So, put the default Styledown stylesheets in your project. Put this whereever
-convenient. Just make sure that the styleguides links to this (see above).
+Optional: if you would like to have the CSS and JS files in your project
+instead of loaded via CDN, use:
 
-```bash
-$ styledown --css > css/styledown/styledown.css
+```sh
+$ styledown --css > styledown.css
+$ styledown --js  > styledown.js
 ```
 
 #### Step 3: Build
