@@ -25,10 +25,10 @@
  *     @example
  *     .alert.alert-success
  *       strong Well done!
- *       | Things are going well.
+ *       |  Things are going well.
  *     .alert.alert-info
  *       strong Heads up!
- *       | You're a wonderful person.
+ *       |  You're a wonderful person.
  */
 
 .alert {
