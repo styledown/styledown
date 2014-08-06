@@ -18,7 +18,7 @@ $ styledown --help
 
 [![npm version](https://badge.fury.io/js/styledown.svg)](https://npmjs.org/package/styledown "View this project on npm")
 
-[example]: http://cdn.rawgit.com/rstacruz/styledown/1389514/examples/bootstrap/index.html
+[example]: http://cdn.rawgit.com/rstacruz/styledown/b7a1748/examples/bootstrap/index.html
 [example source]: https://github.com/rstacruz/styledown/tree/master/examples/bootstrap
 
 How it works
