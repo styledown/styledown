@@ -182,9 +182,91 @@
 <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span></pre>
             </div>
           </section>
-          <section class="sg-block sg-section-list-group">
+          <section class="sg-block sg-section-pager">
             <div class="sg-text">
-              <h3 id="list-group" class="sg">List group</h3>
+              <h3 id="pager" class="sg">Pager</h3>
+              <p class="sg"><code class="sg">.pager</code> - by default, it centers links.</p>
+            </div>
+            <div class="sg-example sg-padded">
+              <div class="sg-canvas">
+                <ul class="pager">
+                  <li><a>Previous</a>
+                  </li>
+                  <li><a>Next</a>
+                  </li>
+                </ul>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;pager&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span>Previous<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span>Next<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span></pre>
+            </div>
+          </section>
+          <section class="sg-block sg-section-labels">
+            <div class="sg-text">
+              <h3 id="labels" class="sg">Labels</h3>
+              <p class="sg"><code class="sg">.label</code> - Used for labelling things that need labels.</p>
+            </div>
+            <div class="sg-example">
+              <div class="sg-canvas"><span class="label label-default">Default</span>
+
+<span class="label label-primary">Primary</span>
+
+                <span
+                class="label label-success">Success</span>
+<span class="label label-info">Info</span>
+
+<span class="label label-warning">Warning</span>
+
+                  <span
+                  class="label label-danger">Danger</span>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;label label-default&quot;</span>&gt;</span>Default<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;label label-primary&quot;</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">span
+class=&quot;label</span> <span class="hljs-attribute">label-success</span>&quot;&gt;</span>Success<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;label label-info&quot;</span>&gt;</span>Info<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;label label-warning&quot;</span>&gt;</span>Warning<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">span
+</span>  <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;label label-danger&quot;</span>&gt;</span>Danger<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span></pre>
+            </div>
+          </section>
+          <section class="sg-block sg-section-breadcrumbs">
+            <div class="sg-text">
+              <h3 id="breadcrumbs" class="sg">Breadcrumbs</h3>
+              <p class="sg"><code class="sg">.breadcrumb</code> - Indicate the current page&apos;s
+                location within a navigational hierarchy. Separators are automatically
+                added in CSS through <em class="sg">:before</em> and
+<em class="sg">content</em>.</p>
+            </div>
+            <div class="sg-example">
+              <div class="sg-canvas">
+                <ol class="breadcrumb">
+                  <li><a>Home</a>
+                  </li>
+                  <li><a>Library</a>
+                  </li>
+                  <li class="active">Data</li>
+                </ol>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">ol</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;breadcrumb&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span>Library<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;active&quot;</span>&gt;</span>Data<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">ol</span>&gt;</span></pre>
+            </div>
+          </section>
+        </section>
+        <section class="sg-section sg-section-list-group">
+          <h2 id="list-group" class="sg">List group</h2>
+          <section class="sg-block sg-section-basic-list-group">
+            <div class="sg-text">
+              <h3 id="basic-list-group" class="sg">Basic list group</h3>
               <p class="sg"><code class="sg">.list-group</code> - List groups are a flexible and powerful
                 component for displaying not only simple lists of elements, but complex
                 ones with custom content.</p>
@@ -202,6 +284,29 @@
   <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Orange<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Grape<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span></pre>
+            </div>
+          </section>
+          <section class="sg-block sg-section-list-group-with-badges">
+            <div class="sg-text">
+              <h3 id="list-group-with-badges" class="sg">List group with badges</h3>
+              <p class="sg"><code class="sg">.list-group</code> with <code class="sg">span.badge</code> -
+                Add the badges component to any list group item and it will automatically
+                be positioned on the right.</p>
+            </div>
+            <div class="sg-example sg-slim">
+              <div class="sg-canvas">
+                <ul class="list-group">
+                  <li class="list-group-item"><span class="badge">14</span>Apple</li>
+                  <li class="list-group-item"><span class="badge">8</span>Orange</li>
+                  <li class="list-group-item">Banana</li>
+                  <li class="list-group-item"><span class="badge">1</span>Grape</li>
+                </ul>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;badge&quot;</span>&gt;</span>14<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;badge&quot;</span>&gt;</span>8<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>Orange<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;badge&quot;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>Grape<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span></pre>
             </div>
           </section>

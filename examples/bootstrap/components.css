@@ -62,7 +62,64 @@
 }
 
 /**
+ * Pager:
+ * `.pager` - by default, it centers links.
+ *
+ *     @example.padded
+ *     ul.pager
+ *       li
+ *         a Previous
+ *       li
+ *         a Next
+ */
+
+.pager {
+  /* ... */
+}
+
+/**
+ * Labels:
+ * `.label` - Used for labelling things that need labels.
+ *
+ *     @example
+ *     <span class="label label-default">Default</span>
+ *     <span class="label label-primary">Primary</span>
+ *     <span class="label label-success">Success</span>
+ *     <span class="label label-info">Info</span>
+ *     <span class="label label-warning">Warning</span>
+ *     <span class="label label-danger">Danger</span>
+ */
+
+.label {
+  /* ... */
+}
+
+/**
+ * Breadcrumbs:
+ * `.breadcrumb` - Indicate the current page's location within a navigational
+ * hierarchy. Separators are automatically added in CSS through *:before* and
+ * *content*.
+ *
+ *     @example
+ *     ol.breadcrumb
+ *       li
+ *         a Home
+ *       li
+ *         a Library
+ *        li.active
+ *         | Data
+ */
+
+.breadcrumb {
+  /* ... */
+}
+
+/***
  * List group:
+ */
+
+/**
+ * Basic list group:
  * `.list-group` - List groups are a flexible and powerful component for
  * displaying not only simple lists of elements, but complex ones with custom
  * content.
@@ -76,4 +133,29 @@
  */
 
 .list-group {
+  /* ... */
 }
+
+/**
+ * List group with badges:
+ * `.list-group` with `span.badge` - Add the badges component to any list group
+ * item and it will automatically be positioned on the right.
+ *
+ *     @example.slim
+ *     ul.list-group
+ *       li.list-group-item
+ *         span.badge 14
+ *         | Apple
+ *       li.list-group-item
+ *         span.badge 8
+ *         | Orange
+ *       li.list-group-item Banana
+ *       li.list-group-item
+ *         span.badge 1
+ *         | Grape
+ */
+
+.list-group {
+  /* ... */
+}
+
