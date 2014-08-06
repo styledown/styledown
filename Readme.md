@@ -18,7 +18,7 @@ $ styledown --help
 
 [![npm version](https://badge.fury.io/js/styledown.svg)](https://npmjs.org/package/styledown "View this project on npm")
 
-[example]: http://cdn.rawgit.com/rstacruz/styledown/v0.4.0/examples/bootstrap/index.html
+[example]: http://cdn.rawgit.com/rstacruz/styledown/v0.4.1/examples/bootstrap/index.html
 [example source]: https://github.com/rstacruz/styledown/tree/master/examples/bootstrap
 
 Quickstart guide
@@ -85,8 +85,8 @@ where everything goes).
  * ### Head
  *
  *     link(rel="stylesheet" href="/assets/application.css")
- *     link(rel='stylesheet' href='https://cdn.rawgit.com/rstacruz/styledown/v0.4.0/data/styledown.css')
- *     script(src='https://cdn.rawgit.com/rstacruz/styledown/v0.4.0/data/styledown.js')
+ *     link(rel='stylesheet' href='https://cdn.rawgit.com/rstacruz/styledown/v0.4.1/data/styledown.css')
+ *     script(src='https://cdn.rawgit.com/rstacruz/styledown/v0.4.1/data/styledown.js')
  *
  * ### Body
  *

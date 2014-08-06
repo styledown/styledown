@@ -1,10 +1,10 @@
 Updating versions
 -----------------
 
-    # there will be references to old versions in docs,
-    # (eg, styledown/v0.3.0) and these should be updated.
+    # there will be references to old versions in docs.
+    # update them.
 
-      perl -p -i -e "s#styledown/v0.4.0/#styledown/v0.4.0/#g" *.md examples/*/*
+      perl -p -i -e "s#styledown/v0.4.1/#styledown/v0.4.1/#g" *.md examples/*/*
 
     # release
 

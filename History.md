@@ -1,3 +1,7 @@
+## v0.4.1 - August 6, 2014
+
+ * Update examples. No other changes.
+
 ## v0.4.0 - August 6, 2014
 
  * Implement some JavaScript, which you can get via `styledown --js`.
