@@ -137,15 +137,15 @@ code.sg:first-child {
  */
 
 .sg-code {
-  border: solid 1px rgba(0, 0, 0, 0.1);
+  border: solid 1px transparent;
   overflow-x: auto;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 
   margin: 0;
-  padding: 10px 20px;
+  padding: 20px;
 
-  font-size: 0.8em;
+  font-size: 0.85em;
   font-family: menlo, monospace;
   line-height: 1.5;
   background: #fafaff;
@@ -173,7 +173,7 @@ code.sg:first-child {
 .sg .hljs-string,
 .sg .hljs-number,
 .sg .hljs-value {
-  color: #7bc;
+  color: #3ac;
 }
 
 /*
