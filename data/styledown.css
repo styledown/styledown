@@ -172,3 +172,69 @@ code.sg:first-child {
 .sg .hljs-value {
   color: #7bc;
 }
+
+/*
+ * Code expansion
+ *
+ *     .sg-example
+ *       .sg-canvas
+ *       pre.sg-code
+ *       button.sg-expando
+ */
+
+.sg-code.sg-hidden {
+  display: none;
+}
+
+.sg-expando {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  background: transparent;
+
+  position: relative;
+  top: -10px;
+  left: -10px;
+  padding: 5px 10px;
+  margin-bottom: -20px;
+}
+
+.sg-expando-contract {
+  top: 0;
+  margin-bottom: 0;
+}
+
+.sg-expando:before {
+  content: '•••';
+  display: inline-block;
+
+  height: 16px;
+  width: 26px;
+  line-height: 16px;
+  text-align: center;
+
+  font-size: 10px;
+  background: #eee;
+  border-radius: 3px;
+  color: #888;
+
+}
+
+.sg-expando:hover:before,
+.sg-expando:focus:before {
+  color: #fff;
+  background: #444;
+}
+
+.sg-expando:active:before {
+  color: #fff;
+  background: #111;
+}
+
+.sg-expando-contract:before {
+  content: '^';
+  line-height: 20px;
+}
+
