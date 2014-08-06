@@ -97,20 +97,23 @@ code.sg:first-child {
  * Text element
  */
 
-.sg-text {
-  float: left;
-  width: 26%;
+@media (min-width: 768px) {
+  .sg-text {
+    float: left;
+    width: 26%;
+  }
+
+  .sg-text + .sg-example,
+  .sg-text + .sg-code {
+    float: right;
+    width: 70%;
+  }
 }
 
 .sg-text > :first-child {
   margin-top: 0;
 }
 
-.sg-text + .sg-example,
-.sg-text + .sg-code {
-  float: right;
-  width: 70%;
-}
 
 /**
  * An example's canvas.
