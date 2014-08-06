@@ -21,6 +21,17 @@ $ styledown --help
 [example]: http://cdn.rawgit.com/rstacruz/styledown/v0.4.1/examples/bootstrap/index.html
 [example source]: https://github.com/rstacruz/styledown/tree/master/examples/bootstrap
 
+How it works
+------------
+
+Styledown is made to work in most web development setups. It doesn't favor any 
+framework or language or any preprocessor.
+
+ * Document your CSS files with inline comments, or as a separate `.md` file.
+ * Create a file with styleguide configuration (a CSS file with some comments).
+ * Invoke `styledown *.css > styleguide.html`.
+ * Enjoy your styleguide!
+
 Quickstart guide
 ----------------
 
@@ -201,6 +212,7 @@ want Jade or HTML. This allows you to write simpler example code.
  *         td Item 1
  *         td Item 2
  *         td Item 3
+ */
 ```
 
 Thanks
