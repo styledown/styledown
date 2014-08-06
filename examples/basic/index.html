@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Styledown</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styledown.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/rstacruz/styledown/v0.2.0/data/styledown.css">
   </head>
   
   <body class="sg">
@@ -26,7 +26,7 @@
             </div>
             <div class="sg-example">
               <div class="sg-canvas"><a class="button">Confirm</a>  <a class="button primary">Success</a>
-              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"button"</span>&gt;</span>Confirm<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"button primary"</span>&gt;</span>Success<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span></pre>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;button&quot;</span>&gt;</span>Confirm<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;button primary&quot;</span>&gt;</span>Success<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span></pre>
             </div>
           </section>
           <section class="sg-block sg-section-button-sizes">
@@ -36,7 +36,7 @@
             </div>
             <div class="sg-example">
               <div class="sg-canvas"><a class="button small">Confirm</a>  <a class="button large">Success</a>
-              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"button small"</span>&gt;</span>Confirm<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"button large"</span>&gt;</span>Success<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span></pre>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;button small&quot;</span>&gt;</span>Confirm<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;button large&quot;</span>&gt;</span>Success<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span></pre>
             </div>
           </section>
         </section>
@@ -47,13 +47,13 @@
               <h3 id="jquery" class="sg">jQuery</h3>
               <p class="sg">This is an example with jQuery:</p>
             </div><pre class="sg sg-lang-javascript sg-code"><span class="hljs-keyword">var</span> Foo = {
-  start: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+  start: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-comment">/* do things */</span>;
-    alert(<span class="hljs-string">"Hi"</span>, <span class="hljs-number">2</span>);
+    alert(<span class="hljs-string">&quot;Hi&quot;</span>, <span class="hljs-number">2</span>);
   }
 };
 
-$(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onload</span><span class="hljs-params">()</span> {</span>});
+$(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onload</span><span class="hljs-params">()</span> </span>{});
 </pre>
           </section>
         </section>
@@ -72,9 +72,9 @@ $(<span class="hljs-function"><span class="hljs-keyword">function</span> <span c
                     </li>
                   </ul>
                 </div>
-              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"dropdown-menu"</span>&gt;</span>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;dropdown-menu&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">ul</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"#"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
@@ -102,7 +102,7 @@ $(<span class="hljs-function"><span class="hljs-keyword">function</span> <span c
                     <td>Yes</td>
                   </tr>
                 </table>
-              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">table</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"table"</span>&gt;</span>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">table</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;table&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">tr</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">th</span>&gt;</span>One<span class="hljs-tag">&lt;/<span class="hljs-title">th</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">th</span>&gt;</span>Two<span class="hljs-tag">&lt;/<span class="hljs-title">th</span>&gt;</span>
@@ -141,13 +141,13 @@ $(<span class="hljs-function"><span class="hljs-keyword">function</span> <span c
                     <input type="radio"><span>Radio button 2</span>
                   </label>
                 </form>
-              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"form"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">label</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"radio"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"radio"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>Radio button 1<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;form&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">label</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;radio&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;radio&quot;</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>Radio button 1<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">label</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">br</span>/&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">label</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"radio"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"radio"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>Radio button 2<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">label</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;radio&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;radio&quot;</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>Radio button 2<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">label</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span></pre>
             </div>
@@ -163,7 +163,7 @@ $(<span class="hljs-function"><span class="hljs-keyword">function</span> <span c
             <div class="sg-example">
               <div class="sg-canvas">
                 <div class="subtle-text">Subtle text</div>
-              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"subtle-text"</span>&gt;</span>Subtle text<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;subtle-text&quot;</span>&gt;</span>Subtle text<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
             </div>
           </section>
           <section class="sg-block sg-section-time-stamp">
@@ -175,7 +175,7 @@ $(<span class="hljs-function"><span class="hljs-keyword">function</span> <span c
             <div class="sg-example">
               <div class="sg-canvas">
                 <div class="time-stamp">2 hours ago</div>
-              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"time-stamp"</span>&gt;</span>2 hours ago<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;time-stamp&quot;</span>&gt;</span>2 hours ago<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
             </div>
           </section>
           <section class="sg-block sg-section-labels">
@@ -186,7 +186,7 @@ $(<span class="hljs-function"><span class="hljs-keyword">function</span> <span c
             <div class="sg-example">
               <div class="sg-canvas">
                 <div class="ylabel">Bruce Lee</div>
-              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"ylabel"</span>&gt;</span>Bruce Lee<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ylabel&quot;</span>&gt;</span>Bruce Lee<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
             </div>
           </section>
         </section>

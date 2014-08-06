@@ -1,2 +1,4 @@
-index.html: Sample.md
-	../bin/styledown < $^ > $@
+styledown = ../../bin/styledown
+
+index.html: Styles.md
+	$(styledown) < $^ > $@

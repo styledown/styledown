@@ -126,7 +126,7 @@ Labels or tags that you can append inline with text.
 
 ### Head
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styledown.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/rstacruz/styledown/v0.2.0/data/styledown.css">
 
 ### Body
     div.styleguide
