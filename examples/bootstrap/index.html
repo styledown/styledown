@@ -108,6 +108,125 @@
             </div>
           </section>
         </section>
+        <section class="sg-section sg-section-list-group">
+          <h2 id="list-group" class="sg">List group</h2>
+          <section class="sg-block sg-section-basic-list-group">
+            <div class="sg-text">
+              <h3 id="basic-list-group" class="sg">Basic list group</h3>
+              <p class="sg"><code class="sg">.list-group</code> - List groups are a flexible and powerful
+                component for displaying not only simple lists of elements, but complex
+                ones with custom content.</p>
+            </div>
+            <div class="sg-example sg-slim">
+              <div class="sg-canvas">
+                <ul class="list-group">
+                  <li class="list-group-item">Apple</li>
+                  <li class="list-group-item">Orange</li>
+                  <li class="list-group-item">Banana</li>
+                  <li class="list-group-item">Grape</li>
+                </ul>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Orange<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Grape<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span></pre>
+            </div>
+          </section>
+          <section class="sg-block sg-section-list-group-with-badges">
+            <div class="sg-text">
+              <h3 id="list-group-with-badges" class="sg">List group with badges</h3>
+              <p class="sg"><code class="sg">.list-group</code> with <code class="sg">span.badge</code> -
+                Add the badges component to any list group item and it will automatically
+                be positioned on the right.</p>
+            </div>
+            <div class="sg-example sg-slim">
+              <div class="sg-canvas">
+                <ul class="list-group">
+                  <li class="list-group-item"><span class="badge">14</span>Apple</li>
+                  <li class="list-group-item"><span class="badge">8</span>Orange</li>
+                  <li class="list-group-item">Banana</li>
+                  <li class="list-group-item"><span class="badge">1</span>Grape</li>
+                </ul>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;badge&quot;</span>&gt;</span>14<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;badge&quot;</span>&gt;</span>8<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>Orange<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;badge&quot;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>Grape<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span></pre>
+            </div>
+          </section>
+        </section>
+        <section class="sg-section sg-section-panels">
+          <h2 id="panels" class="sg">Panels</h2>
+          <section class="sg-block sg-section-basic-panel">
+            <div class="sg-text">
+              <h3 id="basic-panel" class="sg">Basic panel</h3>
+              <p class="sg"><code class="sg">.panel</code> - By default, all the .panel does is apply
+                some basic border and padding to contain some content.</p>
+            </div>
+            <div class="sg-example">
+              <div class="sg-canvas">
+                <div class="panel panel-default">
+                  <div class="panel-body">Basic panel example</div>
+                </div>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel panel-default&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel-body&quot;</span>&gt;</span>Basic panel example<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
+            </div>
+          </section>
+          <section class="sg-block sg-section-panel-with-heading">
+            <div class="sg-text">
+              <h3 id="panel-with-heading" class="sg">Panel with heading</h3>
+              <p class="sg"><code class="sg">.panel-heading</code> - Easily add a heading container
+                to your panel with
+<code class="sg">.panel-heading</code>.</p>
+            </div>
+            <div class="sg-example">
+              <div class="sg-canvas">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Without a title</div>
+                  <div class="panel-body">Basic panel example</div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                  </div>
+                  <div class="panel-body">Basic panel example</div>
+                </div>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel panel-default&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel-heading&quot;</span>&gt;</span>Without a title<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel-body&quot;</span>&gt;</span>Basic panel example<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel panel-default&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel-heading&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">h3</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel-title&quot;</span>&gt;</span>Panel title<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel-body&quot;</span>&gt;</span>Basic panel example<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
+            </div>
+          </section>
+          <section class="sg-block sg-section-panel-with-footer">
+            <div class="sg-text">
+              <h3 id="panel-with-footer" class="sg">Panel with footer</h3>
+              <p class="sg"><code class="sg">.panel-footer</code> - Wrap buttons or secondary text
+                in <code class="sg">.panel-footer</code>. Note that panel footers do not
+                inherit colors and borders when using contextual variations as they are
+                not meant to be in the foreground.</p>
+            </div>
+            <div class="sg-example">
+              <div class="sg-canvas">
+                <div class="panel panel-default">
+                  <div class="panel-body">Panel content</div>
+                  <div class="panel-footer">Panel footer</div>
+                </div>
+              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel panel-default&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel-body&quot;</span>&gt;</span>Panel content<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel-footer&quot;</span>&gt;</span>Panel footer<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></pre>
+            </div>
+          </section>
+        </section>
         <section class="sg-section sg-section-components">
           <h2 id="components" class="sg">Components</h2>
           <section class="sg-block sg-section-progress-bar">
@@ -259,55 +378,6 @@ class=&quot;label</span> <span class="hljs-attribute">label-success</span>&quot;
   <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;active&quot;</span>&gt;</span>Data<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">ol</span>&gt;</span></pre>
-            </div>
-          </section>
-        </section>
-        <section class="sg-section sg-section-list-group">
-          <h2 id="list-group" class="sg">List group</h2>
-          <section class="sg-block sg-section-basic-list-group">
-            <div class="sg-text">
-              <h3 id="basic-list-group" class="sg">Basic list group</h3>
-              <p class="sg"><code class="sg">.list-group</code> - List groups are a flexible and powerful
-                component for displaying not only simple lists of elements, but complex
-                ones with custom content.</p>
-            </div>
-            <div class="sg-example sg-slim">
-              <div class="sg-canvas">
-                <ul class="list-group">
-                  <li class="list-group-item">Apple</li>
-                  <li class="list-group-item">Orange</li>
-                  <li class="list-group-item">Banana</li>
-                  <li class="list-group-item">Grape</li>
-                </ul>
-              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Orange<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Grape<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span></pre>
-            </div>
-          </section>
-          <section class="sg-block sg-section-list-group-with-badges">
-            <div class="sg-text">
-              <h3 id="list-group-with-badges" class="sg">List group with badges</h3>
-              <p class="sg"><code class="sg">.list-group</code> with <code class="sg">span.badge</code> -
-                Add the badges component to any list group item and it will automatically
-                be positioned on the right.</p>
-            </div>
-            <div class="sg-example sg-slim">
-              <div class="sg-canvas">
-                <ul class="list-group">
-                  <li class="list-group-item"><span class="badge">14</span>Apple</li>
-                  <li class="list-group-item"><span class="badge">8</span>Orange</li>
-                  <li class="list-group-item">Banana</li>
-                  <li class="list-group-item"><span class="badge">1</span>Grape</li>
-                </ul>
-              </div><pre class="sg-code"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;badge&quot;</span>&gt;</span>14<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;badge&quot;</span>&gt;</span>8<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>Orange<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group-item&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;badge&quot;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>Grape<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span></pre>
             </div>
           </section>
         </section>

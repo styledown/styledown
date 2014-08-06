@@ -1,0 +1,44 @@
+/***
+ * List group:
+ */
+
+/**
+ * Basic list group:
+ * `.list-group` - List groups are a flexible and powerful component for
+ * displaying not only simple lists of elements, but complex ones with custom
+ * content.
+ *
+ *     @example.slim
+ *     ul.list-group
+ *       li.list-group-item Apple
+ *       li.list-group-item Orange
+ *       li.list-group-item Banana
+ *       li.list-group-item Grape
+ */
+
+.list-group {
+  /* ... */
+}
+
+/**
+ * List group with badges:
+ * `.list-group` with `span.badge` - Add the badges component to any list group
+ * item and it will automatically be positioned on the right.
+ *
+ *     @example.slim
+ *     ul.list-group
+ *       li.list-group-item
+ *         span.badge 14
+ *         | Apple
+ *       li.list-group-item
+ *         span.badge 8
+ *         | Orange
+ *       li.list-group-item Banana
+ *       li.list-group-item
+ *         span.badge 1
+ *         | Grape
+ */
+
+.list-group {
+  /* ... */
+}
