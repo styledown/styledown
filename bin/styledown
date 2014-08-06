@@ -4,7 +4,7 @@ var Styledown = require('..'),
     mdextract = require('mdextract');
 
 var args = require('minimist')(process.argv.slice(2), {
-  boolean: ['inline', 'css'],
+  boolean: ['inline', 'css', 'js'],
   alias: { h: 'help', v: 'version', i: 'inline' }
 });
 
@@ -18,14 +18,20 @@ if (args.help) {
       'Options:',
       '    -h, --help         print usage information',
       '    -v, --version      show version info and exit',
+      '    -i, --inline       force extracts from inline CSS comments (for piping)',
       '        --css          prints the default CSS',
-      '    -i, --inline       extracts from inline CSS comments (experimental)'
+      '        --js           prints the default JS',
   ].join('\n'));
   process.exit();
 }
 
 if (args.version) {
   console.log(require('../package.json').version);
+  process.exit();
+}
+
+if (args.js) {
+  process.stdout.write(require('fs').readFileSync(__dirname + '/../data/styledown.js'));
   process.exit();
 }
 

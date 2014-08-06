@@ -12,11 +12,25 @@ describe '--help', ->
     expect(result.out).include '-h, --help'
     expect(result.out).include 'print usage information'
 
+describe '--css', ->
+  run('--css')
+  success()
+
+  it 'prints css', ->
+    expect(result.out).include 'h2.sg'
+
+describe '--js', ->
+  run('--js')
+  success()
+
+  it 'prints js', ->
+    expect(result.out).include 'document.querySelector'
+
 describe '--version', ->
   run('--version')
   success()
 
-  it 'has no stderr', ->
+  it 'prints the version', ->
     expect(result.out).include require('../package.json').version
 
 describe 'pipe', ->
