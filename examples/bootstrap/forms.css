@@ -10,7 +10,7 @@
  * with `.form-control` are set to `width: 100%;` by default. Wrap
  * labels and controls in .form-group for optimum spacing.
  *
- *     @example
+ *     @example.wide
  *     .form-group
  *       label Email address
  *       input.form-control(placeholder='hi@gmail.com')

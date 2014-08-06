@@ -11,7 +11,7 @@
  * 
  * ### Body
  * 
- *     .jumbotron
+ *     .jumbotron.jumbotron-styleguide
  *       .container
  *         h1 Bootstrap styleguides
  *         p
@@ -27,7 +27,11 @@
 
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
 
-.jumbotron {
+/*
+ * jumbotron for the styleguide.
+ */
+
+.jumbotron-styleguide {
   background: #fafafa;
   border-bottom: solid 1px #eee;
   text-align: center;
@@ -38,7 +42,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.jumbotron h1 {
+.jumbotron-styleguide h1 {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 100;
   color: #111;
@@ -46,14 +50,14 @@
   margin-bottom: 20px;
 }
 
-.jumbotron p {
+.jumbotron-styleguide p {
   font-weight: 400;
   font-size: 1.15em;
   line-height: 1.7;
   color: #222;
 }
 
-.jumbotron .btn {
+.jumbotron-styleguide .btn {
   font-family: 'Source Sans Pro', sans-serif;
   text-transform: uppercase;
   font-weight: bold;
@@ -65,15 +69,19 @@
   border-color: #ddd;
 }
 
-.jumbotron .btn:hover {
+.jumbotron-styleguide .btn:hover {
   background: #1a8;
   border-color: transparent;
   color: #fff;
 }
 
-.jumbotron .container {
+.jumbotron-styleguide .container {
   max-width: 500px;
 }
+
+/*
+ * override heading styles.
+ */
 
 h2.sg.sg {
   font-family: 'Source Sans Pro', sans-serif;
@@ -81,11 +89,18 @@ h2.sg.sg {
   font-size: 3em;
 }
 
-.sg-canvas {
-  padding-bottom: 0;
-  margin-bottom: 20px;
-}
+/*
+ * for @example.slim
+ */
 
 .sg-slim .sg-canvas {
   max-width: 300px;
+}
+
+/*
+ * for @example.wide
+ */
+
+.sg-wide .sg-canvas {
+  max-width: 540px;
 }
