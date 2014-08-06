@@ -1,7 +1,8 @@
 Styledown
 =========
 
-Write maintainable CSS styleguides efficiently using a Markdown.
+Write maintainable CSS styleguides efficiently using a Markdown.<br>
+**[See this example][example]** generated from [these sources][example source].
 
 [![Status](https://travis-ci.org/rstacruz/styledown.png?branch=master)](https://travis-ci.org/rstacruz/styledown)
 
@@ -14,12 +15,6 @@ $ styledown --help
 ```
 
 [![npm version](https://badge.fury.io/js/styledown.svg)](https://npmjs.org/package/styledown "View this project on npm")
-
-Examples
---------
-
- * [Here's an example][example] of a Styleguide document. It is generated from
-[these sources][example source].
 
 [example]: http://cdn.rawgit.com/rstacruz/styledown/v0.3.0/examples/bootstrap/index.html
 [example source]: https://github.com/rstacruz/styledown/tree/master/examples/bootstrap
