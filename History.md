@@ -1,5 +1,7 @@
 ## v0.3.0 - unreleased
 
+ * Remove the undocumented Express/Connect middleware.
+ * Add more examples.
  * (internal) Upgrade Cheerio from 0.13 to 0.17.
  * (internal) Upgrade Jade from 1.1 to 1.5.
  * (internal) Make Styledown compatible with Ruby. A rubygem should be out soon.
