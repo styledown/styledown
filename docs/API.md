@@ -15,7 +15,7 @@ var Styledown = require('styledown');
 Generates HTML from a given `source`.
 
 ```js
-Styledown.parse('...');
+Styledown.parse('### hello *world*');
 => "<!doctype html><html>..."
 ```
 

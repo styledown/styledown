@@ -24,7 +24,7 @@ var prefixClass       = require('./lib/utils').prefixClass;
  * Styledown.parse() : Styledown.parse(source, [options])
  * Generates HTML from a given `source`.
  *
- *     Styledown.parse('...');
+ *     Styledown.parse('### hello *world*');
  *     => "<!doctype html><html>..."
  *
  * `source` can be a String or an Array. as a string, it's assumed to be a
