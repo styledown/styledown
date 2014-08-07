@@ -8,10 +8,11 @@ var args = require('minimist')(process.argv.slice(2), {
 });
 
 if (args.help) {
+  var cmd = require('path').basename(process.argv[1]);
   console.log([
       'Usage:',
-      '    styledown [options] FILE',
-      '    ... | styledown [options]',
+      '    '+cmd+' [options] FILE',
+      '    ... | '+cmd+' [options]',
       '',
       'Options:',
       '    -h, --help           print usage information',
@@ -20,9 +21,9 @@ if (args.help) {
       '    -o, --output FILE    write output a file',
       '',
       'Support files:',
-      '    styledown --css  > styledown.css',
-      '    styledown --js   > styledown.js',
-      '    styledown --conf > config.md',
+      '    '+cmd+' --conf > config.md',
+      '    '+cmd+' --css > styledown.css',
+      '    '+cmd+' --js > styledown.js',
   ].join('\n'));
   process.exit();
 }
