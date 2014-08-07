@@ -13,16 +13,27 @@ var isolateTextBlocks = require('./lib/filters').isolateTextBlocks;
 var htmlize           = require('./lib/utils').htmlize;
 var prefixClass       = require('./lib/utils').prefixClass;
 
+/**
+ * Styledown.parse() : Styledown.parse(source, [options])
+ * Generates HTML from a given `source`. Shorthand for `new
+ * Styledown().toHTML()`.
+ */
+
+Styledown.parse = function (source, options) {
+  return new Styledown(source, options).toHTML();
+};
+
 /***
- * Styledown : new Styledown(html, [options])
- * Parses the source `html` into a Styledown document.
+ * Styledown() : new Styledown(source, [options])
+ * Parses the source `source` into a Styledown document. `source` can be a
+ * Markdown document.
  *
- *      doc = new Styledown(html);
+ *      doc = new Styledown(markdown);
  *      doc.toHTML();
  *
  * You may also use `Styledown.parse()`.
  *
- *      Styledown.parse(html);
+ *      Styledown.parse(markdown);
  *
  * Available options are:
  *
@@ -38,7 +49,7 @@ function Styledown (src, options) {
   this.options = extend(extend({}, Styledown.defaults), options || {});
   this.$ = Cheerio.load(Marked(src));
 
-  var highlightHTML = this._highlightHTML.bind(this);
+  var highlightHTML = this.highlightHTML.bind(this);
   var p = this.prefix.bind(this);
 
   processConfig(src, this.options);
@@ -93,21 +104,10 @@ Styledown.defaults = {
   indentSize: 2
 };
 
-/**
- * Styledown.parse() : Styledown.parse(html, [options])
- * Shorthand for `new Styledown().toHTML()`. Also aliased as `.parseSync()`.
- */
-
-Styledown.parse = function (source, options) {
-  return new Styledown(source, options).toHTML();
-};
-
-Styledown.parseSync = Styledown.parse;
-
 Styledown.prototype = {
 
   /**
-   * toHTML():
+   * toHTML() : doc.toHTML()
    * Converts to HTML.
    */
 
@@ -125,33 +125,42 @@ Styledown.prototype = {
       html = $.html();
     }
 
-    html = this._prettyprint(html);
+    html = this.prettyprint(html);
     return html;
   },
 
   /**
-   * Reindents HTML based on indent size option
+   * prettyprint() : doc.prettyprint(html)
+   * (private) Reindents given `html` based on the indent size option.
+   *
+   *     prettyprint('<div><a>hello</a></div>')
+   *     => "<div>\n  <a>hello</a>\n</div>"
    */
 
-  _prettyprint: function (html) {
+  prettyprint: function (html) {
     var Html = require('html');
     return Html.prettyPrint(html, { indent_size: this.options.indentSize });
   },
 
   /**
-   * Syntax highlighting helper
+   * highlightHTML():
+   * (private) Syntax highlighting helper
    */
 
-  _highlightHTML: function (html) {
+  highlightHTML: function (html) {
     var Hljs = require('highlight.js');
 
-    html = this._prettyprint(html);
+    html = this.prettyprint(html);
     html = Hljs.highlight('html', html).value;
     return html;
   },
 
   /**
-   * Prefix classnames.
+   * prefix():
+   * (private) Prefix classnames. Takes `options.prefix` into account.
+   *
+   *     prefix('block')
+   *     => 'sg-block'
    */
 
   prefix: function(klass) {
