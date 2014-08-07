@@ -1,6 +1,7 @@
 ## v0.6.0 - unreleased
 
  * Added the `--output` option.
+ * Show an error when `styledown FILE` is invoked with an invalid file.
 
 ## v0.5.0 - August 7, 2014
 
