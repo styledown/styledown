@@ -1,7 +1,10 @@
-## v0.5.0 - unreleased
+## v0.5.0 - August 7, 2014
 
  * CSS: improve appearance of code examples.
  * CSS: make the layout responsive.
+ * Document the API.
+ * Make the documentation more readable by breaking it apart into files.
+ * Update the `Styledown.parse` API to accept arrays of files too.
 
 ## v0.4.1 - August 6, 2014
 
