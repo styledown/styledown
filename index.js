@@ -1,3 +1,10 @@
+/***
+ * Styledown:
+ * Styledown is available as a Node.js package.
+ *
+ *     var Styledown = require('styledown');
+ */
+
 var Marked = require('marked'),
     Cheerio = require('cheerio'),
     extend = require('util')._extend,
@@ -13,13 +20,6 @@ var removeConfig      = require('./lib/filters').removeConfig;
 var isolateTextBlocks = require('./lib/filters').isolateTextBlocks;
 var htmlize           = require('./lib/utils').htmlize;
 var prefixClass       = require('./lib/utils').prefixClass;
-
-/***
- * Styledown:
- * Styledown is available as a Node.js package.
- *
- *     var Styledown = require('styledown');
- */
 
 /**
  * Styledown.parse() : Styledown.parse(source, [options])
