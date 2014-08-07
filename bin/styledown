@@ -12,7 +12,6 @@ if (args.help) {
       'Usage:',
       '    styledown [options] FILE',
       '    ... | styledown [options]',
-      '    styledown --css > styledown.css',
       '',
       'Options:',
       '    -h, --help           print usage information',
@@ -20,10 +19,10 @@ if (args.help) {
       '    -i, --inline         force extracts from inline CSS comments (for piping)',
       '    -o, --output FILE    write output a file',
       '',
-      'Printing default files:',
-      '        --conf           prints the default configuration file',
-      '        --css            prints the default CSS',
-      '        --js             prints the default JS',
+      'Support files:',
+      '    styledown --css  > styledown.css',
+      '    styledown --js   > styledown.js',
+      '    styledown --conf > config.md',
   ].join('\n'));
   process.exit();
 }
@@ -34,17 +33,17 @@ if (args.version) {
 }
 
 if (args.js) {
-  process.stdout.write(Styledown.defaults.js());
+  print(Styledown.defaults.js());
   process.exit();
 }
 
 if (args.css) {
-  process.stdout.write(Styledown.defaults.css());
+  print(Styledown.defaults.css());
   process.exit();
 }
 
 if (args.conf) {
-  process.stdout.write(Styledown.defaults.conf());
+  print(Styledown.defaults.conf());
   process.exit();
 }
 
@@ -57,18 +56,25 @@ read(args._, function (err, res) {
     }) + "\n";
   });
 
+  print(html, ms);
+});
+
+function print (html, ms) {
   if (args.output) {
     require('fs').writeFileSync(args.output, html);
-    if (!args.quiet)
-      process.stderr.write('' + args.output + " [" + ms + "ms]\n");
+
+    if (!args.quiet) {
+      var tip = '' + args.output;
+      if (ms) tip += " [" + ms + "ms]";
+      process.stderr.write(tip + "\n");
+    }
   } else {
     process.stdout.write(html);
   }
-});
+}
 
 function measure (fn) {
   var d = new Date();
   fn();
   return new Date() - d;
 }
-
