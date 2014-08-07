@@ -49,6 +49,11 @@ if (args.conf) {
 }
 
 read(args._, function (err, res) {
+  if (res.error) {
+    console.warn(res.error.error.message);
+    process.exit(8);
+  }
+
   var html;
 
   var ms = measure(function () {
