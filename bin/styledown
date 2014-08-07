@@ -3,8 +3,8 @@ var Styledown = require('..'),
     read = require('read-input');
 
 var args = require('minimist')(process.argv.slice(2), {
-  boolean: ['inline', 'css', 'js', 'conf'],
-  alias: { h: 'help', v: 'version', i: 'inline' }
+  boolean: ['inline', 'css', 'js', 'conf', 'quiet'],
+  alias: { h: 'help', v: 'version', i: 'inline', o: 'output', q: 'quiet' }
 });
 
 if (args.help) {
@@ -15,14 +15,15 @@ if (args.help) {
       '    styledown --css > styledown.css',
       '',
       'Options:',
-      '    -h, --help         print usage information',
-      '    -v, --version      show version info and exit',
-      '    -i, --inline       force extracts from inline CSS comments (for piping)',
+      '    -h, --help           print usage information',
+      '    -v, --version        show version info and exit',
+      '    -i, --inline         force extracts from inline CSS comments (for piping)',
+      '    -o, --output FILE    write output a file',
       '',
       'Printing default files:',
-      '        --conf         prints the default configuration file',
-      '        --css          prints the default CSS',
-      '        --js           prints the default JS',
+      '        --conf           prints the default configuration file',
+      '        --css            prints the default CSS',
+      '        --js             prints the default JS',
   ].join('\n'));
   process.exit();
 }
@@ -48,8 +49,26 @@ if (args.conf) {
 }
 
 read(args._, function (err, res) {
-  var html = Styledown.parse(res.files, {
-    inline: args.inline
+  var html;
+
+  var ms = measure(function () {
+    html = Styledown.parse(res.files, {
+      inline: args.inline
+    }) + "\n";
   });
-  process.stdout.write(html + "\n");
+
+  if (args.output) {
+    require('fs').writeFileSync(args.output, html);
+    if (!args.quiet)
+      process.stderr.write('' + args.output + " [" + ms + "ms]\n");
+  } else {
+    process.stdout.write(html);
+  }
 });
+
+function measure (fn) {
+  var d = new Date();
+  fn();
+  return new Date() - d;
+}
+
