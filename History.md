@@ -1,3 +1,7 @@
+## v0.6.1 - unreleased
+
+ * Make examples with long lines have more readable code by wrapping them.
+
 ## v0.6.0 - August 7, 2014
 
  * Added the `--output` option.
