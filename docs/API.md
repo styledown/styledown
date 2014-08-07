@@ -1,20 +1,19 @@
-<!-- include: ../index.js -->
+<!-- include: index.js -->
 
 ### Styledown.parse()
 > `Styledown.parse(source, [options])`
 
-Generates HTML from a given `source`. Shorthand for `new
-Styledown().toHTML()`.
+Generates HTML from a given `source`.
 
 ```js
 var Styledown = require('styledown');
 Styledown.parse('...');
+=> "<!doctype html><html>..."
 ```
 
-If `source` is a string, it's assumed to be a Markdown document.
-
-If `source` is an Array, it's assumed to be a list of files.
-It's expected that it contains objects with `name` and `data` keys.
+`source` can be a String or an Array. as a string, it's assumed to be a
+Markdown document. As an array, it's assumed to be a list of files.  It's
+expected that it contains objects with `name` and `data` keys.
 
 This makes Styledown treat each file differently. Inline comments are
 extracted from those with that end in CSS extensions (css, less, sass, etc),
@@ -38,6 +37,8 @@ You may pass `options` as the second parameter. Available options are:
 * `body` *(String)* <span class='dash'>&mdash;</span> HTML to put in the body. Defaults to `<div sg-content></div>`.
 * `indentSize` *(Number)* <span class='dash'>&mdash;</span> Number of spaces to indent. Defaults to `2`.
 * `inline` *(Boolean)* <span class='dash'>&mdash;</span> if `true`, then inline CSS mode is forced.
+
+This is shorthand for `new Styledown().toHTML()`. You can use `Styledown` as a class.
 
 ### Styledown.version
 
@@ -90,4 +91,4 @@ doc.toBareHTML()
 => "<div><h3>Your document</h3>..."
 ```
 
-<!-- /include: ../index.js -->
+<!-- /include: index.js -->
