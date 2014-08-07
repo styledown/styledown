@@ -1,56 +1,89 @@
 require './setup'
-{run, pipe, success} = require('./cli_helpers')
+{run, pipe, success} = require('./helpers/cli')
 
-describe '--help', ->
-  run('--help')
-  success()
+describe 'CLI:', ->
+  describe '--help', ->
+    run('--help')
+    success()
 
-  it 'has no stderr', ->
-    expect(result.stderr).eql ''
+    it 'has no stderr', ->
+      expect(result.stderr).eql ''
 
-  it 'shows usage', ->
-    expect(result.out).include '-h, --help'
-    expect(result.out).include 'print usage information'
+    it 'shows usage', ->
+      expect(result.out).include '-h, --help'
+      expect(result.out).include 'print usage information'
 
-describe '--css', ->
-  run('--css')
-  success()
+  describe '--css', ->
+    run('--css')
+    success()
 
-  it 'prints css', ->
-    expect(result.out).include 'h2.sg'
+    it 'prints css', ->
+      expect(result.out).include 'h2.sg'
 
-describe '--js', ->
-  run('--js')
-  success()
+  describe '--js', ->
+    run('--js')
+    success()
 
-  it 'prints js', ->
-    expect(result.out).include 'document.querySelector'
+    it 'prints js', ->
+      expect(result.out).include 'document.querySelector'
 
-describe '--version', ->
-  run('--version')
-  success()
+  describe '--version', ->
+    run('--version')
+    success()
 
-  it 'prints the version', ->
-    expect(result.out).include require('../package.json').version
+    it 'prints the version', ->
+      expect(result.out).include require('../package.json').version
 
-describe 'pipe', ->
-  pipe('### hi\nthere\n')
-  success()
+  describe 'pipe', ->
+    pipe('### hi\nthere\n')
+    success()
 
-  it 'works', ->
-    expect(result.out).match /<h3[^>]*>hi<\/h3>/
-    expect(result.out).match /<p[^>]*>there<\/p>/
+    it 'works', ->
+      expect(result.out).match /<h3[^>]*>hi<\/h3>/
+      expect(result.out).match /<p[^>]*>there<\/p>/
 
-describe 'pipe --inline', ->
-  pipe """
-  /**
-   * hi:
-   * there
-   */
-  """, ['--inline']
+  describe 'pipe --inline', ->
+    pipe """
+    /**
+     * hi:
+     * there
+     */
+    """, ['--inline']
 
-  success()
+    success()
 
-  it 'works', ->
-    expect(result.out).match /<h3[^>]*>hi<\/h3>/
-    expect(result.out).match /<p[^>]*>there<\/p>/
+    it 'works', ->
+      expect(result.out).match /<h3[^>]*>hi<\/h3>/
+      expect(result.out).match /<p[^>]*>there<\/p>/
+
+  describe 'using a single .md filename', ->
+    run 'test/fixtures/basic-1.md'
+    success()
+
+    it 'works', ->
+      expect(result.out).match /<h3[^>]*>One<\/h3>/
+      expect(result.out).match /<p[^>]*>one one one<\/p>/
+
+  describe 'using two .md files', ->
+    run 'test/fixtures/basic-1.md test/fixtures/basic-2.md'
+    success()
+
+    it 'produces output based on the first file', ->
+      expect(result.out).match /<h3[^>]*>One<\/h3>/
+      expect(result.out).match /<p[^>]*>one one one<\/p>/
+
+    it 'produces output based on the second file', ->
+      expect(result.out).match /<h3[^>]*>Two<\/h3>/
+      expect(result.out).match /<p[^>]*>two two two<\/p>/
+
+  describe 'using .md an .css together', ->
+    run 'test/fixtures/basic-1.md test/fixtures/inline.css'
+    success()
+
+    it 'produces output based on the first file', ->
+      expect(result.out).match /<h3[^>]*>One<\/h3>/
+      expect(result.out).match /<p[^>]*>one one one<\/p>/
+
+    it 'produces output based on the second file', ->
+      expect(result.out).match /<h3[^>]*>Inline<\/h3>/
+      expect(result.out).match /<p[^>]*>inline inline inline<\/p>/
