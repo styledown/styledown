@@ -235,8 +235,10 @@ Styledown.prototype = {
    */
 
   prettyprint: function (html) {
-    var Html = require('html');
-    return Html.prettyPrint(html, { indent_size: this.options.indentSize });
+    var beautify = require('js-beautify').html_beautify;
+    return beautify(html, {
+      indent_size: this.options.indentSize
+    });
   },
 
   /**

@@ -49,8 +49,12 @@ if (args.conf) {
 }
 
 read(args._, function (err, res) {
-  if (res.error) {
-    console.warn(res.error.error.message);
+  var errors = res.files.filter(function (f) { return !! f.error; });
+
+  if (errors.length) {
+    errors.forEach(function (f) {
+      console.error((f.name || 'stdin') + ':', f.error.message);
+    });
     process.exit(8);
   }
 
