@@ -1,4 +1,4 @@
-## v0.6.1 - unreleased
+## v0.6.1 - August 7, 2014
 
  * Make examples with long lines have more readable code by wrapping them.
 
