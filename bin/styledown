@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 var Styledown = require('..'),
-    read = require('read-input'),
-    mdextract = require('mdextract');
+    read = require('read-input');
 
 var args = require('minimist')(process.argv.slice(2), {
   boolean: ['inline', 'css', 'js', 'conf'],
@@ -46,13 +45,8 @@ if (args.conf) {
 }
 
 read(args._, function (err, res) {
-  var data = res.files.map(function (f) {
-    if (args.inline || f.name && f.name.match(/(sass|scss|styl|less|css)$/)) {
-      return mdextract(f.data, { lang: 'css' }).toMarkdown();
-    }else
-      return f.data;
-  }).join("\n");
-
-  var html = Styledown.parse(data);
+  var html = Styledown.parse(res.files, {
+    inline: args.inline
+  });
   process.stdout.write(html + "\n");
 });

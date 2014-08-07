@@ -1,6 +1,7 @@
-var Marked = require('marked');
-var Cheerio = require('cheerio');
-var extend = require('util')._extend;
+var Marked = require('marked'),
+    Cheerio = require('cheerio'),
+    extend = require('util')._extend,
+    mdextract = require('mdextract');
 
 module.exports = Styledown;
 
@@ -94,9 +95,9 @@ Styledown.defaults = {
  */
 
 function Styledown (src, options) {
-  this.raw = this.extract(src);
   this.options = extend(extend({}, Styledown.defaultOptions), options || {});
-  this.$ = Cheerio.load(Marked(src));
+  this.raw = this.extract(src);
+  this.$ = Cheerio.load(Marked(this.raw));
 
   this.process();
 }
@@ -178,12 +179,14 @@ Styledown.prototype = {
    */
 
   extract: function (src) {
+    var self = this;
+
     if (typeof src === 'string')
       return src;
 
     if (Array.isArray(src)) {
       return src.map(function (f) {
-        if (this.options.inline || f.name && f.name.match(/(sass|scss|styl|less|css)$/)) {
+        if (self.options.inline || f.name && f.name.match(/(sass|scss|styl|less|css)$/)) {
           return mdextract(f.data, { lang: 'css' }).toMarkdown();
         } else {
             return f.data;
