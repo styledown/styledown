@@ -11,6 +11,7 @@ global.Cheerio = require 'cheerio'
 
 before ->
   @load = (html, options={}) ->
+    options.head ?= false
     @sd = new Styledown(html, options)
     @html = @sd.toHTML()
     @$ = Cheerio.load(@html)

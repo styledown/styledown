@@ -4,7 +4,7 @@ var Styledown = require('..'),
     mdextract = require('mdextract');
 
 var args = require('minimist')(process.argv.slice(2), {
-  boolean: ['inline', 'css', 'js'],
+  boolean: ['inline', 'css', 'js', 'conf'],
   alias: { h: 'help', v: 'version', i: 'inline' }
 });
 
@@ -31,12 +31,17 @@ if (args.version) {
 }
 
 if (args.js) {
-  process.stdout.write(require('fs').readFileSync(__dirname + '/../data/styledown.js'));
+  process.stdout.write(Styledown.defaults.js());
   process.exit();
 }
 
 if (args.css) {
-  process.stdout.write(require('fs').readFileSync(__dirname + '/../data/styledown.css'));
+  process.stdout.write(Styledown.defaults.css());
+  process.exit();
+}
+
+if (args.conf) {
+  process.stdout.write(Styledown.defaults.conf());
   process.exit();
 }
 

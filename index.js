@@ -17,10 +17,41 @@ var prefixClass       = require('./lib/utils').prefixClass;
  * Styledown.parse() : Styledown.parse(source, [options])
  * Generates HTML from a given `source`. Shorthand for `new
  * Styledown().toHTML()`.
+ *
+ *     var Styledown = require('styledown');
+ *     Styledown.parse('...');
  */
 
 Styledown.parse = function (source, options) {
   return new Styledown(source, options).toHTML();
+};
+
+/**
+ * Styledown.version:
+ * The version number in semver format.
+ */
+
+Styledown.version = require('./package.json').version;
+
+/**
+ * Styledown.defaults:
+ * The returns the default configuration file, JS file and CSS files.
+ *
+ *     Styledown.defaults.conf()
+ *     Styledown.defaults.js()
+ *     Styledown.defaults.css()
+ */
+
+Styledown.defaults = {
+  conf: function () {
+    return require('./lib/default_conf');
+  },
+  js: function () {
+    return require('fs').readFileSync(__dirname + '/data/styledown.js');
+  },
+  css: function () {
+    return require('fs').readFileSync(__dirname + '/data/styledown.css');
+  },
 };
 
 /***
@@ -46,30 +77,13 @@ Styledown.parse = function (source, options) {
 
 function Styledown (src, options) {
   this.raw = src;
-  this.options = extend(extend({}, Styledown.defaults), options || {});
+  this.options = extend(extend({}, Styledown.defaultOptions), options || {});
   this.$ = Cheerio.load(Marked(src));
 
-  var highlightHTML = this.highlightHTML.bind(this);
-  var p = this.prefix.bind(this);
-
-  processConfig(src, this.options);
-  removeConfig(this.$);
-
-  var pre = this.options.prefix;
-  var $ = this.$;
-
-  addClasses($, p);
-  sectionize($, 'h3', p, { 'class': p('block') });
-  sectionize($, 'h2', p, { 'class': p('section'), until: 'h1, h2' });
-
-  $('pre').each(function () {
-    unpackExample($(this), p, highlightHTML);
-  });
-
-  isolateTextBlocks(this.$, p);
+  this.process();
 }
 
-Styledown.defaults = {
+Styledown.defaultOptions = {
 
   /**
    * HTML template
@@ -108,11 +122,14 @@ Styledown.prototype = {
 
   /**
    * toHTML() : doc.toHTML()
-   * Converts to HTML.
+   * Returns the full HTML source based on the Styledown document.
+   *
+   *     doc.toHTML()
+   *     => "<!doctype html><html>..."
    */
 
   toHTML: function() {
-    var html = this.$.html();
+    var html = this.toBareHTML();
 
     if (this.options.head !== false) {
       // Unpack template
@@ -130,10 +147,49 @@ Styledown.prototype = {
   },
 
   /**
+   * toBareHTML() : doc.toBareHTML()
+   * Returns the bare HTML without the head/body templates.
+   *
+   *     doc.toBareHTML()
+   *     => "<div><h3>Your document</h3>..."
+   */
+
+  toBareHTML: function () {
+    return this.$.html();
+  },
+
+  /**
+   * process() : doc.process()
+   * (private) processes things. Done on the constructor.
+   */
+
+  process: function () {
+    var highlightHTML = this.highlightHTML.bind(this);
+    var p = this.prefix.bind(this);
+    var src = this.raw;
+
+    processConfig(src, this.options);
+    removeConfig(this.$);
+
+    var pre = this.options.prefix;
+    var $ = this.$;
+
+    addClasses($, p);
+    sectionize($, 'h3', p, { 'class': p('block') });
+    sectionize($, 'h2', p, { 'class': p('section'), until: 'h1, h2' });
+
+    $('pre').each(function () {
+      unpackExample($(this), p, highlightHTML);
+    });
+
+    isolateTextBlocks(this.$, p);
+  },
+
+  /**
    * prettyprint() : doc.prettyprint(html)
    * (private) Reindents given `html` based on the indent size option.
    *
-   *     prettyprint('<div><a>hello</a></div>')
+   *     doc.prettyprint('<div><a>hello</a></div>')
    *     => "<div>\n  <a>hello</a>\n</div>"
    */
 
