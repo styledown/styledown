@@ -1,5 +1,4 @@
-/***
- * Styledown:
+/**
  * Styledown is available as a Node.js package.
  *
  *     var Styledown = require('styledown');

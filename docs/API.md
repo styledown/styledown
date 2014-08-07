@@ -3,8 +3,6 @@ Styledown API
 
 <!-- include: index.js -->
 
-## Styledown
-
 Styledown is available as a Node.js package.
 
 ```js
