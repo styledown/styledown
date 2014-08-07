@@ -2,7 +2,7 @@ Styledown
 =========
 
 Write maintainable CSS styleguides efficiently using a Markdown.
-**[Example here][example]** made from [these sources][example source].
+**[See example ▸][example]**
 
 [![Example](https://cdn.rawgit.com/rstacruz/styledown/81a1d9c/examples/screenshot.png)][example]
 
@@ -19,7 +19,6 @@ $ styledown --help
 [![npm version](https://badge.fury.io/js/styledown.svg)](https://npmjs.org/package/styledown "View this project on npm")
 
 [example]: http://cdn.rawgit.com/rstacruz/styledown/v0.5.0/examples/bootstrap/index.html
-[example source]: https://github.com/rstacruz/styledown/tree/master/examples/bootstrap
 
 How it works
 ------------
@@ -81,7 +80,7 @@ files.
 }
 ```
 
-Read more: *[Documenting >](docs/Documenting.md)*
+Read more: **[Documenting ▸](docs/Documenting.md)**
 
 #### Step 2: Configure
 
@@ -107,7 +106,7 @@ The first one (`application.css`) should point to your project's concatenated
 stylesheets. The second and third one (`styledown.css` and `styledown.js`)
 point to the default Styledown CSS/JS files.
 
-Read more: *[Configuration >](docs/Configuration.md)*
+Read more: **[Configuration ▸](docs/Configuration.md)**
 
 #### Step 3: Build
 
@@ -144,10 +143,9 @@ $ styledown *.md > styleguide.html
 Markup format
 -------------
 
-Read more: *[Markup format >](docs/Format.md)*
+Read more: **[Markup format ▸](docs/Format.md)**
 
-Thanks
-------
+## :copyright:
 
 **Styledown** © 2013+, Rico Sta. Cruz. Released under the [MIT License].<br>
 Authored and maintained by Rico Sta. Cruz with help from [contributors].
