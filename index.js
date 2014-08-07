@@ -20,6 +20,32 @@ var prefixClass       = require('./lib/utils').prefixClass;
  *
  *     var Styledown = require('styledown');
  *     Styledown.parse('...');
+ *
+ * If `source` is a string, it's assumed to be a Markdown document.
+ *
+ * If `source` is an Array, it's assumed to be a list of files.
+ * It's expected that it contains objects with `name` and `data` keys.
+ *
+ * This makes Styledown treat each file differently. Inline comments are
+ * extracted from those with that end in CSS extensions (css, less, sass, etc),
+ * while the rest are assumed to be Markdown documents.
+ *
+ *     var docs = [
+ *       { name: 'css/style.css', data: '...' },
+ *       { name: 'config.md', data: '...' }
+ *     ];
+ *
+ *     Styledown.parse(docs);
+ *     => "<!doctype html><html>..."
+ *
+ * You may pass `options` as the second parameter. Available options are:
+ *
+ * ~ prefix (String): prefix for classnames. Defaults to `sg`.
+ * ~ template (String): HTML template. Defaults to a simple HTML template.
+ * ~ head (String): HTML to put in the head. Default to `false`.
+ * ~ body (String): HTML to put in the body. Defaults to `<div sg-content></div>`.
+ * ~ indentSize (Number): Number of spaces to indent. Defaults to `2`.
+ * ~ inline (Boolean): if `true`, then inline CSS mode is forced.
  */
 
 Styledown.parse = function (source, options) {
@@ -65,18 +91,10 @@ Styledown.defaults = {
  * You may also use `Styledown.parse()`.
  *
  *      Styledown.parse(markdown);
- *
- * Available options are:
- *
- * ~ prefix (String): prefix for classnames. Defaults to `sg`.
- * ~ template (String): HTML template. Defaults to a simple HTML template.
- * ~ head (String): HTML to put in the head. Default to `false`.
- * ~ body (String): HTML to put in the body. Defaults to `<div sg-content></div>`.
- * ~ indentSize (Number): Number of spaces to indent. Defaults to `2`.
  */
 
 function Styledown (src, options) {
-  this.raw = src;
+  this.raw = this.extract(src);
   this.options = extend(extend({}, Styledown.defaultOptions), options || {});
   this.$ = Cheerio.load(Marked(src));
 
@@ -85,9 +103,7 @@ function Styledown (src, options) {
 
 Styledown.defaultOptions = {
 
-  /**
-   * HTML template
-   */
+  /* HTML template */
   template: [
     "<!doctype html>",
     "<html>",
@@ -100,21 +116,19 @@ Styledown.defaultOptions = {
     "</html>"
   ].join("\n"),
 
-  /**
-   * Things to put into `head`
-   */
+  /* Things to put into `head` */
   head: false,
 
+  /* Force inline mode */
+  inline: false,
+
+  /* Things to put into `body` */
   body: "<div sg-content></div>",
 
-  /**
-   * Prefix for classnames
-   */
+  /* Prefix for classnames */
   prefix: 'sg',
 
-  /**
-   * Indentation spaces
-   */
+  /* Indentation spaces */
   indentSize: 2
 };
 
@@ -156,6 +170,26 @@ Styledown.prototype = {
 
   toBareHTML: function () {
     return this.$.html();
+  },
+
+  /**
+   * extract():
+   * (private) extracts a Markdown source from given `src`.
+   */
+
+  extract: function (src) {
+    if (typeof src === 'string')
+      return src;
+
+    if (Array.isArray(src)) {
+      return src.map(function (f) {
+        if (this.options.inline || f.name && f.name.match(/(sass|scss|styl|less|css)$/)) {
+          return mdextract(f.data, { lang: 'css' }).toMarkdown();
+        } else {
+            return f.data;
+        }
+      }).join("\n");
+    }
   },
 
   /**
