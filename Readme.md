@@ -18,7 +18,7 @@ $ styledown --help
 
 [![npm version](https://badge.fury.io/js/styledown.svg)](https://npmjs.org/package/styledown "View this project on npm")
 
-[example]: http://cdn.rawgit.com/rstacruz/styledown/b7a1748/examples/bootstrap/index.html
+[example]: http://cdn.rawgit.com/rstacruz/styledown/v0.5.0/examples/bootstrap/index.html
 [example source]: https://github.com/rstacruz/styledown/tree/master/examples/bootstrap
 
 How it works
@@ -27,10 +27,14 @@ How it works
 Styledown is made to work in most web development setups. It doesn't favor any 
 framework or language or any preprocessor.
 
- * Document your CSS files with inline comments, or as a separate `.md` file.
- * Create a file with styleguide configuration (a CSS file with some comments).
+ * [Document][doc] your CSS files with inline comments, or as a separate `.md` file.
+ * Create a file with styleguide [configuration][conf].
  * Invoke `styledown *.css > styleguide.html`.
- * Enjoy your styleguide!
+ * Enjoy your styleguide! Read more about the [format][fmt].
+
+[doc]: docs/Documenting.md
+[conf]: docs/Configuration.md
+[fmt]: docs/Format.md
 
 Quickstart guide
 ----------------
@@ -47,7 +51,7 @@ be in `public/styleguide.html`.
 
 .----------------------.     .---------------------.
 | css/                 |     |                     |
-|   components/        |     |  public/            |
+|     config.md        |     |  public/            |
 |     button.scss      | ==> |    styleguide.html  |
 |     forms.scss       |     |                     |
 |     whatever.scss    |     |                     |
@@ -56,13 +60,8 @@ be in `public/styleguide.html`.
 
 #### Step 1: Document
 
-Document your project's stylesheets with `/** ... */` comments.  Let's say this
-is `css/components/your-component.scss`.
-
-This is a Markdown block within a comment. The example blocks
-are can be written as [Jade] or HTML.
-
-The first line should be the name of the block being documented, ending in `:`.
+Document your project's stylesheets with inline comments, or as separate `.md`
+files.
 
 ```css
 /**
@@ -82,41 +81,33 @@ The first line should be the name of the block being documented, ending in `:`.
 }
 ```
 
+Read more: *[Documenting >](docs/Documenting.md)*
+
 #### Step 2: Configure
 
-Create a file and call it something like `css/styledown/extras.css`. This will
-define what's in the `<head>` of your styleguides (to link to the correct CSS/JS
-files), and define the body template (the element with `sg-content` defines
-where everything goes).
+Make a file, let's call it `config.md`. (`styledown --conf > config.md`) This
+lets you define what will be in the output head/body.
 
-```css
-/**
- * # Styleguide options
- *
- * ### Head
- *
- *     link(rel="stylesheet" href="/assets/application.css")
- *     link(rel='stylesheet' href='https://cdn.rawgit.com/rstacruz/styledown/v0.4.1/data/styledown.css')
- *     script(src='https://cdn.rawgit.com/rstacruz/styledown/v0.4.1/data/styledown.js')
- *
- * ### Body
- *
- *     h1 My Awesome Styleguides
- *     div#styleguides(sg-content)
- */
+```markdown
+# Styleguide options
+
+### Head
+
+    link(rel="stylesheet" href="/assets/application.css")
+    link(rel='stylesheet' href='https://cdn.rawgit.com/rstacruz/styledown/v0.5.0/data/styledown.css')
+    script(src='https://cdn.rawgit.com/rstacruz/styledown/v0.5.0/data/styledown.js')
+
+### Body
+
+    h1 My Awesome Styleguides
+    div#styleguides(sg-content)
 ```
 
 The first one (`application.css`) should point to your project's concatenated
 stylesheets. The second and third one (`styledown.css` and `styledown.js`)
 point to the default Styledown CSS/JS files.
 
-Optional: if you would like to have the CSS and JS files in your project
-instead of loaded via CDN, use:
-
-```sh
-$ styledown --css > styledown.css
-$ styledown --js  > styledown.js
-```
+Read more: *[Configuration >](docs/Configuration.md)*
 
 #### Step 3: Build
 
@@ -124,7 +115,7 @@ Invoke `styledown` to generate an HTML file. (Mkae sure that the extras.css is
 passed on the end, since anything after the "Styleguide options" heading is ignored.)
 
 ```bash
-$ styledown -i css/components/*.css css/styledown/*.css > public/styleguides.html
+$ styledown -i css/*.css css/config.md > public/styleguides.html
 ```
 
 #### Enjoy!
@@ -135,85 +126,25 @@ Usage
 -----
 
 Styledown generates `.html` styleguides. It can take CSS files or Markdown 
-files.
+files, or a combination of the two.
 
 __Inline CSS mode:__ Parses comments from CSS files. This is what happens when 
 you pass .css, .sass, .scss, .less and .styl files.
 
 ```
-$ mdextract *.css > styleguide.html
+$ styledown *.css > styleguide.html
 ```
 
-__Markdown mode:__ Takes a Markdown files.
+__Markdown mode:__ Takes Markdown files.
 
 ```
-$ mdextract styles.md > styleguide.html
+$ styledown *.md > styleguide.html
 ```
 
-Markdown format
----------------
+Markup format
+-------------
 
-All Markdown documents are also Styledown documents. That is, all of Markdown 
-will work. Styledown implements a few extensions that helps you create 
-styleguides.
-
-__Example blocks:__ Write your CSS documentation with an `h3`, and a code block 
-that begins with `@example`.
-
-``` markdown
-<!-- markdown.md (Markdown mode) -->
-### Button
-
-Create your buttons with a `.button` class.
-
-    @example
-    <a class="button">Button</a>
-    <a class="button primary">Button</a>
-```
-
-``` css
-<!-- style.css (Inline mode) -->
-/**
- * Button:
- * Create your buttons with a `.button` class.
- * 
- *     @example
- *     <a class="button">Button</a>
- *     <a class="button primary">Button</a>
- */
-```
-
-__Jade examples:__ Jade is also supported. It's auto-detected for you when you 
-want Jade or HTML. This allows you to write simpler example code.
-
-``` markdown
-<!-- markdown.md (Markdown mode) -->
-### Tables
-
-`.table` - tables are styled nicely for you. Just add the class `.table`.
-
-    @example
-    table.table
-      tr
-        td Item 1
-        td Item 2
-        td Item 3
-```
-
-``` css
-<!-- style.css (Inline mode) -->
-/**
- * Tables:
- * `.table` - tables are styled nicely for you. Just add the class `.table`.
- * 
- *     @example
- *     table.table
- *       tr
- *         td Item 1
- *         td Item 2
- *         td Item 3
- */
-```
+Read more: *[Markup format >](docs/Format.md)*
 
 Thanks
 ------
