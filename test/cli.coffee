@@ -1,5 +1,7 @@
 require './setup'
 {run, pipe, success} = require('./helpers/cli')
+{randomfile} = require('./helpers/file')
+fs = require('fs')
 
 describe 'CLI:', ->
   describe '--help', ->
@@ -55,6 +57,26 @@ describe 'CLI:', ->
     it 'works', ->
       expect(result.out).match /<h3[^>]*>hi<\/h3>/
       expect(result.out).match /<p[^>]*>there<\/p>/
+
+  describe '--output', ->
+    fname = randomfile()
+
+    run "test/fixtures/basic-1.md -o #{fname}"
+    success()
+
+    after ->
+      fs.unlinkSync(fname) if fs.existsSync(fname)
+
+    it 'creates an output file', ->
+      expect(fs.existsSync(fname)).eql true
+
+    it 'puts things in the output file', ->
+      data = fs.readFileSync(fname, 'utf-8')
+      expect(data).match /<h3[^>]*>One<\/h3>/
+      expect(data).match /<p[^>]*>one one one<\/p>/
+
+    it 'prints status in stderr', ->
+      expect(result.stderr).include fname
 
   describe 'using a single .md filename', ->
     run 'test/fixtures/basic-1.md'
