@@ -18,6 +18,9 @@ if (args.help) {
       '    -h, --help         print usage information',
       '    -v, --version      show version info and exit',
       '    -i, --inline       force extracts from inline CSS comments (for piping)',
+      '',
+      'Printing default files:',
+      '        --conf         prints the default configuration file',
       '        --css          prints the default CSS',
       '        --js           prints the default JS',
   ].join('\n'));
