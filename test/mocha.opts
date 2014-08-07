@@ -1,2 +1,2 @@
--R min
+-R progress
 --compilers coffee:coffee-script/register

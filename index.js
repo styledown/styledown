@@ -161,7 +161,7 @@ Styledown.prototype = {
       html = $.html();
     }
 
-    html = this.prettyprint(html);
+    html = this.prettyprint(html, { wrap_line_length: 0 });
     return html;
   },
 
@@ -234,11 +234,25 @@ Styledown.prototype = {
    *     => "<div>\n  <a>hello</a>\n</div>"
    */
 
-  prettyprint: function (html) {
+  prettyprint: function (html, options) {
     var beautify = require('js-beautify').html_beautify;
-    return beautify(html, {
-      indent_size: this.options.indentSize
-    });
+
+    var opts = {
+      indent_size: this.options.indentSize,
+      wrap_line_length: 120,
+      unformatted: ['pre']
+    };
+
+    // js-beautify sometimes trips when the first character isn't a <. not
+    // sure... but might as well do this.
+    html = html.trim();
+
+    var output = beautify(html, extend(opts, options));
+
+    // cheerio output tends to have a bunch of extra newlines. kill them.
+    output = output.replace(/\n\n+/g, "\n\n");
+
+    return output;
   },
 
   /**
