@@ -1,3 +1,7 @@
+## v0.6.0 - unreleased
+
+ * Added the `--output` option.
+
 ## v0.5.0 - August 7, 2014
 
  * CSS: improve appearance of code examples.
