@@ -26,7 +26,7 @@ var prefixClass       = require('./lib/utils').prefixClass;
  * Markdown document. As an array, it's assumed to be a list of files.  It's
  * expected that it contains objects with `name` and `data` keys.
  *
- * This makes Styledown treat each file differently. Inline comments are
+ * In array mode, Styledown treats each file differently. Inline comments are
  * extracted from those with that end in CSS extensions (css, less, sass, etc),
  * while the rest are assumed to be Markdown documents.
  *
