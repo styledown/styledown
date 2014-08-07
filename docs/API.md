@@ -3,13 +3,20 @@ Styledown API
 
 <!-- include: index.js -->
 
+## Styledown
+
+Styledown is available as a Node.js package.
+
+```js
+var Styledown = require('styledown');
+```
+
 ### Styledown.parse()
 > `Styledown.parse(source, [options])`
 
 Generates HTML from a given `source`.
 
 ```js
-var Styledown = require('styledown');
 Styledown.parse('...');
 => "<!doctype html><html>..."
 ```
@@ -68,11 +75,7 @@ Markdown document.
  doc.toHTML();
 ```
 
-You may also use `Styledown.parse()`.
-
-```js
- Styledown.parse(markdown);
-```
+You may also use `Styledown.parse()` as a shorthand.
 
 ### toHTML()
 > `doc.toHTML()`

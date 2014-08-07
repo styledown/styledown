@@ -14,11 +14,17 @@ var isolateTextBlocks = require('./lib/filters').isolateTextBlocks;
 var htmlize           = require('./lib/utils').htmlize;
 var prefixClass       = require('./lib/utils').prefixClass;
 
+/***
+ * Styledown:
+ * Styledown is available as a Node.js package.
+ *
+ *     var Styledown = require('styledown');
+ */
+
 /**
  * Styledown.parse() : Styledown.parse(source, [options])
  * Generates HTML from a given `source`.
  *
- *     var Styledown = require('styledown');
  *     Styledown.parse('...');
  *     => "<!doctype html><html>..."
  *
@@ -90,9 +96,7 @@ Styledown.defaults = {
  *      doc = new Styledown(markdown);
  *      doc.toHTML();
  *
- * You may also use `Styledown.parse()`.
- *
- *      Styledown.parse(markdown);
+ * You may also use `Styledown.parse()` as a shorthand.
  */
 
 function Styledown (src, options) {
