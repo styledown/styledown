@@ -2,6 +2,8 @@
 
  * Changed GitHub URL to https://github.com/styledown/styledown, and updated all 
  URLs in the docs accordingly.
+ * The default conf (`styledown --conf`) now includes a `<meta name='viewport'>` 
+ tag for responsiveness.
 
 ## v0.6.1 - August 7, 2014
 
