@@ -4,9 +4,9 @@ Styledown
 Write maintainable CSS styleguides efficiently using a Markdown.
 **[See example ▸][example]**
 
-[![Example](https://cdn.rawgit.com/rstacruz/styledown/81a1d9c/examples/screenshot.png)][example]
+[![Example](https://cdn.rawgit.com/styledown/styledown/81a1d9c/examples/screenshot.png)][example]
 
-[![Status](https://travis-ci.org/rstacruz/styledown.png?branch=master)](https://travis-ci.org/rstacruz/styledown)
+[![Status](https://travis-ci.org/styledown/styledown.png?branch=master)](https://travis-ci.org/styledown/styledown)
 
 Installation
 ------------
@@ -18,7 +18,7 @@ $ styledown --help
 
 [![npm version](https://badge.fury.io/js/styledown.svg)](https://npmjs.org/package/styledown "View this project on npm")
 
-[example]: http://cdn.rawgit.com/rstacruz/styledown/v0.6.1/examples/bootstrap/index.html
+[example]: http://cdn.rawgit.com/styledown/styledown/v0.6.1/examples/bootstrap/index.html
 
 How it works
 ------------
@@ -93,8 +93,8 @@ lets you define what will be in the output head/body.
 ### Head
 
     link(rel="stylesheet" href="/assets/application.css")
-    link(rel='stylesheet' href='https://cdn.rawgit.com/rstacruz/styledown/v0.6.1/data/styledown.css')
-    script(src='https://cdn.rawgit.com/rstacruz/styledown/v0.6.1/data/styledown.js')
+    link(rel='stylesheet' href='https://cdn.rawgit.com/styledown/styledown/v0.6.1/data/styledown.css')
+    script(src='https://cdn.rawgit.com/styledown/styledown/v0.6.1/data/styledown.js')
 
 ### Body
 
@@ -155,6 +155,6 @@ Authored and maintained by Rico Sta. Cruz with help from [contributors].
 > Twitter [@rstacruz](https://twitter.com/rstacruz)
 
 [MIT License]: http://mit-license.org/
-[contributors]: http://github.com/rstacruz/styledown/contributors
+[contributors]: http://github.com/styledown/styledown/contributors
 [highlight.js]: http://highlightjs.org/
 [Jade]: http://jade-lang.com/
