@@ -1,3 +1,8 @@
+## v0.7.0 - August 8, 2014
+
+ * Changed GitHub URL to https://github.com/styledown/styledown, and updated all 
+ URLs in the docs accordingly.
+
 ## v0.6.1 - August 7, 2014
 
  * Make examples with long lines have more readable code by wrapping them.
