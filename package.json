@@ -10,7 +10,7 @@
   "version": "0.6.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rstacruz/styledown.git"
+    "url": "https://github.com/styledown/styledown.git"
   },
   "main": "index",
   "scripts": {

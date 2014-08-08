@@ -19,8 +19,8 @@
  *           | Styledown, a styleguide generator. They were taken from inline comments
  *           | in the CSS.
  *         p
- *           a.btn.btn-default(href="https://github.com/rstacruz/styledown") About Styledown
- *           a.btn.btn-default(href="https://github.com/rstacruz/styledown/tree/master/examples/bootstrap") See sources
+ *           a.btn.btn-default(href="https://github.com/styledown/styledown") About Styledown
+ *           a.btn.btn-default(href="https://github.com/styledown/styledown/tree/master/examples/bootstrap") See sources
  *     .container
  *       div(sg-content)
  */
