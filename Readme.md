@@ -6,7 +6,7 @@ Write maintainable CSS styleguides efficiently using a Markdown.
 
 [![Example](https://cdn.rawgit.com/styledown/styledown/81a1d9c/examples/screenshot.png)][example]
 
-[![Status](https://travis-ci.org/styledown/styledown.png?branch=master)](https://travis-ci.org/styledown/styledown)
+[![Status](http://img.shields.io/travis/styledown/styledown/master.svg?style=flat)](https://travis-ci.org/styledown/styledown "See test builds")
 
 Installation
 ------------
@@ -16,7 +16,7 @@ $ npm install -g styledown
 $ styledown --help
 ```
 
-[![npm version](https://badge.fury.io/js/styledown.svg)](https://npmjs.org/package/styledown "View this project on npm")
+[![npm version](http://img.shields.io/npm/v/styledown.svg?style=flat)](https://npmjs.org/package/styledown "View this project on npm")
 
 [example]: http://cdn.rawgit.com/styledown/styledown/v0.6.1/examples/bootstrap/index.html
 
