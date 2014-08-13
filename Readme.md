@@ -18,7 +18,7 @@ $ styledown --help
 
 [![npm version](http://img.shields.io/npm/v/styledown.svg?style=flat)](https://npmjs.org/package/styledown "View this project on npm")
 
-[example]: http://cdn.rawgit.com/styledown/styledown/v0.6.1/examples/bootstrap/index.html
+[example]: http://cdn.rawgit.com/styledown/styledown/v1.0.0/examples/bootstrap/index.html
 
 How it works
 ------------
@@ -93,8 +93,8 @@ lets you define what will be in the output head/body.
 ### Head
 
     link(rel="stylesheet" href="/assets/application.css")
-    link(rel='stylesheet' href='https://cdn.rawgit.com/styledown/styledown/v0.6.1/data/styledown.css')
-    script(src='https://cdn.rawgit.com/styledown/styledown/v0.6.1/data/styledown.js')
+    link(rel='stylesheet' href='https://cdn.rawgit.com/styledown/styledown/v1.0.0/data/styledown.css')
+    script(src='https://cdn.rawgit.com/styledown/styledown/v1.0.0/data/styledown.js')
 
 ### Body
 

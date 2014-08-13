@@ -1,3 +1,7 @@
+## v1.0.0 - August 13, 2014
+
+ * Version bump. No changes.
+
 ## v0.7.0 - August 8, 2014
 
  * Changed GitHub URL to https://github.com/styledown/styledown, and updated all 
