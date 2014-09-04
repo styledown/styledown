@@ -1,3 +1,7 @@
+## v1.0.1 - September 4, 2014
+
+ * Allow overriding templates from the configuration.
+
 ## v1.0.0 - August 13, 2014
 
  * Version bump. No changes.

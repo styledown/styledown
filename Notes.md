@@ -10,5 +10,5 @@ Updating versions
 
       bump package.json
       vim History.md
-      git release v0.4.0
-      npm publish
+      npm test && npm publish
+      git release v1.0.0

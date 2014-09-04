@@ -14,8 +14,8 @@ This will define what's in the `<head>` of your styleguides (to link to the
 ### Head
 
     link(rel="stylesheet" href="/assets/application.css")
-    link(rel='stylesheet' href='https://cdn.rawgit.com/styledown/styledown/v1.0.0/data/styledown.css')
-    script(src='https://cdn.rawgit.com/styledown/styledown/v1.0.0/data/styledown.js')
+    link(rel='stylesheet' href='https://cdn.rawgit.com/styledown/styledown/v1.0.1/data/styledown.css')
+    script(src='https://cdn.rawgit.com/styledown/styledown/v1.0.1/data/styledown.js')
 
 ### Body
 
