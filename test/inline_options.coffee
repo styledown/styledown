@@ -27,3 +27,4 @@ describe 'Inline Options', ->
 
   it 'should render with correct head', ->
     expect(@$('#my-script')).have.length 1
+

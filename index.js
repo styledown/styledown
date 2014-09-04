@@ -152,7 +152,7 @@ Styledown.prototype = {
 
     if (this.options.head !== false) {
       // Unpack template
-      var $ = Cheerio.load(this.options.template);
+      var $ = Cheerio.load(htmlize(this.options.template));
       $('body').append(htmlize(this.options.body));
       $('[sg-content]').append(html).removeAttr('sg-content');
       $('html, body').addClass(this.options.prefix);
