@@ -9,6 +9,6 @@ docs/API.md: index.js
 dist: dist/styledown.js
 
 dist/styledown.js: lib/distribution.js $(js_files)
-	$(browserify) $< > $@
+	$(browserify) -s Styledown $< > $@
 
 .PHONY: dist
