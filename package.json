@@ -14,7 +14,8 @@
   },
   "main": "index",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "prepublish": "make dist"
   },
   "dependencies": {
     "cheerio": "0.17.0",
