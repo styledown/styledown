@@ -190,7 +190,7 @@ Styledown.prototype = {
 
     if (Array.isArray(src)) {
       return src.map(function (f) {
-        if (self.options.inline || f.name && f.name.match(/(sass|scss|styl|less|css)$/)) {
+        if (self.options.inline || f.name && f.name.match(/(sass|scss|styl|less|css|md|js)$/)) {
           return mdextract(f.data, { lang: 'css' }).toMarkdown();
         } else {
             return f.data;
