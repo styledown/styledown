@@ -220,7 +220,7 @@ Styledown.prototype = {
     sectionize($, 'h2', p, { 'class': p('section'), until: 'h1, h2' });
 
     $('pre').each(function () {
-      unpackExample($(this), p, highlightHTML);
+      unpackExample($(this), $('<div class="' + pre +'-examples"></div>'), p, highlightHTML);
     });
 
     isolateTextBlocks(this.$, p);
