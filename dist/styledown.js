@@ -46287,7 +46287,7 @@ module.exports={
   "main": "index",
   "scripts": {
     "test": "mocha",
-    "prepublish": "make dist"
+    "prepublish": "make -B dist"
   },
   "dependencies": {
     "cheerio": "0.17.0",
