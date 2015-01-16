@@ -114,7 +114,7 @@ Invoke `styledown` to generate an HTML file. (Mkae sure that the extras.css is
 passed on the end, since anything after the "Styleguide options" heading is ignored.)
 
 ```bash
-$ styledown -i css/*.css css/config.md > public/styleguides.html
+$ styledown css/*.css css/config.md > public/styleguides.html
 ```
 
 #### Enjoy!
