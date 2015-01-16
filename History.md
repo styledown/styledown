@@ -1,3 +1,7 @@
+## v1.0.2 - January 15, 2015
+
+ * Fix `console` errors of `dist/styledown.js` in certain JS runtimes
+
 ## v1.0.1 - September 4, 2014
 
  * Allow overriding templates from the configuration.

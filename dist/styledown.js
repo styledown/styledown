@@ -46299,7 +46299,7 @@ module.exports={
     "styleguide"
   ],
   "author": "Rico Sta. Cruz <hi@ricostacruz.com>",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/styledown/styledown.git"
