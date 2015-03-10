@@ -114,7 +114,6 @@ Styledown.defaultOptions = {
     "<html>",
     "<head>",
     "<meta charset='utf-8'>",
-    "<title>Styledown</title>",
     "</head>",
     "<body>",
     "</body>",
