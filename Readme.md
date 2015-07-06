@@ -110,7 +110,7 @@ Read more: **[Configuration ▸](docs/Configuration.md)**
 
 #### Step 3: Build
 
-Invoke `styledown` to generate an HTML file. (Mkae sure that the extras.css is
+Invoke `styledown` to generate an HTML file. (Make sure that the extras.css is
 passed on the end, since anything after the "Styleguide options" heading is ignored.)
 
 ```bash
