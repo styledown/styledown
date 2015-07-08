@@ -182,22 +182,43 @@ Styledown.prototype = {
    * (private) extracts a Markdown source from given `src`.
    */
 
-  extract: function (src) {
-    var self = this;
+  extract: (function(){
+    var langs = {
+      'scss': 'css',
+      'sass': 'css',
+      'styl': 'css',
+      'less': 'css', 
+      'css' : 'css',
+      'md': 'css',
+      'js': 'js'
+    };
+    var re = /(?:\.([^.]+))?$/;
+    return   function (src) {
+      var self = this;
 
-    if (typeof src === 'string')
-      return src;
+      if (typeof src === 'string')
+        return src;
 
-    if (Array.isArray(src)) {
+      if (!Array.isArray(src))
+        return '';
+
       return src.map(function (f) {
-        if (self.options.inline || f.name && f.name.match(/(sass|scss|styl|less|css)$/)) {
-          return mdextract(f.data, { lang: 'css' }).toMarkdown();
+        var lang = null;
+
+        if (self.options.inline) {
+          lang = 'css';
+        } else if (f.name) {
+          lang = langs[re.exec(f.name)[1]];
+        }
+
+        if(lang) {
+          return mdextract(f.data, { lang: lang }).toMarkdown();
         } else {
-            return f.data;
+          return f.data;
         }
       }).join("\n");
-    }
-  },
+    };
+  })(),
 
   /**
    * process() : doc.process()
@@ -220,7 +241,7 @@ Styledown.prototype = {
     sectionize($, 'h2', p, { 'class': p('section'), until: 'h1, h2' });
 
     $('pre').each(function () {
-      unpackExample($(this), p, highlightHTML);
+      unpackExample($(this), $('<div class="' + pre +'-examples"></div>'), p, highlightHTML);
     });
 
     isolateTextBlocks(this.$, p);
