@@ -7,7 +7,8 @@
 var Marked = require('marked'),
     Cheerio = require('cheerio'),
     extend = require('util')._extend,
-    mdextract = require('mdextract');
+    mdextract = require('mdextract'),
+    fs = require('fs');
 
 module.exports = Styledown;
 
@@ -191,7 +192,14 @@ Styledown.prototype = {
     if (Array.isArray(src)) {
       return src.map(function (f) {
         if (self.options.inline || f.name && f.name.match(/(sass|scss|styl|less|css)$/)) {
-          return mdextract(f.data, { lang: 'css' }).toMarkdown();
+            var content = '';
+            try {
+                content = fs.readFileSync(f.name, 'utf8');
+            } catch (e) {
+                console.log(e.stack);
+            }
+
+            return mdextract(content, { lang: 'css' }).toMarkdown();
         } else {
             return f.data;
         }
