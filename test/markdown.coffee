@@ -21,7 +21,6 @@ describe 'Markdown', ->
       expect(@html).match /body/
       expect(@html).match /head/
       expect(@$).have.selector 'meta[charset="utf-8"]'
-      expect(@$("title").text().length).gt 0
 
   describe 'bare', ->
     beforeEach ->
