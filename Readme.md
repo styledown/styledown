@@ -1,7 +1,7 @@
 Styledown
 =========
 
-Write maintainable CSS styleguides efficiently using a Markdown.
+Write maintainable CSS styleguides efficiently using Markdown.
 **[See example ▸][example]**
 
 [![Example](https://cdn.rawgit.com/styledown/styledown/81a1d9c/examples/screenshot.png)][example]
