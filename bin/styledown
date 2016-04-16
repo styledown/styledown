@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+var meow = require('meow')
+var styledown = require('../index')
+var read = require('read-input')
+
+var cli = require('meow')([
+  'Usage:',
+  '  $ yourapp',
+  '',
+  'Options:',
+  '  -h, --help       show usage information',
+  '  -v, --version    print version info and exit'
+].join('\n'), {
+  boolean: ['help', 'version'],
+  alias: {
+    h: 'help', v: 'version'
+  }
+})
+
+read(cli.input)
+.then(function (res) {
+  res.files.forEach(function (file) {
+    if (file.error) throw file.error
+    var output = styledown(file.data, file.name)
+    console.log(output)
+  })
+})
