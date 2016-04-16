@@ -21,7 +21,7 @@ read(cli.input)
 .then(function (res) {
   res.files.forEach(function (file) {
     if (file.error) throw file.error
-    var output = styledown(file.data, file.name)
-    console.log(output)
   })
+  var output = styledown(res.files)
+  console.log(output)
 })
