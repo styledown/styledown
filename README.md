@@ -74,10 +74,10 @@ You'll get this JSON output:
     { "title": "Components",
       "sections":
         { "components":
-          { "content": "Components",
+          { "title": "Components",
             "depth": 1 },
           "top-header":
-          { "content": "Top header",
+          { "title": "Top header",
             "depth": 3,
             "parts":
             { "s1":
@@ -112,6 +112,7 @@ A file has the following fields:
 `sections` is a Dictionary where the key is the section ID, and the value is the section details. A section starts from a H1, H2, or H3 heading, followed the other blocks that follow it.
 
 - `title` - The title, taken from the first *H1* tag.
+- `depth` - _1_, _2_ or _3_.
 - `parts` - a Dictionary
 
 ### Section parts
