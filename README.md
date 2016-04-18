@@ -90,6 +90,12 @@ You'll get this JSON output:
                 "content": "= render 'components/top_header'" } } } } } } }
 ```
 
+It breaks down like so:
+
+- A styleguide has many [Files](#files).
+- A file has many [Sections](#sections).
+- A section has many [Parts](#parts).
+
 ### Files
 
 > `files`
