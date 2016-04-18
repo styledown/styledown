@@ -1,7 +1,20 @@
+# Styledown
+
+> Write maintainable CSS styleguides using Markdown.
+
+Styledown.js has two modes of operation:
+
+- __Parsing to JSON__ takes your files and turns them to JSON so you can render them yourself with your favorite templating language.
+- __Rendering to HTML__ takes parsing output and turns it to HTML.
+
 ## CLI usage
 
-```
+```sh
+# parsing to JSON
 styledown file.md > style.json
+
+# rendering to HTML
+styledown file.md -R html --head template/index.html > style.html
 ```
 
 ## API
