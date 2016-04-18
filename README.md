@@ -52,7 +52,7 @@ styledown.readFiles([
 
 <br>
 
-Output format
+Output schema
 -------------
 
 Given this input:
@@ -67,27 +67,27 @@ Given this input:
     = render 'components/top_header'
     ```
 
-You'll get this:
+You'll get this JSON output:
 
-```yaml
-files:
-  'components.md':
-    title: Components
-    sections:
-      'components':
-        content: Components
-        depth: 1
-      'top-header':
-        content: Top header
-        depth: 3
-        parts:
-          's1':
-            type: text
-            content: <p>This is the main header partial.</p>
-          's2':
-            type: example
-            language: haml
-            content: = render 'components/top_header'
+```json
+{ "files":
+  { "components.md":
+    { "title": "Components",
+      "sections":
+        { "components":
+          { "content": "Components",
+            "depth": 1 },
+          "top-header":
+          { "content": "Top header",
+            "depth": 3,
+            "parts":
+            { "s1":
+              { "type": "text",
+                "content": "<p>This is the main header partial.</p>" },
+              "s2":
+              { "type": "example",
+                "language": "haml",
+                "content": "= render 'components/top_header'" } } } } } } }
 ```
 
 ### Files
