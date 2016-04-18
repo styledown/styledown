@@ -2,32 +2,36 @@
 
 > Write maintainable CSS styleguides using Markdown.
 
+<!--
 Styledown.js has two modes of operation:
 
 - __Parsing to JSON__ takes your files and turns them to JSON so you can render them yourself with your favorite templating language.
 - __Rendering to HTML__ takes parsing output and turns it to HTML.
+-->
+
+<br>
 
 ## CLI usage
 
 ```sh
 # parsing to JSON
 styledown file.md > style.json
-
-# rendering to HTML
-styledown file.md --render html --head template/index.html --outdir styleguides/
 ```
 
-## API
+<br>
+
+API
+---
 
 ### styledown.parse
 
 > `styledown.parse(files, options)`
 
-Parses a bunch of files synchronously from given inputs.
+Parses synchronously from given inputs.
 
 ```js
 styledown.parse([
-  { name: 'components.md', data: '...' },
+  { name: 'components.md', data: '# This is Markdown data' },
   { name: 'buttons.md', data: '...' },
 ])
 ```
@@ -36,7 +40,7 @@ styledown.parse([
 
 > `styledown.readFiles(files, options)`
 
-Parses a bunch of files asynchronously from disk. Returns a promise.
+Reads files asynchronously from disk then parses them. Returns a promise.
 
 ```js
 styledown.readFiles([
@@ -46,7 +50,10 @@ styledown.readFiles([
 .then(result => { ... })
 ```
 
-## Output format
+<br>
+
+Output format
+-------------
 
 Given this input:
 
