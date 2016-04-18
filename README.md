@@ -48,25 +48,44 @@ styledown.readFiles([
 
 ## Output format
 
+Given this input:
+
+~~~ md
+# Components
+
+### Top header
+This is the main header partial.
+
+```
+@example
+= render 'components/top_header'
+```
+~~~
+
+You'll get this:
+
 ```yaml
 files:
   'components.md':
     title: Components
     sections:
-      header:
+      'components':
         content: Components
         depth: 1
+      'top-header':
+        content: Top header
+        depth: 3
         parts:
-          s1:
+          's1':
             type: text
-            content: <p>This is a header</p>
-          s2:
-            type: figure
-            language: none
-            content: <p>This is a header</p>
+            content: <p>This is the main header partial.</p>
+          's2':
+            type: example
+            language: haml
+            content: = render 'components/top_header'
 ```
 
-### Files
+### Files (`files`)
 
 `files` is a Dictionary where the key is the filename (eg, _'components.md'_) and the value is the file.
 A file has the following fields:
@@ -74,9 +93,17 @@ A file has the following fields:
 - `title` - The title, taken from the first *H1* tag.
 - `sections` - a Dictionary
 
-### Sections
+### Sections (`files.*.sections`)
 
-`sections` is a Dictionary where the key is the section ID, and the value is the secction.
+`sections` is a Dictionary where the key is the section ID, and the value is the section details.
 
 - `title` - The title, taken from the first *H1* tag.
 - `parts` - a Dictionary
+
+### Section parts (`files.*.sections.*.parts`)
+
+`parts` is a Dictionary where the key is the Part ID, and the value is the part details.
+
+- `type` - Can be _'example'_ or _'text'_.
+- `language`
+- `content`
