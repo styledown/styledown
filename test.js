@@ -16,11 +16,11 @@ test('hello', t => {
         ~~~
       `) }
   ])
-  t.truthy(out.files['components.md'].name === 'Components')
-  t.truthy(out.files['components.md'].sections.header.name === 'header')
+  t.truthy(out.files['components.md'].title === 'Components')
+  t.truthy(out.files['components.md'].sections.header.title === 'header')
   t.truthy(out.files['components.md'].sections.header.depth === 3)
-  t.truthy(out.files['components.md'].sections.header.parts[0].type === 'text')
-  t.regex(out.files['components.md'].sections.header.parts[0].content, /This is a header/)
+  t.truthy(out.files['components.md'].sections.header.parts.s1.type === 'text')
+  t.regex(out.files['components.md'].sections.header.parts.s1.content, /This is a header/)
   t.pass()
 })
 
@@ -37,15 +37,15 @@ test('multiple blocks', t => {
       `) }
   ])
   console.log(require('util').inspect(out, { depth: null }))
-  t.truthy(out.files['components.md'].name === 'Components')
-  t.truthy(out.files['components.md'].sections.header.name === 'header')
+  t.truthy(out.files['components.md'].title === 'Components')
+  t.truthy(out.files['components.md'].sections.header.title === 'header')
   t.truthy(out.files['components.md'].sections.header.depth === 3)
-  t.truthy(out.files['components.md'].sections.header.parts[0].type === 'text')
-  t.regex(out.files['components.md'].sections.header.parts[0].content, /This is a header/)
+  t.truthy(out.files['components.md'].sections.header.parts.s1.type === 'text')
+  t.regex(out.files['components.md'].sections.header.parts.s1.content, /This is a header/)
 
-  t.truthy(out.files['components.md'].sections.footer.name === 'footer')
+  t.truthy(out.files['components.md'].sections.footer.title === 'footer')
   t.truthy(out.files['components.md'].sections.footer.depth === 3)
-  t.truthy(out.files['components.md'].sections.footer.parts[0].type === 'text')
-  t.regex(out.files['components.md'].sections.footer.parts[0].content, /This is a footer/)
+  t.truthy(out.files['components.md'].sections.footer.parts.s1.type === 'text')
+  t.regex(out.files['components.md'].sections.footer.parts.s1.content, /This is a footer/)
   t.pass()
 })

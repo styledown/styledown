@@ -5,15 +5,20 @@ var read = require('read-input')
 
 var cli = require('meow')([
   'Usage:',
-  '  $ yourapp',
+  '  $ styledown',
   '',
   'Options:',
-  '  -h, --help       show usage information',
-  '  -v, --version    print version info and exit'
+  "  -F, --format <FMT>  sets output format ('json' or 'yaml')",
+  "      --yaml          same as '--format yaml'",
+  '',
+  'Other options:',
+  '  -h, --help          show usage information',
+  '  -v, --version       print version info and exit'
 ].join('\n'), {
-  boolean: ['help', 'version'],
+  boolean: ['help', 'version', 'yaml'],
+  string: ['format'],
   alias: {
-    h: 'help', v: 'version'
+    h: 'help', v: 'version', F: 'format'
   }
 })
 
@@ -22,6 +27,10 @@ read(cli.input)
   res.files.forEach(function (file) {
     if (file.error) throw file.error
   })
-  var output = styledown(res.files)
-  console.log(output)
+  var output = styledown.parse(res.files)
+  if (cli.flags.yaml || cli.flags.format === 'yaml') {
+    console.log(require('js-yaml').safeDump(output))
+  } else {
+    console.log(JSON.stringify(output, null, 2))
+  }
 })
