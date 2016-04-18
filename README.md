@@ -14,7 +14,7 @@ Styledown.js has two modes of operation:
 styledown file.md > style.json
 
 # rendering to HTML
-styledown file.md -R html --head template/index.html > style.html
+styledown file.md --render html --head template/index.html > style.html
 ```
 
 ## API
