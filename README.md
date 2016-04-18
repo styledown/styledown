@@ -90,7 +90,9 @@ files:
             content: = render 'components/top_header'
 ```
 
-### Files (`files`)
+### Files
+
+> `files`
 
 `files` is a Dictionary where the key is the filename (eg, _'components.md'_) and the value is the file.
 A file has the following fields:
@@ -98,14 +100,18 @@ A file has the following fields:
 - `title` - The title, taken from the first *H1* tag.
 - `sections` - a Dictionary
 
-### Sections (`files.*.sections`)
+### Sections
+
+> `files.*.sections`
 
 `sections` is a Dictionary where the key is the section ID, and the value is the section details.
 
 - `title` - The title, taken from the first *H1* tag.
 - `parts` - a Dictionary
 
-### Section parts (`files.*.sections.*.parts`)
+### Section parts
+
+> `files.*.sections.*.parts`
 
 `parts` is a Dictionary where the key is the Part ID, and the value is the part details.
 
