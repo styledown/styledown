@@ -62,7 +62,7 @@ Given this input:
     ### Top header
     This is the main header partial.
 
-    ``` haml @example
+    ``` example.haml
     = render 'components/top_header'
     ```
 
@@ -120,6 +120,6 @@ A file has the following fields:
 
 `parts` is a Dictionary where the key is the Part ID, and the value is the part details.
 
-- `type` - Can be _'example'_ or _'text'_.
+- `type` - Can be _'example'_, _'text'_, or _'code'_.
 - `language`
 - `content`
