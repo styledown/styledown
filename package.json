@@ -1,14 +1,11 @@
 {
-  "name": "styledown2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "ava"
-  },
-  "keywords": [],
+  "name": "styledown",
+  "description": "Write maintainable CSS styleguides using Markdown.",
+  "version": "2.0.0-pre1",
   "author": "Rico Sta. Cruz <rico@ricostacruz.com>",
-  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/styledown/styledown/issues"
+  },
   "dependencies": {
     "markdown-it": "6.0.1",
     "marked": "0.3.5",
@@ -19,5 +16,20 @@
     "ava": "0.14.0",
     "redent": "1.0.0",
     "tape": "4.5.1"
+  },
+  "homepage": "https://github.com/styledown/styledown#readme",
+  "keywords": [
+    "css",
+    "markdown",
+    "styleguide"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/styledown/styledown.git"
+  },
+  "scripts": {
+    "test": "ava"
   }
 }
