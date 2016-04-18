@@ -62,8 +62,7 @@ Given this input:
     ### Top header
     This is the main header partial.
 
-    ``` haml
-    @example
+    ``` haml @example
     = render 'components/top_header'
     ```
 
@@ -110,7 +109,7 @@ A file has the following fields:
 
 > `files.*.sections`
 
-`sections` is a Dictionary where the key is the section ID, and the value is the section details.
+`sections` is a Dictionary where the key is the section ID, and the value is the section details. A section starts from a H1, H2, or H3 heading, followed the other blocks that follow it.
 
 - `title` - The title, taken from the first *H1* tag.
 - `parts` - a Dictionary
