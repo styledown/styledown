@@ -63,10 +63,8 @@ Given this input:
 ### Top header
 This is the main header partial.
 
-```
-@example
-= render 'components/top_header'
-```
+    @example
+    = render 'components/top_header'
 ~~~
 
 You'll get this:
