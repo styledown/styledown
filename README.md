@@ -57,15 +57,15 @@ Output format
 
 Given this input:
 
-~~~ md
-# Components
+    # Components
 
-### Top header
-This is the main header partial.
+    ### Top header
+    This is the main header partial.
 
+    ``` haml
     @example
     = render 'components/top_header'
-~~~
+    ```
 
 You'll get this:
 
