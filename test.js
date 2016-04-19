@@ -15,7 +15,7 @@ test('block with example', t => {
         ~~~
       `) }
   ])
-  console.log(require('util').inspect(out, { depth: null }))
+  // console.log(require('util').inspect(out, { depth: null }))
   t.truthy(out.files['components.md'].title === 'Components')
   t.truthy(out.files['components.md'].sections.header.title === 'header')
   t.truthy(out.files['components.md'].sections.header.depth === 3)
@@ -85,4 +85,22 @@ test('multiple blocks', t => {
   t.truthy(out.files['components.md'].sections.footer.parts.s1.type === 'text')
   t.regex(out.files['components.md'].sections.footer.parts.s1.content, /This is a footer/)
   t.pass()
+})
+
+test('readFiles', async t => {
+  var out = await styledown.readFiles([
+    'examples/bootstrap/forms.md',
+    'examples/bootstrap/components.md'
+  ])
+
+  t.truthy(out.files['examples/bootstrap/forms.md'].title === 'Forms')
+  t.truthy(out.files['examples/bootstrap/components.md'].title === 'Components')
+})
+
+test('readFiles failure', async t => {
+  try {
+    var out = await styledown.readFiles([ 'xxx.xxx' ])
+  } catch (e) {
+    t.regex(e.message, /ENOENT: no such file or directory/)
+  }
 })
