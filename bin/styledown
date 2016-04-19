@@ -10,6 +10,7 @@ var cli = require('meow')([
   'Options:',
   "  -F, --format <FMT>  sets output format ('json' or 'yaml')",
   "      --yaml          same as '--format yaml'",
+  ' -R, --render         render as HTML',
   '',
   'Other options:',
   '  -h, --help          show usage information',
