@@ -20,7 +20,12 @@ var cli = require('meow')([
   '',
   'Other options:',
   '  -h, --help              show usage information',
-  '  -v, --version           print version info and exit'
+  '  -v, --version           print version info and exit',
+  '',
+  'Examples:',
+  '  styledown styles.md > styles.json         # parse to json',
+  '  styledown styles.md --html > styles.html  # render to html',
+  '  styledown *.md -o outdir                  # render to html (multiple)'
 ].join('\n'), {
   boolean: ['help', 'version', 'yaml', 'json', 'html'],
   string: ['format', 'transform'],
