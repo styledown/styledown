@@ -30,7 +30,6 @@ var cli = require('meow')([
 ].join('\n'), {
   boolean: ['help', 'version', 'yaml', 'json', 'html'],
   string: ['format', 'transform', 'outdir'],
-  array: ['transform'],
   alias: {
     h: 'help', v: 'version', H: 'html', t: 'transform', o: 'outdir'
   }
@@ -38,6 +37,9 @@ var cli = require('meow')([
 
 // Implied options
 if (cli.flags.outdir) cli.flags.html = true
+if (typeof cli.flags.transform === 'string') {
+  cli.flags.transform = [cli.flags.transform]
+}
 
 read(cli.input)
 .then(function (res) {

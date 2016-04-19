@@ -1,31 +1,6 @@
 var test = require('ava')
-var styledown = require('./index')
+var styledown = require('../index')
 var r = require('redent')
-
-test('block with example', t => {
-  var out = styledown.parse([
-    { name: 'components.md',
-      data: r(`
-        # Components
-        ### header
-        This is a header
-
-        ~~~ example.haml
-        = render 'header'
-        ~~~
-      `) }
-  ])
-  // console.log(require('util').inspect(out, { depth: null }))
-  t.true(out.files['components.md'].title === 'Components')
-  t.true(out.files['components.md'].sections.header.title === 'header')
-  t.true(out.files['components.md'].sections.header.depth === 3)
-  t.true(out.files['components.md'].sections.header.id === 'header')
-  t.true(out.files['components.md'].sections.header.parts.s1.type === 'text')
-  t.true(out.files['components.md'].sections.header.parts.s1.content === '<p>This is a header</p>')
-  t.true(out.files['components.md'].sections.header.parts.s2.type === 'example')
-  t.true(out.files['components.md'].sections.header.parts.s2.language === 'haml')
-  t.regex(out.files['components.md'].sections.header.parts.s2.content, /= render 'header'/)
-})
 
 test('block with code and class', t => {
   var out = styledown.parse([
@@ -39,13 +14,13 @@ test('block with code and class', t => {
         ~~~
       `) }
   ])
-  t.true(out.files['components.md'].sections.header.parts.s1.type === 'text')
-  t.true(out.files['components.md'].sections.header.parts.s1.content === '<p>This is a header</p>')
-  t.true(out.files['components.md'].sections.header.parts.s2.type === 'example')
-  t.true(out.files['components.md'].sections.header.parts.s2.language === 'haml')
-  t.true(out.files['components.md'].sections.header.parts.s2.class === 'a b')
-  t.regex(out.files['components.md'].sections.header.parts.s2.content, /= render 'header'/)
-  t.pass()
+  var header = out.files['components.md'].sections.header
+  t.true(header.parts.s1.type === 'text')
+  t.true(header.parts.s1.content === '<p>This is a header</p>')
+  t.true(header.parts.s2.type === 'example')
+  t.true(header.parts.s2.language === 'haml')
+  t.true(header.parts.s2.class === 'a b')
+  t.regex(header.parts.s2.content, /= render 'header'/)
 })
 
 test('slugifying', t => {
@@ -91,12 +66,12 @@ test('multiple blocks', t => {
 
 test('parseFiles', async t => {
   var out = await styledown.parseFiles([
-    'examples/bootstrap/forms.md',
-    'examples/bootstrap/components.md'
+    '../examples/bootstrap/forms.md',
+    '../examples/bootstrap/components.md'
   ])
 
-  t.true(out.files['examples/bootstrap/forms.md'].title === 'Forms')
-  t.true(out.files['examples/bootstrap/components.md'].title === 'Components')
+  t.true(out.files['../examples/bootstrap/forms.md'].title === 'Forms')
+  t.true(out.files['../examples/bootstrap/components.md'].title === 'Components')
 })
 
 test('parseFiles failure', async t => {
