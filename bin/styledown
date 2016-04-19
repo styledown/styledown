@@ -5,21 +5,21 @@ var read = require('read-input')
 
 var cli = require('meow')([
   'Usage:',
-  '  $ styledown',
+  '  $ styledown <files...>',
   '',
-  'Options:',
-  "  -F, --format <FMT>  sets output format ('json' or 'yaml')",
-  "      --yaml          same as '--format yaml'",
-  ' -R, --render         render as HTML',
+  'Output formats:',
+  '      --json          parse into JSON data (default)',
+  '      --yaml          parse into YAML data',
+  '  -H, --html          render as HTML',
   '',
   'Other options:',
   '  -h, --help          show usage information',
   '  -v, --version       print version info and exit'
 ].join('\n'), {
-  boolean: ['help', 'version', 'yaml', 'render'],
+  boolean: ['help', 'version', 'yaml', 'json', 'html'],
   string: ['format'],
   alias: {
-    h: 'help', v: 'version', F: 'format', R: 'render'
+    h: 'help', v: 'version', H: 'html'
   }
 })
 
@@ -30,13 +30,11 @@ read(cli.input)
   })
   var output = styledown.parse(res.files)
 
-  if (cli.flags.render) {
+  if (cli.flags.html) {
     process.stdout.write(styledown.render(output))
+  } else if (cli.flags.yaml) {
+    console.log(require('js-yaml').safeDump(output))
   } else {
-    if (cli.flags.yaml || cli.flags.format === 'yaml') {
-      console.log(require('js-yaml').safeDump(output))
-    } else {
-      console.log(JSON.stringify(output, null, 2))
-    }
+    console.log(JSON.stringify(output, null, 2))
   }
 })

@@ -29,7 +29,7 @@ styledown.parse([
 ])
 ```
 
-### styledown.parseFilels
+### styledown.parseFiles
 
 > `styledown.parseFiles(files, options)`
 
@@ -42,6 +42,12 @@ styledown.parseFiles([
 ])
 .then(result => { ... })
 ```
+
+### styledown.render
+
+> `styledown.render(data, options)`
+
+Renders to HTML, where `data` is assumed to be the output of [styledown.parse](#styledownparse).
 
 <br>
 
