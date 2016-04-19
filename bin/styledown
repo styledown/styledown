@@ -50,7 +50,9 @@ read(cli.input)
     transform: cli.flags.transform
   })
 
-  if (cli.flags.html) {
+  if (cli.flags.outdir) {
+    console.log('not supported yet')
+  } else if (cli.flags.html) {
     process.stdout.write(styledown.render(output))
   } else if (cli.flags.yaml) {
     console.log(require('js-yaml').safeDump(output))
