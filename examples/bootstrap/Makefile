@@ -1,4 +1,4 @@
 styledown := ../../bin/styledown
 
 html:
-	${styledown} *.md -o html
+	${styledown} *.md -t jade -o html

@@ -30,6 +30,20 @@ form.form-inline
    button.btn.btn-default Sign in
 ```
 
+### form-horizontal
+Use Bootstrap's grid classes to align labels.
+
+```example.jade
+form.form-horizontal
+  .form-group
+    label.col-sm-2.control-label Email
+    .col-sm-10
+      input.form-control(type='text' placeholder='hello@example.com')
+  .form-group
+    label.col-sm-2.control-label Password
+    .col-sm-10
+      input.form-control(type='password' placeholder='Secret')
+```
 
 ### input-group
 Extend form controls by adding text or buttons before, after, or on both sides
