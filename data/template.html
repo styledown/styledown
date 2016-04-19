@@ -1,0 +1,30 @@
+<% Object.keys(files).forEach(function (key) { -%>
+<% var file = files[key] -%>
+<% Object.keys(file.sections).forEach(function (key) { -%>
+<% var section = file.sections[key] -%>
+<section class='styleguide-section -h<%= section.depth %>'>
+
+  <h3 id='<%= section.id %>'>
+    <%= section.title %>
+  </h3>
+<% Object.keys(section.parts).forEach(function (key) { -%>
+<% var part = section.parts[key] -%>
+
+<% if (part.type === 'text') { -%>
+  <div class='text'>
+    <%- part.content.replace(/\n/g, '\n    ') %>
+  </div>
+<% } else if (part.type === 'code') { -%>
+  <div class='code'>
+    <%- part.content.replace(/\n/g, '\n    ') %>
+  </div>
+<% } else if (part.type === 'example') { -%>
+  <div class='example <%= part.class %> lang-<%= part.language %>'>
+    <%- part.content.replace(/\n/g, '\n    ') %>
+  </div>
+<% } -%>
+<% }) -%>
+
+</section>
+<% }) -%>
+<% }) -%>

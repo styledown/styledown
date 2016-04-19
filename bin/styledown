@@ -16,10 +16,10 @@ var cli = require('meow')([
   '  -h, --help          show usage information',
   '  -v, --version       print version info and exit'
 ].join('\n'), {
-  boolean: ['help', 'version', 'yaml'],
+  boolean: ['help', 'version', 'yaml', 'render'],
   string: ['format'],
   alias: {
-    h: 'help', v: 'version', F: 'format'
+    h: 'help', v: 'version', F: 'format', R: 'render'
   }
 })
 
@@ -29,9 +29,14 @@ read(cli.input)
     if (file.error) throw file.error
   })
   var output = styledown.parse(res.files)
-  if (cli.flags.yaml || cli.flags.format === 'yaml') {
-    console.log(require('js-yaml').safeDump(output))
+
+  if (cli.flags.render) {
+    process.stdout.write(styledown.render(output))
   } else {
-    console.log(JSON.stringify(output, null, 2))
+    if (cli.flags.yaml || cli.flags.format === 'yaml') {
+      console.log(require('js-yaml').safeDump(output))
+    } else {
+      console.log(JSON.stringify(output, null, 2))
+    }
   }
 })
