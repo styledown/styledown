@@ -11,16 +11,18 @@
 <% var part = section.parts[key] -%>
 
 <% if (part.type === 'text') { -%>
-  <div class='text'>
+  <div class='styleguide-text'>
     <%- part.content.replace(/\n/g, '\n    ') %>
   </div>
 <% } else if (part.type === 'code') { -%>
-  <div class='code'>
-    <%- part.content.replace(/\n/g, '\n    ') %>
+  <div class='styleguide-code'>
+    <pre class='<%= part.class %><%= part.language ? 'lang-' + part.language : '' %>'><code><%- part.content.replace(/\n/g, '\n    ') %></code></pre>
   </div>
 <% } else if (part.type === 'example') { -%>
-  <div class='example <%= part.class %> lang-<%= part.language %>'>
-    <%- part.content.replace(/\n/g, '\n    ') %>
+  <div class='styleguide-example <%= part.class %> <%= part.language ? 'lang-' + part.language : '' %>'>
+    <div class='figure'>
+      <%- part.content.replace(/\n/g, '\n    ') %>
+    </div>
   </div>
 <% } -%>
 <% }) -%>
