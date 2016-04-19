@@ -16,7 +16,8 @@ var cli = require('meow')([
   '  -t, --transform LANG    transforms examples of given LANGUAGE',
   '',
   'Rendering options:',
-  '  -T, --template FILE     uses FILE as an HTML template',
+  '  -l, --layout FILE       uses FILE as an HTML layout',
+  '  -o, --outdir DIR        render output HTML to DIR (implies --html)',
   '',
   'Other options:',
   '  -h, --help              show usage information',
@@ -28,12 +29,15 @@ var cli = require('meow')([
   '  styledown *.md -o outdir                  # render to html (multiple)'
 ].join('\n'), {
   boolean: ['help', 'version', 'yaml', 'json', 'html'],
-  string: ['format', 'transform'],
+  string: ['format', 'transform', 'outdir'],
   array: ['transform'],
   alias: {
-    h: 'help', v: 'version', H: 'html', t: 'transform'
+    h: 'help', v: 'version', H: 'html', t: 'transform', o: 'outdir'
   }
 })
+
+// Implied options
+if (cli.flags.outdir) cli.flags.html = true
 
 read(cli.input)
 .then(function (res) {
