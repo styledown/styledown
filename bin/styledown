@@ -5,21 +5,25 @@ var read = require('read-input')
 
 var cli = require('meow')([
   'Usage:',
-  '  $ styledown <files...>',
+  '  $ styledown FILES...',
   '',
   'Output formats:',
-  '      --json          parse into JSON data (default)',
-  '      --yaml          parse into YAML data',
-  '  -H, --html          render as HTML',
+  '      --json              parse into JSON data (default)',
+  '      --yaml              parse into YAML data',
+  '  -H, --html              render as HTML',
   '',
   'Other options:',
-  '  -h, --help          show usage information',
-  '  -v, --version       print version info and exit'
+  '  -t, --transform LANG    transforms examples of given LANGUAGE',
+  '',
+  'Other options:',
+  '  -h, --help              show usage information',
+  '  -v, --version           print version info and exit'
 ].join('\n'), {
   boolean: ['help', 'version', 'yaml', 'json', 'html'],
-  string: ['format'],
+  string: ['format', 'transform'],
+  array: ['transform'],
   alias: {
-    h: 'help', v: 'version', H: 'html'
+    h: 'help', v: 'version', H: 'html', t: 'transform'
   }
 })
 
@@ -28,7 +32,9 @@ read(cli.input)
   res.files.forEach(function (file) {
     if (file.error) throw file.error
   })
-  var output = styledown.parse(res.files)
+  var output = styledown.parse(res.files, {
+    transform: cli.flags.transform
+  })
 
   if (cli.flags.html) {
     process.stdout.write(styledown.render(output))

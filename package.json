@@ -9,6 +9,8 @@
   "dependencies": {
     "any-promise": "1.1.0",
     "ejs": "2.4.1",
+    "jstransformer": "0.0.4",
+    "jstransformer-jade": "0.1.0",
     "lodash.kebabcase": "4.0.1",
     "markdown-it": "6.0.1",
     "meow": "3.7.0",
