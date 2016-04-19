@@ -20,8 +20,15 @@
   },
   "devDependencies": {
     "ava": "0.14.0",
-    "redent": "1.0.0"
+    "browserify": "13.0.0",
+    "redent": "1.0.0",
+    "uglify-js": "2.6.2"
   },
+  "files": [
+    "lib",
+    "data",
+    "bin"
+  ],
   "homepage": "https://github.com/styledown/styledown#readme",
   "keywords": [
     "css",
@@ -35,6 +42,7 @@
     "url": "git+ssh://git@github.com/styledown/styledown.git"
   },
   "scripts": {
+    "build": "browserify external.js -S styledown | uglifyjs -cm > dist/styledown-external.js",
     "test": "ava"
   }
 }
