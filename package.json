@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "ava": "0.14.0",
+    "brfs": "1.4.3",
     "browserify": "13.0.0",
     "redent": "1.0.0",
     "uglify-js": "2.6.2"
@@ -42,7 +43,7 @@
     "url": "git+ssh://git@github.com/styledown/styledown.git"
   },
   "scripts": {
-    "build": "browserify external.js -S styledown | uglifyjs -cm > dist/styledown-external.js",
+    "build": "browserify external.js -t brfs -S styledown | uglifyjs -cm > dist/styledown-external.js",
     "test": "ava"
   }
 }
