@@ -87,8 +87,8 @@ test('multiple blocks', t => {
   t.pass()
 })
 
-test('readFiles', async t => {
-  var out = await styledown.readFiles([
+test('parseFiles', async t => {
+  var out = await styledown.parseFiles([
     'examples/bootstrap/forms.md',
     'examples/bootstrap/components.md'
   ])
@@ -97,9 +97,9 @@ test('readFiles', async t => {
   t.truthy(out.files['examples/bootstrap/components.md'].title === 'Components')
 })
 
-test('readFiles failure', async t => {
+test('parseFiles failure', async t => {
   try {
-    var out = await styledown.readFiles([ 'xxx.xxx' ])
+    var out = await styledown.parseFiles([ 'xxx.xxx' ])
   } catch (e) {
     t.regex(e.message, /ENOENT: no such file or directory/)
   }

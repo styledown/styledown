@@ -1,2 +1,2 @@
 exports.parse = require('./lib/parse')
-exports.readFiles = require('./lib/read_files')
+exports.parseFiles = require('./lib/parse_files')
