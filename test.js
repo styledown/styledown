@@ -25,7 +25,6 @@ test('block with example', t => {
   t.true(out.files['components.md'].sections.header.parts.s2.type === 'example')
   t.true(out.files['components.md'].sections.header.parts.s2.language === 'haml')
   t.regex(out.files['components.md'].sections.header.parts.s2.content, /= render 'header'/)
-  t.pass()
 })
 
 test('block with code and class', t => {
@@ -106,4 +105,23 @@ test('parseFiles failure', async t => {
   } catch (e) {
     t.regex(e.message, /ENOENT: no such file or directory/)
   }
+})
+
+test('file with nothing', t => {
+  var out = styledown.parse([
+    { name: 'components.md',
+      data: '' }
+  ])
+  t.true(out.files['components.md'].title === null)
+  t.deepEqual(out.files['components.md'].sections, {})
+})
+
+
+test('discard things without headings', t => {
+  var out = styledown.parse([
+    { name: 'components.md',
+      data: 'hello' }
+  ])
+  t.true(out.files['components.md'].title === null)
+  t.deepEqual(out.files['components.md'].sections, {})
 })
