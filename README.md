@@ -101,7 +101,7 @@ It breaks down like so:
 `files` is a Dictionary where the key is the filename (eg, _'components.md'_) and the value is the file.
 A file has the following fields:
 
-- `title` - The title, taken from the first *H1* tag.
+- `title` - The title, taken from the first *H1* elemnet.
 - `sections` - a Dictionary
 
 ### Sections
@@ -110,7 +110,7 @@ A file has the following fields:
 
 `sections` is a Dictionary where the key is the section ID, and the value is the section details. A section starts from a H1, H2, or H3 heading, followed the other blocks that follow it.
 
-- `title` - The title, taken from the first *H1* tag.
+- `title` - The title, taken from the *H2* or *H3* element that started the section.
 - `depth` - _1_, _2_ or _3_.
 - `parts` - a Dictionary
 
