@@ -5,19 +5,22 @@ var test = require('ava')
 
 test('works', function (t) {
   var output = tocify([
-    '* [Readme](/README.md)'
+    '* [Readme](index.md)'
   ].join('\n'))
 
-  t.deepEqual(output, {
+  var expected = {
     sections: [
       {
         title: 'Readme',
         url: 'index.html',
-        source: 'README.md',
+        source: 'index.md',
         slug: 'index'
       }
     ]
-  })
+  }
+
+  t.deepEqual(output.sections[0], expected.sections[0])
+  t.deepEqual(output, expected)
 })
 
 test('handles non-links', function (t) {
@@ -36,92 +39,100 @@ test('handles non-links', function (t) {
 
 test('takes care of nesting', function (t) {
   var output = tocify([
-    '* [Readme](/README.md)',
+    '* [Home](home.md)',
     '* Getting Started',
-    '  * [Install](/docs/install.md)',
-    '  * [Usage](/docs/usage.md)'
+    '  * [Install](docs/install.md)',
+    '  * [Usage](docs/usage.md)'
   ].join('\n'))
 
-  t.deepEqual(output, {
+  var expected = {
     sections: [
       {
-        title: 'Readme',
-        url: 'index.html',
-        source: 'README.md',
-        slug: 'index'
+        title: 'Home',
+        source: 'home.md',
+        url: 'home.html',
+        slug: 'home'
       },
       {
         title: 'Getting Started',
         sections: [
           {
             title: 'Install',
-            url: 'install.html',
             source: 'docs/install.md',
-            slug: 'install'
+            url: 'docs/install.html',
+            slug: 'docs-install'
           },
           {
             title: 'Usage',
-            url: 'usage.html',
             source: 'docs/usage.md',
-            slug: 'usage'
+            url: 'docs/usage.html',
+            slug: 'docs-usage'
           }
         ]
       }
     ]
-  })
+  }
+
+  t.deepEqual(output.sections[0], expected.sections[0])
+  t.deepEqual(output.sections[1], expected.sections[1])
+  t.deepEqual(output.sections, expected.sections)
 })
 
 test('takes care of nesting', function (t) {
   var output = tocify([
-    '* [Readme](/README.md)',
+    '* [Home](home.md)',
     '* Getting Started',
-    '  * [Install](/docs/install.md)',
-    '  * [Usage](/docs/usage.md)'
+    '  * [Install](docs/install.md)',
+    '  * [Usage](docs/usage.md)'
   ].join('\n'))
 
-  t.deepEqual(output, {
+  var expected = {
     sections: [
       {
-        title: 'Readme',
-        url: 'index.html',
-        source: 'README.md',
-        slug: 'index'
+        title: 'Home',
+        url: 'home.html',
+        source: 'home.md',
+        slug: 'home'
       },
       {
         title: 'Getting Started',
         sections: [
           {
             title: 'Install',
-            url: 'install.html',
+            url: 'docs/install.html',
             source: 'docs/install.md',
-            slug: 'install'
+            slug: 'docs-install'
           },
           {
             title: 'Usage',
-            url: 'usage.html',
+            url: 'docs/usage.html',
             source: 'docs/usage.md',
-            slug: 'usage'
+            slug: 'docs-usage'
           }
         ]
       }
     ]
-  })
+  }
+
+  t.deepEqual(output, expected)
 })
 
 test('handles expand', function (t) {
   var output = tocify([
-    '* **[Readme](/README.md)**'
+    '* **[Readme](button.md)**'
   ].join('\n'))
 
-  t.deepEqual(output, {
+  var expected = {
     sections: [
       {
         title: 'Readme',
-        url: 'index.html',
-        source: 'README.md',
-        slug: 'index',
+        url: 'button.html',
+        source: 'button.md',
+        slug: 'button',
         expand: true
       }
     ]
-  })
+  }
+  t.deepEqual(output.sections[0], expected.sections[0])
+  t.deepEqual(output, expected)
 })
