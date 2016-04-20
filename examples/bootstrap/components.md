@@ -106,8 +106,6 @@ ol.breadcrumb
     | Data
 ```
 
-## Panels
-
 ### panel
 Panels (`.panel`) are white boxes. `.panel-body` provides the padding.
 
@@ -116,55 +114,102 @@ Panels (`.panel`) are white boxes. `.panel-body` provides the padding.
   .panel-body Basic panel example
 ```
 
-#### panel-heading
+#### With heading
 Add `.panel-heading` for a heading.
 
-```example.jade
+```example.jade.-clear
 .panel.panel-default
   .panel-heading Panel heading
-  .panel-body Content goes here
+  .panel-body
+    p(style='padding: 20px') Content goes here
 ```
 
-#### panel-title
+#### With title
 Use `.panel-title` to make the text bigger.
 
-```example.jade
+```example.jade.-clear
 .panel.panel-default
   .panel-heading
     .panel-title Panel heading with title
-  .panel-body Content goes here
+  .panel-body
+    p(style='padding: 20px') Content goes here
 ```
 
-#### panel-footer
+#### With footer
 Add `.panel-footer` for a footer.
 
-```example.jade
+```example.jade.-clear
 .panel.panel-default
-  .panel-body Content goes here
+  .panel-body
+    p(style='padding: 20px') Content goes here
   .panel-footer Panel footer
 ```
 
-### panel variants
+#### Alternates
 Use `.panel-primary` (and so on).
 
 ```example.jade.-clear
-.panel.panel-primary
-  .panel-heading Primary
-  .panel-body panel-primary
+.row
+  .col-sm-4
+    .panel.panel-primary
+      .panel-heading Primary
+      .panel-body panel-primary
+
+  .col-sm-4
+    .panel.panel-success
+      .panel-heading Success
+      .panel-body panel-success
+
+  .col-sm-4
+    .panel.panel-info
+      .panel-heading Info
+      .panel-body panel-info
 ```
 
-`panel-success` uses *$brand-color-success*.
+### progress
+Use `.progress` with `.progress-bar`.
 
-```example.jade.-clear
-.panel.panel-success
-  .panel-heading Success
-  .panel-body panel-success
+```example.jade
+.progress
+  .progress-bar(style='width: 60%')
 ```
 
-`panel-info` uses *$brand-color-info*.
+#### Accessibility
+Add `aria-value*` attributes and use `span.sr-only`.
 
-```example.jade.-clear
-.panel.panel-info
-  .panel-heading Info
-  .panel-body panel-info
+```example.jade
+.progress
+  .progress-bar(role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%')
+    span.sr-only 60% Complete
+```
+
+#### With labels
+Add text inside `.progress-bar`.
+
+```example.jade
+.progress
+  .progress-bar(role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%')
+    | 60%
+```
+
+#### Alternatives
+Add classes to `.progress-bar`.
+
+```example.jade
+.progress
+  .progress-bar.progress-bar-success(style='width: 40%') progress-bar-success
+.progress
+  .progress-bar.progress-bar-info(style='width: 20%') progress-bar-info
+.progress
+  .progress-bar.progress-bar-warning(style='width: 60%') progress-bar-warning
+.progress
+  .progress-bar.progress-bar-danger(style='width: 80%') progress-bar-danger
+```
+
+#### Striped
+Add `.progress-bar-striped.active`.
+
+```example.jade
+.progress
+  .progress-bar.progess-bar-striped.active(style='width: 40%')
 ```
