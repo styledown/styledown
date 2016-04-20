@@ -53,7 +53,9 @@ read(cli.input)
   if (cli.flags.outdir) {
     console.log('not supported yet')
   } else if (cli.flags.html) {
-    process.stdout.write(styledown.render(output))
+    var fname = Object.keys(output.files)[0]
+    if (!fname) return
+    process.stdout.write(styledown.render(output, fname))
   } else if (cli.flags.yaml) {
     console.log(require('js-yaml').safeDump(output))
   } else {

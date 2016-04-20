@@ -29,4 +29,3 @@ test('block with example', t => {
   t.true(header.parts.s2.language === 'haml')
   t.regex(header.parts.s2.content, /= render 'header'/)
 })
-

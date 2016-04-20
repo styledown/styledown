@@ -1,12 +1,8 @@
-<% Object.keys(files).forEach(function (key) { -%>
-<% var file = files[key] -%>
 <% Object.keys(file.sections).forEach(function (key) { -%>
 <% var section = file.sections[key] -%>
 <section class='styleguide-section -h<%= section.depth %>'>
 
-  <h3 id='<%= section.id %>'>
-    <%= section.title %>
-  </h3>
+  <h<%= section.depth %> id='<%= section.id %>'><%= section.title %></h<%= section.depth %>>
 <% Object.keys(section.parts).forEach(function (key) { -%>
 <% var part = section.parts[key] -%>
 
@@ -23,10 +19,12 @@
     <div class='figure'>
       <%- part.content.replace(/\n/g, '\n    ') %>
     </div>
+    <div class='source'>
+      <pre><code><% part.source || part.content %></code></pre>
+    </div>
   </div>
 <% } -%>
 <% }) -%>
 
 </section>
-<% }) -%>
 <% }) -%>

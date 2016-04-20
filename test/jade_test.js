@@ -19,6 +19,7 @@ test('transforming jade', t => {
   var example = out.files['components.md'].sections.header.parts.s2
   t.true(example.language === 'html')
   t.true(example.content === '<div class="hello">world</div>')
+  t.true(example.source === '.hello world')
 })
 
 test('dont transform if not specified', t => {
