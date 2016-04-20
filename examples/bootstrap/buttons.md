@@ -21,6 +21,7 @@ a.btn.btn-link Link
 ```
 
 ### btn sizes
+Define sizes using `btn-lg`, `btn-sm`, and `btn-xs` classes.
 
 ```example.jade
 p
@@ -33,13 +34,12 @@ p
   a.btn.btn-sm.btn-primary Small
   a.btn.btn-sm.btn-default btn-sm
 p
-  a.btn.btn-xs.btn-primary Small
+  a.btn.btn-xs.btn-primary X-Small
   a.btn.btn-xs.btn-default btn-xs
 ```
 
 ### btn-block
-
-Block level buttons
+Makes buttons occupy a full width (block).
 
 ```example.jade
 .well.center-block(style='max-width: 400px')
@@ -48,7 +48,7 @@ Block level buttons
 ```
 
 ### btn-group
-Wrap a series of buttons in a group.
+Wraps a series of buttons in a group.
 
 ```example.jade
 .btn-group
@@ -58,7 +58,7 @@ Wrap a series of buttons in a group.
 ```
 
 ### btn-toolbar
- Wrap a series of button groups in a toolbar for more complex components.
+Wraps a series of button groups in a toolbar for more complex components.
 
 ```example.jade
 .btn-toolbar
