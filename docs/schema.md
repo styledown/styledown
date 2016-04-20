@@ -12,6 +12,8 @@ Given this input:
     = render 'components/top_header'
     ```
 
+## Sample output
+
 You'll get this JSON output:
 
 ```json
@@ -45,7 +47,7 @@ It breaks down like so:
 - A file has many [Sections](#sections).
 - A section has many [Parts](#parts).
 
-### Files
+## Files
 
 > `files`
 
@@ -56,7 +58,7 @@ A file has the following fields:
 - `title` - The title, taken from the first *H1* elemnet.
 - `sections` - a Dictionary
 
-### Sections
+## Sections
 
 > `files.*.sections`
 
@@ -67,7 +69,7 @@ A file has the following fields:
 - `depth` - _1_, _2_ or _3_.
 - `parts` - a Dictionary
 
-### Section parts
+## Parts
 
 > `files.*.sections.*.parts`
 

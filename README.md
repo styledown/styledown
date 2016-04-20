@@ -1,6 +1,8 @@
 # Styledown
 
-> Write maintainable CSS styleguides using Markdown.
+<!-- {.massive-header.-with-tagline} -->
+
+> Write maintainable CSS styleguides using Markdown
 
 <br>
 
