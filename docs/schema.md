@@ -18,16 +18,20 @@ You'll get this JSON output:
 { "files":
   { "components.md":
     { "title": "Components",
+      "name": "components.md",
       "sections":
         { "components":
-          { "title": "Components",
+          { "id": "components",
+            "title": "Components",
             "depth": 1 },
           "top-header":
-          { "title": "Top header",
+          { "id": "top-header",
+            "title": "Top header",
             "depth": 3,
             "parts":
             { "s1":
               { "type": "text",
+                "language": "html",
                 "content": "<p>This is the main header partial.</p>" },
               "s2":
               { "type": "example",
@@ -48,7 +52,7 @@ It breaks down like so:
 `files` is a Dictionary where the key is the filename (eg, _'components.md'_) and the value is the file.
 A file has the following fields:
 
-- `id`
+- `name` - The filename
 - `title` - The title, taken from the first *H1* elemnet.
 - `sections` - a Dictionary
 
@@ -69,6 +73,8 @@ A file has the following fields:
 
 `parts` is a Dictionary where the key is the Part ID, and the value is the part details.
 
+- `id`
 - `type` - Can be _'example'_, _'text'_, or _'code'_.
 - `language`
 - `content`
+- `source` - If it was transpiled, the original source will be stored here.

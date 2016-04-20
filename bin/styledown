@@ -2,6 +2,8 @@
 var meow = require('meow')
 var styledown = require('../index')
 var read = require('read-input')
+var fs = require('fs')
+var path = require('path')
 
 var cli = require('meow')([
   'Usage:',
@@ -13,7 +15,7 @@ var cli = require('meow')([
   '  -H, --html              render as HTML',
   '',
   'Parsing options:',
-  '  -t, --transform LANG    transforms examples of given LANGUAGE',
+  '  -t, --transform LANG    transpiles examples of given LANG',
   '',
   'Rendering options:',
   '  -l, --layout FILE       uses FILE as an HTML layout',
@@ -24,9 +26,12 @@ var cli = require('meow')([
   '  -v, --version           print version info and exit',
   '',
   'Examples:',
+  '',
   '  styledown styles.md > styles.json         # parse to json',
   '  styledown styles.md --html > styles.html  # render to html',
-  '  styledown *.md -o outdir                  # render to html (multiple)'
+  '  styledown *.md -o outdir                  # render to html (multiple)',
+  '',
+  "  styledown *.md -t jade    # transpiles 'example.jade' sections"
 ].join('\n'), {
   boolean: ['help', 'version', 'yaml', 'json', 'html'],
   string: ['format', 'transform', 'outdir'],
@@ -51,11 +56,17 @@ read(cli.input)
   })
 
   if (cli.flags.outdir) {
-    console.log('not supported yet')
+    var dir = cli.flags.outdir
+    require('mkdirp').sync(dir)
+    Object.keys(output.files).forEach(function (fname) {
+      fs.writeFileSync(
+        path.join(dir, fname).replace(/\.md$/, '.html'),
+        styledown.render(output, fname), 'utf-8')
+    })
   } else if (cli.flags.html) {
-    var fname = Object.keys(output.files)[0]
-    if (!fname) return
-    process.stdout.write(styledown.render(output, fname))
+    Object.keys(output.files).forEach(function (fname) {
+      process.stdout.write(styledown.render(output, fname))
+    })
   } else if (cli.flags.yaml) {
     console.log(require('js-yaml').safeDump(output))
   } else {

@@ -1,0 +1,87 @@
+<section class='styleguide-section -h1'>
+
+  <h1 id='forms'>Forms</h1>
+
+</section>
+<section class='styleguide-section -h3'>
+
+  <h3 id='form-group'>form-group</h3>
+
+  <div class='styleguide-text'>
+    <p>Individual form controls automatically receive some global
+    styling. All textual <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt;</code> elements
+    with <code>.form-control</code> are set to <code>width: 100%;</code> by default. Wrap
+    labels and controls in .form-group for optimum spacing.</p>
+  </div>
+
+  <div class='styleguide-example wide lang-haml'>
+    <div class='figure'>
+      .form-group
+      label Email address
+      input.form-control(placeholder='hi@gmail.com')
+    .form-group
+      label Password
+      input.form-control(type='password' placeholder='Password')
+    </div>
+    <div class='source'>
+      <pre><code></code></pre>
+    </div>
+  </div>
+
+</section>
+<section class='styleguide-section -h3'>
+
+  <h3 id='form-inline'>form-inline</h3>
+
+  <div class='styleguide-text'>
+    <p>Great for forms that only occupy one line for whatever reason.</p>
+  </div>
+
+  <div class='styleguide-example  lang-html'>
+    <div class='figure'>
+      <form class="form-inline"><div class="form-group"><div class="input-group"><div class="input-group-addon">@</div><input placeholder="Email" class="form-control"/></div></div><div class="form-group"><input placeholder="Password" type="password" class="form-control"/></div><button class="btn btn-default">Sign in</button></form>
+    </div>
+    <div class='source'>
+      <pre><code></code></pre>
+    </div>
+  </div>
+
+</section>
+<section class='styleguide-section -h3'>
+
+  <h3 id='form-horizontal'>form-horizontal</h3>
+
+  <div class='styleguide-text'>
+    <p>Use Bootstrap's grid classes to align labels.</p>
+  </div>
+
+  <div class='styleguide-example  lang-html'>
+    <div class='figure'>
+      <form class="form-horizontal"><div class="form-group"><label class="col-sm-2 control-label">Email</label><div class="col-sm-10"><input type="text" placeholder="hello@example.com" class="form-control"/></div></div><div class="form-group"><label class="col-sm-2 control-label">Password</label><div class="col-sm-10"><input type="password" placeholder="Secret" class="form-control"/></div></div></form>
+    </div>
+    <div class='source'>
+      <pre><code></code></pre>
+    </div>
+  </div>
+
+</section>
+<section class='styleguide-section -h3'>
+
+  <h3 id='input-group'>input-group</h3>
+
+  <div class='styleguide-text'>
+    <p>Extend form controls by adding text or buttons before, after, or on both sides
+    of any text-based input. Use <code>.input-group</code> with an <code>.input-group-addon</code> to
+    prepend or append elements to a single <code>.form-control</code>.</p>
+  </div>
+
+  <div class='styleguide-example slim lang-html'>
+    <div class='figure'>
+      <div class="input-group"><div class="input-group-addon">@</div><input placeholder="Username" class="form-control"/></div><br/><div class="input-group"><input type="text" class="form-control"/><div class="input-group-addon">.00</div></div><br/><div class="input-group"><div class="input-group-addon">$</div><input type="text" class="form-control"/><div class="input-group-addon">.00</div></div>
+    </div>
+    <div class='source'>
+      <pre><code></code></pre>
+    </div>
+  </div>
+
+</section>
