@@ -30,15 +30,65 @@
 
   <div class='styleguide-example  lang-html'>
     <div class='figure'>
-      <div class="alert alert-success"><strong>Well done!</strong> Things are going well.</div><div class="alert alert-info"><strong>Heads up!</strong> You're a wonderful person.</div>
+      <div class="alert alert-success"><strong>Well done!</strong> Things are going well. (alert-success)</div><div class="alert alert-info"><strong>Heads up!</strong> You're a wonderful person. (alert-info)</div><div class="alert alert-warning"><strong>Warning!</strong> Check the flux capacitor. (alert-warning)</div><div class="alert alert-danger"><strong>Danger!</strong> You must construct additional pylons. (alert-danger)</div>
     </div>
     <div class='source'>
       <pre><code>.alert.alert-success
   strong Well done!
-  |  Things are going well.
+  |  Things are going well. (alert-success)
 .alert.alert-info
   strong Heads up!
-  |  You&#39;re a wonderful person.</code></pre>
+  |  You&#39;re a wonderful person. (alert-info)
+.alert.alert-warning
+  strong Warning!
+  |  Check the flux capacitor. (alert-warning)
+.alert.alert-danger
+  strong Danger!
+  |  You must construct additional pylons. (alert-danger)</code></pre>
+    </div>
+  </div>
+
+</section>
+<section class='styleguide-section -h3'>
+
+  <h3 id='list-group'>list-group</h3>
+
+  <div class='styleguide-text'>
+    <p>Simple lists and elements using <code>.list-group</code> and <code>.list-group-item</code>.</p>
+  </div>
+
+  <div class='styleguide-example  lang-html'>
+    <div class='figure'>
+      <ul class="list-group"><li class="list-group-item">Apple</li><li class="list-group-item">Orange</li><li class="list-group-item">Banana</li></ul>
+    </div>
+    <div class='source'>
+      <pre><code>ul.list-group
+  li.list-group-item Apple
+  li.list-group-item Orange
+  li.list-group-item Banana</code></pre>
+    </div>
+  </div>
+
+  <div class='styleguide-text'>
+    <h4 id="with-badges">With badges</h4>
+    <p>Use <code>span.badge</code>.</p>
+  </div>
+
+  <div class='styleguide-example  lang-html'>
+    <div class='figure'>
+      <ul class="list-group"><li class="list-group-item"><span class="badge">23</span>Apple</li><li class="list-group-item"><span class="badge">5</span>Orange</li><li class="list-group-item"><span class="badge">2</span>Banana</li></ul>
+    </div>
+    <div class='source'>
+      <pre><code>ul.list-group
+  li.list-group-item
+    span.badge 23
+    | Apple
+  li.list-group-item
+    span.badge 5
+    | Orange
+  li.list-group-item
+    span.badge 2
+    | Banana</code></pre>
     </div>
   </div>
 
@@ -146,6 +196,129 @@
     a Library
    li.active
     | Data</code></pre>
+    </div>
+  </div>
+
+</section>
+<section class='styleguide-section -h2'>
+
+  <h2 id='panels'>Panels</h2>
+
+</section>
+<section class='styleguide-section -h3'>
+
+  <h3 id='panel'>panel</h3>
+
+  <div class='styleguide-text'>
+    <p>Panels (<code>.panel</code>) are white boxes. <code>.panel-body</code> provides the padding.</p>
+  </div>
+
+  <div class='styleguide-example  lang-html'>
+    <div class='figure'>
+      <div class="panel"><div class="panel-body">Basic panel example</div></div>
+    </div>
+    <div class='source'>
+      <pre><code>.panel
+  .panel-body Basic panel example</code></pre>
+    </div>
+  </div>
+
+  <div class='styleguide-text'>
+    <h4 id="panel-heading">panel-heading</h4>
+    <p>Add <code>.panel-heading</code> for a heading.</p>
+  </div>
+
+  <div class='styleguide-example  lang-html'>
+    <div class='figure'>
+      <div class="panel panel-default"><div class="panel-heading">Panel heading</div><div class="panel-body">Content goes here</div></div>
+    </div>
+    <div class='source'>
+      <pre><code>.panel.panel-default
+  .panel-heading Panel heading
+  .panel-body Content goes here</code></pre>
+    </div>
+  </div>
+
+  <div class='styleguide-text'>
+    <h4 id="panel-title">panel-title</h4>
+    <p>Use <code>.panel-title</code> to make the text bigger.</p>
+  </div>
+
+  <div class='styleguide-example  lang-html'>
+    <div class='figure'>
+      <div class="panel panel-default"><div class="panel-heading"><div class="panel-title">Panel heading with title</div></div><div class="panel-body">Content goes here</div></div>
+    </div>
+    <div class='source'>
+      <pre><code>.panel.panel-default
+  .panel-heading
+    .panel-title Panel heading with title
+  .panel-body Content goes here</code></pre>
+    </div>
+  </div>
+
+  <div class='styleguide-text'>
+    <h4 id="panel-footer">panel-footer</h4>
+    <p>Add <code>.panel-footer</code> for a footer.</p>
+  </div>
+
+  <div class='styleguide-example  lang-html'>
+    <div class='figure'>
+      <div class="panel panel-default"><div class="panel-body">Content goes here</div><div class="panel-footer">Panel footer</div></div>
+    </div>
+    <div class='source'>
+      <pre><code>.panel.panel-default
+  .panel-body Content goes here
+  .panel-footer Panel footer</code></pre>
+    </div>
+  </div>
+
+</section>
+<section class='styleguide-section -h3'>
+
+  <h3 id='panel-variants'>panel variants</h3>
+
+  <div class='styleguide-text'>
+    <p>Use <code>.panel-primary</code> (and so on).</p>
+  </div>
+
+  <div class='styleguide-example -clear lang-html'>
+    <div class='figure'>
+      <div class="panel panel-primary"><div class="panel-heading">Primary</div><div class="panel-body">panel-primary</div></div>
+    </div>
+    <div class='source'>
+      <pre><code>.panel.panel-primary
+  .panel-heading Primary
+  .panel-body panel-primary</code></pre>
+    </div>
+  </div>
+
+  <div class='styleguide-text'>
+    <p><code>panel-success</code> uses <em>$brand-color-success</em>.</p>
+  </div>
+
+  <div class='styleguide-example -clear lang-html'>
+    <div class='figure'>
+      <div class="panel panel-success"><div class="panel-heading">Success</div><div class="panel-body">panel-success</div></div>
+    </div>
+    <div class='source'>
+      <pre><code>.panel.panel-success
+  .panel-heading Success
+  .panel-body panel-success</code></pre>
+    </div>
+  </div>
+
+  <div class='styleguide-text'>
+    <p><code>panel-info</code> uses <em>$brand-color-info</em>.</p>
+  </div>
+
+  <div class='styleguide-example -clear lang-html'>
+    <div class='figure'>
+      <div class="panel panel-info"><div class="panel-heading">Info</div><div class="panel-body">panel-info</div></div>
+    </div>
+    <div class='source'>
+      <pre><code>.panel.panel-info
+  .panel-heading Info
+  .panel-body panel-info</code></pre>
     </div>
   </div>
 

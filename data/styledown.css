@@ -1,3 +1,13 @@
+/*
+ * Sections
+ *
+ *     .styleguide-section
+ *       .styleguide-text
+ *       .styleguide-example
+ *         .figure
+ *         .source
+ */
+
 .styleguide-section:after {
   content: '';
   display: table;
@@ -12,31 +22,68 @@
 }
 
 .styleguide-text {
-  clear: both;
-  float: right;
-  width: 30%;
-  padding-left: 16px;
   box-sizing: border-box;
   margin-bottom: 16px;
 }
 
 .styleguide-example {
-  float: left;
-  width: 70%;
   margin-bottom: 16px;
   border: solid 2px rgba(128, 128, 128, .2);
 }
 
+@media (min-width: 768px) {
+  .styleguide-text {
+    clear: both;
+    float: right;
+    width: 30%;
+    padding-left: 16px;
+  }
+
+  .styleguide-example {
+    float: left;
+    width: 70%;
+  }
+}
+
+/*
+ * Text
+ */
+
+.styleguide-text > :first-child {
+  margin-top: 0;
+}
+
+/*
+ * Figures
+ */
+
 .styleguide-example > .figure {
   overflow: hidden;
-  padding: 16px;
+  padding: 8px;
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAAAAACoWZBhAAAAF0lEQVQI12P4BAI/QICBFCaYBPNJYQIAkUZftTbC4sIAAAAASUVORK5CYII=");
-  box-shadow: 0 1px 2px rgba(black, .2);
   position: relative;
 }
 
+.styleguide-example.-clear {
+  border: 0;
+}
+
+.styleguide-example.-clear > .figure {
+  background: transparent;
+  padding: 0;
+}
+
+.styleguide-example.-dark > .figure {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAAAAACoWZBhAAAAFklEQVQI12NQBQF2EGAghQkmwXxSmADZJQiZ2ZZ46gAAAABJRU5ErkJggg==");
+}
+
+/*
+ * Sources
+ */
+
 .styleguide-example > .source {
   border-top: solid 1px rgba(128, 128, 128, .2);
+  display: none;
 }
 
 .styleguide-example > .source > pre,
