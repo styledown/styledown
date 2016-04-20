@@ -38,9 +38,10 @@ var cli = require('meow')([
   "  styledown *.md -t jade    # transpiles 'example.jade' sections"
 ].join('\n'), {
   boolean: ['help', 'version', 'yaml', 'json', 'html'],
-  string: ['format', 'transform', 'outdir'],
+  string: ['format', 'transform', 'outdir', 'layout'],
   alias: {
-    h: 'help', v: 'version', H: 'html', t: 'transform', o: 'outdir'
+    h: 'help',v: 'version',
+    H: 'html', t: 'transform', o: 'outdir', l: 'layout'
   }
 })
 

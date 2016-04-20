@@ -7,7 +7,7 @@ styling. All textual `<input>`, `<textarea>`, and `<select>` elements
 with `.form-control` are set to `width: 100%;` by default. Wrap
 labels and controls in .form-group for optimum spacing.
 
-```example.haml.wide
+```example.jade.-wide
 .form-group
   label Email address
   input.form-control(placeholder='hi@gmail.com')
@@ -50,7 +50,7 @@ Extend form controls by adding text or buttons before, after, or on both sides
 of any text-based input. Use `.input-group` with an `.input-group-addon` to
 prepend or append elements to a single `.form-control`.
 
-```example.jade.slim
+```example.jade.-slim
 .input-group
   .input-group-addon @
   input.form-control(placeholder='Username')

@@ -1,4 +1,29 @@
-<section class='styleguide-section -h1'>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='../../../data/styledown.css'>
+  <script src='../../../data/styledown.js'></script>
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-styleguide">
+    <div class="container">
+      <h1>Bootstrap styleguides</h1>
+      <p>This is a sample styleguide for Bootstrap that was generated using Styledown, a styleguide generator.
+      <p>
+        <a href="https://github.com/styledown/styledown" class="btn btn-default">About Styledown</a>
+        <a href="https://github.com/styledown/styledown/tree/master/examples/bootstrap" class="btn btn-default">See sources</a>
+      </p>
+    </div>
+  </div>
+
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-10'>
+        <section class='styleguide-section -h1'>
 
   <h1 id='components'>Components</h1>
 
@@ -18,7 +43,12 @@
       <div class="alert alert-success"><strong>Well done!</strong> Things are going well.</div><div class="alert alert-info"><strong>Heads up!</strong> You're a wonderful person.</div>
     </div>
     <div class='source'>
-      <pre><code></code></pre>
+      <pre><code>.alert.alert-success
+  strong Well done!
+  |  Things are going well.
+.alert.alert-info
+  strong Heads up!
+  |  You&#39;re a wonderful person.</code></pre>
     </div>
   </div>
 
@@ -35,10 +65,22 @@
 
   <div class='styleguide-example  lang-html'>
     <div class='figure'>
-      <div class="pagination"></div><li><a href="#">&laquo;</a></li><li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#">4</a></li><li><a href="#">&raquo;</a></li>
+      <ul class="pagination"><li><a href="#">&laquo;</a></li><li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#">4</a></li><li><a href="#">&raquo;</a></li></ul>
     </div>
     <div class='source'>
-      <pre><code></code></pre>
+      <pre><code>ul.pagination
+  li
+    a(href=&#39;#&#39;)!= &#34;&amp;laquo;&#34;
+  li
+    a(href=&#39;#&#39;) 1
+  li
+    a(href=&#39;#&#39;) 2
+  li
+    a(href=&#39;#&#39;) 3
+  li
+    a(href=&#39;#&#39;) 4
+  li
+    a(href=&#39;#&#39;)!= &#34;&amp;raquo;&#34;</code></pre>
     </div>
   </div>
 
@@ -56,7 +98,11 @@
       <ul class="pager"><li><a>Previous</a></li><li><a>Next</a></li></ul>
     </div>
     <div class='source'>
-      <pre><code></code></pre>
+      <pre><code>ul.pager
+  li
+    a Previous
+  li
+    a Next</code></pre>
     </div>
   </div>
 
@@ -79,7 +125,12 @@
     <span class="label label-danger">Danger</span>
     </div>
     <div class='source'>
-      <pre><code></code></pre>
+      <pre><code>&lt;span class=&#34;label label-default&#34;&gt;Default&lt;/span&gt;
+&lt;span class=&#34;label label-primary&#34;&gt;Primary&lt;/span&gt;
+&lt;span class=&#34;label label-success&#34;&gt;Success&lt;/span&gt;
+&lt;span class=&#34;label label-info&#34;&gt;Info&lt;/span&gt;
+&lt;span class=&#34;label label-warning&#34;&gt;Warning&lt;/span&gt;
+&lt;span class=&#34;label label-danger&#34;&gt;Danger&lt;/span&gt;</code></pre>
     </div>
   </div>
 
@@ -98,8 +149,24 @@
       <ol class="breadcrumb"><li><a>Home</a></li><li><a>Library</a></li><li class="active">Data</li></ol>
     </div>
     <div class='source'>
-      <pre><code></code></pre>
+      <pre><code>ol.breadcrumb
+  li
+    a Home
+  li
+    a Library
+   li.active
+    | Data</code></pre>
     </div>
   </div>
 
 </section>
+
+      </div>
+      <div class='col-md-2'>
+        Menu
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
