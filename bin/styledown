@@ -5,6 +5,10 @@ var read = require('read-input')
 var fs = require('fs')
 var path = require('path')
 
+/*
+ * CLI/Minimist
+ */
+
 var cli = require('meow')([
   'Usage:',
   '  $ styledown FILES...',
@@ -40,36 +44,86 @@ var cli = require('meow')([
   }
 })
 
-// Implied options
+/*
+ * Implied options
+ */
+
 if (cli.flags.outdir) cli.flags.html = true
 if (typeof cli.flags.transform === 'string') {
   cli.flags.transform = [cli.flags.transform]
 }
+
+/*
+ * Options to send to styledown.parse() and styledown.render()
+ */
+
+var opts = {
+  parse: {
+    transform: cli.flags.transform
+  },
+  render: {
+    layout: cli.flags.layout && fs.readFileSync(cli.flags.layout, 'utf-8')
+  }
+}
+
+/*
+ * Perform
+ */
 
 read(cli.input)
 .then(function (res) {
   res.files.forEach(function (file) {
     if (file.error) throw file.error
   })
-  var output = styledown.parse(res.files, {
-    transform: cli.flags.transform
-  })
+
+  var output = styledown.parse(res.files, opts.parse)
 
   if (cli.flags.outdir) {
-    var dir = cli.flags.outdir
-    require('mkdirp').sync(dir)
-    Object.keys(output.files).forEach(function (fname) {
-      fs.writeFileSync(
-        path.join(dir, fname).replace(/\.md$/, '.html'),
-        styledown.render(output, fname), 'utf-8')
-    })
+    renderToDir(output, cli.flags.outdir)
   } else if (cli.flags.html) {
-    Object.keys(output.files).forEach(function (fname) {
-      process.stdout.write(styledown.render(output, fname))
-    })
+    renderToStdout(output)
   } else if (cli.flags.yaml) {
-    console.log(require('js-yaml').safeDump(output))
+    parseToYaml(output)
   } else {
-    console.log(JSON.stringify(output, null, 2))
+    parseToJson(output)
   }
 })
+
+/*
+ * Render to dir (--outdir dir)
+ */
+
+function renderToDir (output, dir) {
+  require('mkdirp').sync(dir)
+  Object.keys(output.files).forEach(function (fname) {
+    fs.writeFileSync(
+      path.join(dir, fname).replace(/\.md$/, '.html'),
+      styledown.render(output, fname, opts.render), 'utf-8')
+  })
+}
+
+/*
+ * Render to stdout (--html)
+ */
+
+function renderToStdout (output) {
+  Object.keys(output.files).forEach(function (fname) {
+    process.stdout.write(styledown.render(output, fname, opts.render))
+  })
+}
+
+/*
+ * Parse to YAML (--yaml)
+ */
+
+function parseToYaml (output) {
+  console.log(require('js-yaml').safeDump(output))
+}
+
+/*
+ * Parse to JSON (default, --json)
+ */
+
+function parseToJson (output) {
+  console.log(JSON.stringify(output, null, 2))
+}
