@@ -2,6 +2,7 @@
 
 const tocify = require('../lib/tocify')
 var test = require('ava')
+var r = require('redent')
 
 test('works', function (t) {
   var output = tocify([
@@ -133,6 +134,38 @@ test('handles expand', function (t) {
       }
     ]
   }
+  t.deepEqual(output.sections[0], expected.sections[0])
+  t.deepEqual(output, expected)
+})
+
+test('handles expand with files', function (t) {
+  var output = tocify([
+    '* **[Buttons](button.md)**'
+  ].join('\n'), {
+    'button.md': {
+      name: 'button.md',
+      contents: r(`
+        # Hello
+        ## World
+      `)
+    }
+  })
+
+  var expected = {
+    sections: [
+      {
+        title: 'Buttons',
+        url: 'button.html',
+        source: 'button.md',
+        slug: 'button',
+        expand: true,
+        headings: [
+          { title: 'World', depth: 2, id: 'world' }
+        ]
+      }
+    ]
+  }
+  t.deepEqual(output.sections[0].headings, expected.sections[0].headings)
   t.deepEqual(output.sections[0], expected.sections[0])
   t.deepEqual(output, expected)
 })

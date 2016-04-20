@@ -22,5 +22,4 @@ test('toc', t => {
   ])
 
   var toc = out.toc
-  console.log(toc)
 })
