@@ -23,3 +23,16 @@ test('toc', t => {
 
   var toc = out.toc
 })
+
+test('loltoc', t => {
+  var tocify = require('../lib/tocify_2')
+  var output = tocify(r(`
+    # Table of Contents
+
+    * [Home](index.html)
+    * Document
+      * [Index](index.html)
+  `))
+
+  console.log(require('util').inspect(output, { depth: null, colors: true }))
+})

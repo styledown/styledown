@@ -75,8 +75,35 @@
   position: relative;
 }
 
-.styleguide-example > .figure:hover {
-  box-shadow: inset 0 0 0 16px rgba(128, 128, 128, .03);
+/*
+ * Guides
+ */
+
+.styleguide-example.-expand > .figure:before,
+.styleguide-example.-expand > .figure:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.1);
+  transition: opacity 100ms linear;
+}
+
+.styleguide-example.-expand > .figure:hover:before,
+.styleguide-example.-expand > .figure:hover:after {
+  opacity: .3;
+}
+
+.styleguide-example.-expand > .figure:before {
+  top: 0;
+  border-bottom: dashed 1px red;
+}
+
+.styleguide-example.-expand > .figure:after {
+  bottom: 0;
+  border-top: dashed 1px red;
 }
 
 @media (min-width: 768px) {
@@ -104,11 +131,6 @@
 
 .styleguide-example > .source {
   border-top: solid 1px rgba(128, 128, 128, .2);
-}
-
-.styleguide-example.-clear > .figure:hover {
-  box-shadow: none;
-  background: rgba(128, 128, 128, .1);
 }
 
 .styleguide-example > .source > pre,
