@@ -64,7 +64,7 @@ var opts = {
     transform: cli.flags.transform
   },
   render: {
-    layout: cli.flags.layout && fs.readFileSync(cli.flags.layout, 'utf-8')
+    layout: cli.flags.layout && fs.readFileSync(cli.flags.layout, 'utf-8'),
     layoutEngine: cli.flags.layout && getExtension(cli.flags.layout)
   }
 }
