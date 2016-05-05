@@ -40,8 +40,9 @@ var cli = require('meow')([
   boolean: ['help', 'version', 'yaml', 'json', 'html'],
   string: ['format', 'transform', 'outdir', 'layout'],
   alias: {
-    h: 'help',v: 'version',
-    H: 'html', t: 'transform', o: 'outdir', l: 'layout'
+    h: 'help', v: 'version',
+    H: 'html', t: 'transform', o: 'outdir', l: 'layout',
+    yml: 'yaml'
   }
 })
 
