@@ -69,6 +69,11 @@ var opts = {
   }
 }
 
+if (cli.flags.sampleLayout) {
+  printSampleLayout()
+  process.exit(0)
+}
+
 /*
  * Perform
  */
@@ -131,7 +136,25 @@ function parseToJson (output) {
   console.log(JSON.stringify(output, null, 2))
 }
 
+/*
+ * Print sample layout
+ */
+
+function printSampleLayout () {
+  if (process.stdout.isTTY) {
+    console.error('\033[31m')
+    console.error('  Sample Styledown layout:')
+    console.error('  Please save this file as `layout.ejs`. That is:')
+    console.error('')
+    console.error('      styledown --sample-layout > layout.ejs')
+    console.error('')
+    console.error('  You can then pass it on via `styledown --layout layout.ejs`.')
+    console.error('\033[0m')
+  }
+
+  process.stdout.write(fs.readFileSync(__dirname + '/../data/layout.ejs', 'utf-8'))
+}
+
 function getExtension (filename) {
   return filename.replace(/^.*\.([^\.]+)$/, '\1')
 }
-
