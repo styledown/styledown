@@ -1,0 +1,58 @@
+//- Menu:
+//- renders the menu item recursively
+
+mixin menu(m, depth)
+  li.styleguide-menu-item(class=('-level-' + depth + (m.sections ? ' -parent' : '')))
+    //- Links
+    if m.basename
+      //- also: (' link-' + m.slug)
+      a.link.title(href=(base + m.basename + extension + (m.anchor || '')) class=((active === m.source && !m.anchor ? '-active' : '')))= m.title
+
+    else if m.title
+      span.title= m.title
+
+    //- Headings
+    if m.headings && m.basename === active && !m.expand && !m.anchor
+      ul.headings.styleguide-heading-list
+        - for (var key in m.headings)
+          +heading(m.headings[key], 0)
+
+    //- Sub-pages
+    if m.sections
+      ul.submenu
+        - for (var key in m.sections)
+          +menu(m.sections[key], depth + 1)
+
+  //- Headings as subpages
+  if m.headings && m.basename === active && m.expand && !m.anchor
+    - for (var key in m.headings)
+      +heading-menu(m.headings[key], depth)
+
+//- Heading:
+//- renders the heading item recursively
+
+mixin heading(h, depth)
+  li.styleguide-heading-item(class=('-depth-' + h.depth))
+    a.hlink(href=('#' + h.id) class=('link-' + h.id))
+      = h.title
+    if h.headings
+      ul.styleguide-heading-list(class=('-depth-' + h.depth))
+        - for (var key in h.headings)
+          +heading(h.headings[key], depth + 1)
+
+//- Heading-menu:
+//- Renders the heading item recursively, but in the markup of a regular menu.
+//- Used for single-page sites
+
+mixin heading-menu(h, depth)
+  li.styleguide-menu-item(class=('-level-' + depth + (h.headings ? ' -parent' : '')))
+    a.link.title(href=('#' + h.id) class=('link-' + h.id))
+      = h.title
+    if h.headings
+      ul.submenu
+        - for (var key in h.headings)
+          +heading-menu(h.headings[key], depth + 1)
+
+ul.styleguide-menu
+  each section in toc.sections
+    +menu(section, 1)

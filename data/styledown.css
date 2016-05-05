@@ -161,3 +161,70 @@
 .styleguide-example.-expand.-clear > .figure {
   padding: 16px;
 }
+
+/*
+ * Styleguide menus
+ *
+ *     ul.styleguide-menu
+ *       li.styleguide-menu-item.-level-1.-parent
+ *         span.title Basics
+ *         ul.submenu
+ *
+ * Links have `> .link`:
+ *
+ *     li.styleguide-menu-item.-level-1
+ *       a.link.title(href='...') Basics
+ *
+ * Parent menu items have `.-parent` and `> .submenu`:
+ *
+ *     li.styleguide-menu-item.-level-1.-parent
+ *       span.title Basics
+ *       ul.submenu
+ */
+
+.styleguide-menu,
+.styleguide-menu-item,
+.styleguide-menu-item > .submenu {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* Parents */
+.styleguide-menu-item.-parent.-level-1 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-weight: bold;
+}
+
+.styleguide-menu-item.-parent.-level-1 > .title {
+  font-weight: bold;
+}
+
+/* Links */
+.styleguide-menu-item > .link {
+  display: block;
+  font-weight: normal;
+}
+
+/* Active links */
+.styleguide-menu-item > .link.-active,
+.styleguide-menu-item > .link.-active:visited {
+  color: inherit;
+}
+
+.styleguide-menu-item > .link.-active:hover,
+.styleguide-menu-item > .link.-active:focus {
+  text-decoration: inherit;
+  font-weight: normal;
+  cursor: default;
+}
+
+/* Third-level links */
+.styleguide-menu-item.-level-3 > .title:before {
+  content: '-';
+  display: inline-block;
+  width: .7em;
+  margin-right: .2em;
+}

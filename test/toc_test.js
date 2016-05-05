@@ -27,10 +27,10 @@ test('generates toc', t => {
        { sections:
           [ { title: 'Buttons',
               source: 'buttons.md',
-              url: 'buttons.html' },
+              basename: 'buttons' },
             { title: 'Panels',
               source: 'panels.md',
-              url: 'panels.html' } ] } }
+              basename: 'panels' } ] } }
 
   t.deepEqual(output.toc, expected.toc)
 })
@@ -48,12 +48,12 @@ test('loltoc', t => {
     { sections:
        [ { title: 'Home',
            source: 'index.md',
-           url: 'index.html' },
+           basename: 'index' },
          { title: 'Document',
            sections:
             [ { title: 'Index',
                 source: 'index.md',
-                url: 'index.html' } ] } ] }
+                basename: 'index' } ] } ] }
 
   t.deepEqual(output, expected)
 })
