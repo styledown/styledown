@@ -1,0 +1,25 @@
+each section, key in file.sections
+  section.styleguide-section(class="-h#{section.depth}")
+    != '<h' + section.depth + ' id=\'' + section.id + '\'>'
+    = section.title
+    != '</h' + section.depth + '>'
+
+    each part, key in section.parts
+      if part.type === 'text'
+        .styleguide-text
+          != part.content
+
+      else if part.type === 'code'
+        .styleguide-code
+          pre(class=[part.class, part.language ? 'lang-#{part.language}' : ''])
+            code
+              != part.content
+
+      else if part.type === 'example'
+        .styleguide-example(class=[part.class, part.language ? 'lang-#{part.language}' : ''])
+          .figure
+            != part.content
+
+          .source
+            pre: code
+              != part.source || part.content

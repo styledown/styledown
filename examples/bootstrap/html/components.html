@@ -13,32 +13,24 @@
   <div class='container'>
     <div class='row'>
       <div class='col-md-10'>
-        <section class='styleguide-section -h1'>
-
-  <h1 id='components'>Components</h1>
-
+        
+<section class="styleguide-section -h1"><h1 id='components'>Components</h1>
 </section>
-<section class='styleguide-section -h3'>
-
-  <h3 id='alert'>alert</h3>
-
-  <div class='styleguide-text'>
-    <p>Provide contextual feedback messages for typical user actions
-    with the handful of available and flexible alert messages. For inline
-    dismissal, use the alerts jQuery plugin.</p>
+<section class="styleguide-section -h3"><h3 id='alert'>alert</h3>
+  <div class="styleguide-text"><p>Provide contextual feedback messages for typical user actions
+with the handful of available and flexible alert messages. For inline
+dismissal, use the alerts jQuery plugin.</p>
   </div>
-
-  <div class='styleguide-example  lang-html'>
-    <div class='figure'>
-      <div class="alert alert-success"><strong>Well done!</strong> Things are going well. (alert-success)</div><div class="alert alert-info"><strong>Heads up!</strong> You're a wonderful person. (alert-info)</div><div class="alert alert-warning"><strong>Warning!</strong> Check the flux capacitor. (alert-warning)</div><div class="alert alert-danger"><strong>Danger!</strong> You must construct additional pylons. (alert-danger)</div>
+  <div class="styleguide-example lang-html">
+    <div class="figure"><div class="alert alert-success"><strong>Well done!</strong> Things are going well. (alert-success)</div><div class="alert alert-info"><strong>Heads up!</strong> You're a wonderful person. (alert-info)</div><div class="alert alert-warning"><strong>Warning!</strong> Check the flux capacitor. (alert-warning)</div><div class="alert alert-danger"><strong>Danger!</strong> You must construct additional pylons. (alert-danger)</div>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>.alert.alert-success
   strong Well done!
   |  Things are going well. (alert-success)
 .alert.alert-info
   strong Heads up!
-  |  You&#39;re a wonderful person. (alert-info)
+  |  You're a wonderful person. (alert-info)
 .alert.alert-warning
   strong Warning!
   |  Check the flux capacitor. (alert-warning)
@@ -47,41 +39,30 @@
   |  You must construct additional pylons. (alert-danger)</code></pre>
     </div>
   </div>
-
 </section>
-<section class='styleguide-section -h3'>
-
-  <h3 id='list-group'>list-group</h3>
-
-  <div class='styleguide-text'>
-    <p>Simple lists and elements using <code>.list-group</code> and <code>.list-group-item</code>.</p>
+<section class="styleguide-section -h3"><h3 id='list-group'>list-group</h3>
+  <div class="styleguide-text"><p>Simple lists and elements using <code>.list-group</code> and <code>.list-group-item</code>.</p>
   </div>
-
-  <div class='styleguide-example  lang-haml'>
-    <div class='figure'>
-      ul.list-group
-      li.list-group-item Apple
-      li.list-group-item Orange
-      li.list-group-item Banana
+  <div class="styleguide-example lang-haml">
+    <div class="figure">ul.list-group
+  li.list-group-item Apple
+  li.list-group-item Orange
+  li.list-group-item Banana
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>ul.list-group
   li.list-group-item Apple
   li.list-group-item Orange
   li.list-group-item Banana</code></pre>
     </div>
   </div>
-
-  <div class='styleguide-text'>
-    <h4 id="with-badges">With badges</h4>
-    <p>Use <code>span.badge</code>.</p>
+  <div class="styleguide-text"><h4 id="with-badges">With badges</h4>
+<p>Use <code>span.badge</code>.</p>
   </div>
-
-  <div class='styleguide-example  lang-html'>
-    <div class='figure'>
-      <ul class="list-group"><li class="list-group-item"><span class="badge">23</span>Apple</li><li class="list-group-item"><span class="badge">5</span>Orange</li><li class="list-group-item"><span class="badge">2</span>Banana</li></ul>
+  <div class="styleguide-example lang-html">
+    <div class="figure"><ul class="list-group"><li class="list-group-item"><span class="badge">23</span>Apple</li><li class="list-group-item"><span class="badge">5</span>Orange</li><li class="list-group-item"><span class="badge">2</span>Banana</li></ul>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>ul.list-group
   li.list-group-item
     span.badge 23
@@ -94,53 +75,39 @@
     | Banana</code></pre>
     </div>
   </div>
-
 </section>
-<section class='styleguide-section -h3'>
-
-  <h3 id='pagination'>pagination</h3>
-
-  <div class='styleguide-text'>
-    <p>Simple pagination inspired by Rdio, great for apps and
-    search results. The large block is hard to miss, easily scalable, and
-    provides large click areas.</p>
+<section class="styleguide-section -h3"><h3 id='pagination'>pagination</h3>
+  <div class="styleguide-text"><p>Simple pagination inspired by Rdio, great for apps and
+search results. The large block is hard to miss, easily scalable, and
+provides large click areas.</p>
   </div>
-
-  <div class='styleguide-example  lang-html'>
-    <div class='figure'>
-      <ul class="pagination"><li><a href="#">&laquo;</a></li><li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#">4</a></li><li><a href="#">&raquo;</a></li></ul>
+  <div class="styleguide-example lang-html">
+    <div class="figure"><ul class="pagination"><li><a href="#">&laquo;</a></li><li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#">4</a></li><li><a href="#">&raquo;</a></li></ul>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>ul.pagination
   li
-    a(href=&#39;#&#39;)!= &#34;&amp;laquo;&#34;
+    a(href='#')!= "&laquo;"
   li
-    a(href=&#39;#&#39;) 1
+    a(href='#') 1
   li
-    a(href=&#39;#&#39;) 2
+    a(href='#') 2
   li
-    a(href=&#39;#&#39;) 3
+    a(href='#') 3
   li
-    a(href=&#39;#&#39;) 4
+    a(href='#') 4
   li
-    a(href=&#39;#&#39;)!= &#34;&amp;raquo;&#34;</code></pre>
+    a(href='#')!= "&raquo;"</code></pre>
     </div>
   </div>
-
 </section>
-<section class='styleguide-section -h3'>
-
-  <h3 id='pager'>pager</h3>
-
-  <div class='styleguide-text'>
-    <p>By default, it centers links.</p>
+<section class="styleguide-section -h3"><h3 id='pager'>pager</h3>
+  <div class="styleguide-text"><p>By default, it centers links.</p>
   </div>
-
-  <div class='styleguide-example padded lang-html'>
-    <div class='figure'>
-      <ul class="pager"><li><a>Previous</a></li><li><a>Next</a></li></ul>
+  <div class="styleguide-example padded lang-html">
+    <div class="figure"><ul class="pager"><li><a>Previous</a></li><li><a>Next</a></li></ul>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>ul.pager
   li
     a Previous
@@ -148,50 +115,36 @@
     a Next</code></pre>
     </div>
   </div>
-
 </section>
-<section class='styleguide-section -h3'>
-
-  <h3 id='label'>label</h3>
-
-  <div class='styleguide-text'>
-    <p>Used for labelling things that need labels.</p>
+<section class="styleguide-section -h3"><h3 id='label'>label</h3>
+  <div class="styleguide-text"><p>Used for labelling things that need labels.</p>
   </div>
-
-  <div class='styleguide-example  lang-html'>
-    <div class='figure'>
-      <span class="label label-default">Default</span>
-    <span class="label label-primary">Primary</span>
-    <span class="label label-success">Success</span>
-    <span class="label label-info">Info</span>
-    <span class="label label-warning">Warning</span>
-    <span class="label label-danger">Danger</span>
+  <div class="styleguide-example lang-html">
+    <div class="figure"><span class="label label-default">Default</span>
+<span class="label label-primary">Primary</span>
+<span class="label label-success">Success</span>
+<span class="label label-info">Info</span>
+<span class="label label-warning">Warning</span>
+<span class="label label-danger">Danger</span>
     </div>
-    <div class='source'>
-      <pre><code>&lt;span class=&#34;label label-default&#34;&gt;Default&lt;/span&gt;
-&lt;span class=&#34;label label-primary&#34;&gt;Primary&lt;/span&gt;
-&lt;span class=&#34;label label-success&#34;&gt;Success&lt;/span&gt;
-&lt;span class=&#34;label label-info&#34;&gt;Info&lt;/span&gt;
-&lt;span class=&#34;label label-warning&#34;&gt;Warning&lt;/span&gt;
-&lt;span class=&#34;label label-danger&#34;&gt;Danger&lt;/span&gt;</code></pre>
+    <div class="source">
+      <pre><code><span class="label label-default">Default</span>
+<span class="label label-primary">Primary</span>
+<span class="label label-success">Success</span>
+<span class="label label-info">Info</span>
+<span class="label label-warning">Warning</span>
+<span class="label label-danger">Danger</span></code></pre>
     </div>
   </div>
-
 </section>
-<section class='styleguide-section -h3'>
-
-  <h3 id='breadcrumbs'>breadcrumbs</h3>
-
-  <div class='styleguide-text'>
-    <p>Indicate the current page's location within a navigational hierarchy.
-    Separators are automatically added in CSS through <em>:before</em> and <em>content</em>.</p>
+<section class="styleguide-section -h3"><h3 id='breadcrumbs'>breadcrumbs</h3>
+  <div class="styleguide-text"><p>Indicate the current page's location within a navigational hierarchy.
+Separators are automatically added in CSS through <em>:before</em> and <em>content</em>.</p>
   </div>
-
-  <div class='styleguide-example  lang-html'>
-    <div class='figure'>
-      <ol class="breadcrumb"><li><a>Home</a></li><li><a>Library</a></li><li class="active">Data</li></ol>
+  <div class="styleguide-example lang-html">
+    <div class="figure"><ol class="breadcrumb"><li><a>Home</a></li><li><a>Library</a></li><li class="active">Data</li></ol>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>ol.breadcrumb
   li
     a Home
@@ -201,88 +154,65 @@
     | Data</code></pre>
     </div>
   </div>
-
 </section>
-<section class='styleguide-section -h3'>
-
-  <h3 id='panel'>panel</h3>
-
-  <div class='styleguide-text'>
-    <p>Panels (<code>.panel</code>) are white boxes. <code>.panel-body</code> provides the padding.</p>
+<section class="styleguide-section -h3"><h3 id='panel'>panel</h3>
+  <div class="styleguide-text"><p>Panels (<code>.panel</code>) are white boxes. <code>.panel-body</code> provides the padding.</p>
   </div>
-
-  <div class='styleguide-example  lang-html'>
-    <div class='figure'>
-      <div class="panel"><div class="panel-body">Basic panel example</div></div>
+  <div class="styleguide-example lang-html">
+    <div class="figure"><div class="panel"><div class="panel-body">Basic panel example</div></div>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>.panel
   .panel-body Basic panel example</code></pre>
     </div>
   </div>
-
-  <div class='styleguide-text'>
-    <h4 id="with-heading">With heading</h4>
-    <p>Add <code>.panel-heading</code> for a heading.</p>
+  <div class="styleguide-text"><h4 id="with-heading">With heading</h4>
+<p>Add <code>.panel-heading</code> for a heading.</p>
   </div>
-
-  <div class='styleguide-example -clear lang-html'>
-    <div class='figure'>
-      <div class="panel panel-default"><div class="panel-heading">Panel heading</div><div class="panel-body"><p style="padding: 20px">Content goes here</p></div></div>
+  <div class="styleguide-example -clear lang-html">
+    <div class="figure"><div class="panel panel-default"><div class="panel-heading">Panel heading</div><div class="panel-body"><p style="padding: 20px">Content goes here</p></div></div>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>.panel.panel-default
   .panel-heading Panel heading
   .panel-body
-    p(style=&#39;padding: 20px&#39;) Content goes here</code></pre>
+    p(style='padding: 20px') Content goes here</code></pre>
     </div>
   </div>
-
-  <div class='styleguide-text'>
-    <h4 id="with-title">With title</h4>
-    <p>Use <code>.panel-title</code> to make the text bigger.</p>
+  <div class="styleguide-text"><h4 id="with-title">With title</h4>
+<p>Use <code>.panel-title</code> to make the text bigger.</p>
   </div>
-
-  <div class='styleguide-example -clear lang-html'>
-    <div class='figure'>
-      <div class="panel panel-default"><div class="panel-heading"><div class="panel-title">Panel heading with title</div></div><div class="panel-body"><p style="padding: 20px">Content goes here</p></div></div>
+  <div class="styleguide-example -clear lang-html">
+    <div class="figure"><div class="panel panel-default"><div class="panel-heading"><div class="panel-title">Panel heading with title</div></div><div class="panel-body"><p style="padding: 20px">Content goes here</p></div></div>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>.panel.panel-default
   .panel-heading
     .panel-title Panel heading with title
   .panel-body
-    p(style=&#39;padding: 20px&#39;) Content goes here</code></pre>
+    p(style='padding: 20px') Content goes here</code></pre>
     </div>
   </div>
-
-  <div class='styleguide-text'>
-    <h4 id="with-footer">With footer</h4>
-    <p>Add <code>.panel-footer</code> for a footer.</p>
+  <div class="styleguide-text"><h4 id="with-footer">With footer</h4>
+<p>Add <code>.panel-footer</code> for a footer.</p>
   </div>
-
-  <div class='styleguide-example -clear lang-html'>
-    <div class='figure'>
-      <div class="panel panel-default"><div class="panel-body"><p style="padding: 20px">Content goes here</p></div><div class="panel-footer">Panel footer</div></div>
+  <div class="styleguide-example -clear lang-html">
+    <div class="figure"><div class="panel panel-default"><div class="panel-body"><p style="padding: 20px">Content goes here</p></div><div class="panel-footer">Panel footer</div></div>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>.panel.panel-default
   .panel-body
-    p(style=&#39;padding: 20px&#39;) Content goes here
+    p(style='padding: 20px') Content goes here
   .panel-footer Panel footer</code></pre>
     </div>
   </div>
-
-  <div class='styleguide-text'>
-    <h4 id="alternates">Alternates</h4>
-    <p>Use <code>.panel-primary</code> (and so on).</p>
+  <div class="styleguide-text"><h4 id="alternates">Alternates</h4>
+<p>Use <code>.panel-primary</code> (and so on).</p>
   </div>
-
-  <div class='styleguide-example -clear lang-html'>
-    <div class='figure'>
-      <div class="row"><div class="col-sm-4"><div class="panel panel-primary"><div class="panel-heading">Primary</div><div class="panel-body">panel-primary</div></div></div><div class="col-sm-4"><div class="panel panel-success"><div class="panel-heading">Success</div><div class="panel-body">panel-success</div></div></div><div class="col-sm-4"><div class="panel panel-info"><div class="panel-heading">Info</div><div class="panel-body">panel-info</div></div></div></div>
+  <div class="styleguide-example -clear lang-html">
+    <div class="figure"><div class="row"><div class="col-sm-4"><div class="panel panel-primary"><div class="panel-heading">Primary</div><div class="panel-body">panel-primary</div></div></div><div class="col-sm-4"><div class="panel panel-success"><div class="panel-heading">Success</div><div class="panel-body">panel-success</div></div></div><div class="col-sm-4"><div class="panel panel-info"><div class="panel-heading">Info</div><div class="panel-body">panel-info</div></div></div></div>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>.row
   .col-sm-4
     .panel.panel-primary
@@ -300,99 +230,86 @@
       .panel-body panel-info</code></pre>
     </div>
   </div>
-
 </section>
-<section class='styleguide-section -h3'>
-
-  <h3 id='progress'>progress</h3>
-
-  <div class='styleguide-text'>
-    <p>Use <code>.progress</code> with <code>.progress-bar</code>.</p>
+<section class="styleguide-section -h3"><h3 id='progress'>progress</h3>
+  <div class="styleguide-text"><p>Use <code>.progress</code> with <code>.progress-bar</code>.</p>
   </div>
-
-  <div class='styleguide-example  lang-html'>
-    <div class='figure'>
-      <div class="progress"><div style="width: 60%" class="progress-bar"></div></div>
+  <div class="styleguide-example lang-html">
+    <div class="figure"><div class="progress"><div style="width: 60%" class="progress-bar"></div></div>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>.progress
-  .progress-bar(style=&#39;width: 60%&#39;)</code></pre>
+  .progress-bar(style='width: 60%')</code></pre>
     </div>
   </div>
-
-  <div class='styleguide-text'>
-    <h4 id="accessibility">Accessibility</h4>
-    <p>Add <code>aria-value*</code> attributes and use <code>span.sr-only</code>.</p>
+  <div class="styleguide-text"><h4 id="accessibility">Accessibility</h4>
+<p>Add <code>aria-value*</code> attributes and use <code>span.sr-only</code>.</p>
   </div>
-
-  <div class='styleguide-example  lang-html'>
-    <div class='figure'>
-      <div class="progress"><div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" class="progress-bar"><span class="sr-only">60% Complete</span></div></div>
+  <div class="styleguide-example lang-html">
+    <div class="figure"><div class="progress"><div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" class="progress-bar"><span class="sr-only">60% Complete</span></div></div>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>.progress
-  .progress-bar(role=&#39;progressbar&#39; aria-valuenow=&#39;60&#39; aria-valuemin=&#39;0&#39; aria-valuemax=&#39;100&#39; style=&#39;width: 60%&#39;)
+  .progress-bar(role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%')
     span.sr-only 60% Complete</code></pre>
     </div>
   </div>
-
-  <div class='styleguide-text'>
-    <h4 id="with-labels">With labels</h4>
-    <p>Add text inside <code>.progress-bar</code>.</p>
+  <div class="styleguide-text"><h4 id="with-labels">With labels</h4>
+<p>Add text inside <code>.progress-bar</code>.</p>
   </div>
-
-  <div class='styleguide-example  lang-html'>
-    <div class='figure'>
-      <div class="progress"><div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" class="progress-bar">60%</div></div>
+  <div class="styleguide-example lang-html">
+    <div class="figure"><div class="progress"><div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" class="progress-bar">60%</div></div>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>.progress
-  .progress-bar(role=&#39;progressbar&#39; aria-valuenow=&#39;60&#39; aria-valuemin=&#39;0&#39; aria-valuemax=&#39;100&#39; style=&#39;width: 60%&#39;)
+  .progress-bar(role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%')
     | 60%</code></pre>
     </div>
   </div>
-
-  <div class='styleguide-text'>
-    <h4 id="alternatives">Alternatives</h4>
-    <p>Add classes to <code>.progress-bar</code>.</p>
+  <div class="styleguide-text"><h4 id="alternatives">Alternatives</h4>
+<p>Add classes to <code>.progress-bar</code>.</p>
   </div>
-
-  <div class='styleguide-example  lang-html'>
-    <div class='figure'>
-      <div class="progress"><div style="width: 40%" class="progress-bar progress-bar-success">progress-bar-success</div></div><div class="progress"><div style="width: 20%" class="progress-bar progress-bar-info">progress-bar-info</div></div><div class="progress"><div style="width: 60%" class="progress-bar progress-bar-warning">progress-bar-warning</div></div><div class="progress"><div style="width: 80%" class="progress-bar progress-bar-danger">progress-bar-danger</div></div>
+  <div class="styleguide-example lang-html">
+    <div class="figure"><div class="progress"><div style="width: 40%" class="progress-bar progress-bar-success">progress-bar-success</div></div><div class="progress"><div style="width: 20%" class="progress-bar progress-bar-info">progress-bar-info</div></div><div class="progress"><div style="width: 60%" class="progress-bar progress-bar-warning">progress-bar-warning</div></div><div class="progress"><div style="width: 80%" class="progress-bar progress-bar-danger">progress-bar-danger</div></div>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>.progress
-  .progress-bar.progress-bar-success(style=&#39;width: 40%&#39;) progress-bar-success
+  .progress-bar.progress-bar-success(style='width: 40%') progress-bar-success
 .progress
-  .progress-bar.progress-bar-info(style=&#39;width: 20%&#39;) progress-bar-info
+  .progress-bar.progress-bar-info(style='width: 20%') progress-bar-info
 .progress
-  .progress-bar.progress-bar-warning(style=&#39;width: 60%&#39;) progress-bar-warning
+  .progress-bar.progress-bar-warning(style='width: 60%') progress-bar-warning
 .progress
-  .progress-bar.progress-bar-danger(style=&#39;width: 80%&#39;) progress-bar-danger</code></pre>
+  .progress-bar.progress-bar-danger(style='width: 80%') progress-bar-danger</code></pre>
     </div>
   </div>
-
-  <div class='styleguide-text'>
-    <h4 id="striped">Striped</h4>
-    <p>Add <code>.progress-bar-striped.active</code>.</p>
+  <div class="styleguide-text"><h4 id="striped">Striped</h4>
+<p>Add <code>.progress-bar-striped.active</code>.</p>
   </div>
-
-  <div class='styleguide-example  lang-html'>
-    <div class='figure'>
-      <div class="progress"><div style="width: 40%" class="progress-bar progess-bar-striped active"></div></div>
+  <div class="styleguide-example lang-html">
+    <div class="figure"><div class="progress"><div style="width: 40%" class="progress-bar progess-bar-striped active"></div></div>
     </div>
-    <div class='source'>
+    <div class="source">
       <pre><code>.progress
-  .progress-bar.progess-bar-striped.active(style=&#39;width: 40%&#39;)</code></pre>
+  .progress-bar.progess-bar-striped.active(style='width: 40%')</code></pre>
     </div>
   </div>
-
 </section>
-
       </div>
       <div class='col-md-2'>
-        <ul class="styleguide-menu"><li class="styleguide-menu-item -level-1 -parent"><span class="title">Basics</span><ul class="submenu"><li class="styleguide-menu-item -level-2"><a href="buttons.html" class="link title">Buttons</a></li><li class="styleguide-menu-item -level-2"><a href="components.html" class="link title -active">Components</a></li><li class="styleguide-menu-item -level-2"><a href="forms.html" class="link title">Forms</a></li></ul></li></ul>
+        
+<ul class="styleguide-menu">
+  <li class="styleguide-menu-item -level-1 -parent"><span class="title">Basics</span>
+    <ul class="submenu">
+      <li class="styleguide-menu-item -level-2"><a href="buttons.html" class="link title">Buttons</a>
+      </li>
+      <li class="styleguide-menu-item -level-2"><a href="components.html" class="link title -active">Components</a>
+      </li>
+      <li class="styleguide-menu-item -level-2"><a href="forms.html" class="link title">Forms</a>
+      </li>
+    </ul>
+  </li>
+</ul>
       </div>
     </div>
   </div>

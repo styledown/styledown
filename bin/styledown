@@ -64,6 +64,7 @@ var opts = {
   },
   render: {
     layout: cli.flags.layout && fs.readFileSync(cli.flags.layout, 'utf-8')
+    layoutEngine: cli.flags.layout && getExtension(cli.flags.layout)
   }
 }
 
@@ -128,3 +129,8 @@ function parseToYaml (output) {
 function parseToJson (output) {
   console.log(JSON.stringify(output, null, 2))
 }
+
+function getExtension (filename) {
+  return filename.replace(/^.*\.([^\.]+)$/, '\1')
+}
+
