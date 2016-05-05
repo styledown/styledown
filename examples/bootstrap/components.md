@@ -24,7 +24,7 @@ dismissal, use the alerts jQuery plugin.
 ### list-group
 Simple lists and elements using `.list-group` and `.list-group-item`.
 
-```example.jade
+```example.haml
 ul.list-group
   li.list-group-item Apple
   li.list-group-item Orange

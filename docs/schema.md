@@ -38,7 +38,8 @@ You'll get this JSON output:
               "s2":
               { "type": "example",
                 "language": "haml",
-                "content": "= render 'components/top_header'" } } } } } } }
+                "content": "= render 'components/top_header'" } } } } } },
+  "toc": { ...  } }
 ```
 
 It breaks down like so:
@@ -80,3 +81,19 @@ A file has the following fields:
 - `language`
 - `content`
 - `source` - If it was transpiled, the original source will be stored here.
+
+## Table of Contents
+
+A table of contents will be generated when one of the files is called `README.md`. It looks like this:
+
+```js
+{ sections:
+   [ { title: 'Home',
+       source: 'index.md',
+       url: 'index.html' },
+     { title: 'Document',
+       sections:
+        [ { title: 'Index',
+            source: 'index.md',
+            url: 'index.html' } ] } ] }
+```

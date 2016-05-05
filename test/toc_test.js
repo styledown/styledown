@@ -1,9 +1,10 @@
 var test = require('ava')
 var styledown = require('../index')
 var r = require('redent')
+var tocify = require('../lib/tocify')
 
-test('toc', t => {
-  var out = styledown.parse([
+test('generates toc', t => {
+  var output = styledown.parse([
     { name: 'README.md',
       data: r(`
         # Table of Contents
@@ -21,18 +22,38 @@ test('toc', t => {
       `) }
   ])
 
-  var toc = out.toc
+  var expected =
+    { toc:
+       { sections:
+          [ { title: 'Buttons',
+              source: 'buttons.md',
+              url: 'buttons.html' },
+            { title: 'Panels',
+              source: 'panels.md',
+              url: 'panels.html' } ] } }
+
+  t.deepEqual(output.toc, expected.toc)
 })
 
 test('loltoc', t => {
-  var tocify = require('../lib/tocify_2')
   var output = tocify(r(`
     # Table of Contents
 
-    * [Home](index.html)
+    * [Home](index.md)
     * Document
-      * [Index](index.html)
+      * [Index](index.md)
   `))
 
-  console.log(require('util').inspect(output, { depth: null, colors: true }))
+  var expected =
+    { sections:
+       [ { title: 'Home',
+           source: 'index.md',
+           url: 'index.html' },
+         { title: 'Document',
+           sections:
+            [ { title: 'Index',
+                source: 'index.md',
+                url: 'index.html' } ] } ] }
+
+  t.deepEqual(output, expected)
 })
