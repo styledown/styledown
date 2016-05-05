@@ -8,6 +8,9 @@
   },
   "dependencies": {
     "any-promise": "1.1.0",
+    "babel-preset-es2015": "6.6.0",
+    "babel-preset-stage-0": "6.5.0",
+    "babelify": "7.2.0",
     "jstransformer": "0.0.4",
     "jstransformer-ejs": "^0.0.3",
     "jstransformer-jade": "^0.1.0",
@@ -17,7 +20,8 @@
     "meow": "3.7.0",
     "mkdirp": "0.5.1",
     "mz": "2.4.0",
-    "read-input": "0.3.1"
+    "read-input": "0.3.1",
+    "unidecode": "0.1.8"
   },
   "devDependencies": {
     "ava": "0.14.0",
@@ -46,7 +50,13 @@
     "url": "git+ssh://git@github.com/styledown/styledown.git"
   },
   "scripts": {
-    "build": "browserify external.js -t brfs -S styledown | uglifyjs -cm > dist/styledown-external.js",
+    "build": "browserify external.js -t brfs -t babelify -S styledown | uglifyjs -cm > dist/styledown-external.js",
     "test": "ava"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ]
   }
 }
