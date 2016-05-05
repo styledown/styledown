@@ -38,6 +38,25 @@ styledown.parseFiles([
 
 ## render
 
-> `styledown.render(data, options)`
+> `styledown.render(data, filename, options)`
 
-Renders to HTML, where `data` is assumed to be the output of [styledown.parse](#styledownparse).
+Renders to HTML, where `data` is assumed to be the output of [styledown.parse](#styledownparse). The parameter `filename` is the filename to be rendered. The result is HTML as a string.
+
+```js
+var data = styledown.parse([
+  { name: 'buttons.md', data: /*snip*/ }
+])
+
+var result = styledown.render(data, filename)
+```
+
+These options may be given (all optional):
+
+- `layout` *(String)* - the contents of the layout to be used. Can be an [ejs][] or [jade][] template, or anything supported by [jstransformer].
+- `layoutEngine` *(String)* - the jstransformer engine to use; defaults to `'ejs'`.
+
+You can use custom jstransformer engines by specifying `layoutEngine`. By overriding it, tt's assumed to be loading the npm package `jstransformer-<engine>`.
+
+[ejs]: https://www.npmjs.com/package/ejs
+[jade]: https://www.npmjs.com/package/jade
+[jstransformer]: https://www.npmjs.com/package/jstransformer
