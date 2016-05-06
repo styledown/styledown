@@ -12,7 +12,7 @@
     "babel-preset-stage-0": "6.5.0",
     "babelify": "7.2.0",
     "js-yaml": "3.6.0",
-    "jstransformer": "0.0.4",
+    "@rstacruz/jstransformer": "0.0.4-1-gc60b97c",
     "jstransformer-ejs": "^0.0.3",
     "jstransformer-jade": "^0.1.0",
     "markdown-it": "6.0.1",
@@ -49,7 +49,8 @@
     "url": "git+ssh://git@github.com/styledown/styledown.git"
   },
   "scripts": {
-    "build": "browserify external.js -t brfs -t babelify -s Styledown | uglifyjs -cm > dist/styledown-external.js",
+    "build": "browserify external.js -t brfs -t babelify -s Styledown > dist/styledown-external.js",
+    "build:min": "browserify external.js -t brfs -t babelify -s Styledown | uglifyjs -cm > dist/styledown-external.js",
     "test": "ava"
   },
   "babel": {
