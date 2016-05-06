@@ -13,12 +13,17 @@ var styledown = require('styledown')
 
 Parses synchronously from given inputs. This is useful for rendering your styleguide with your own views.
 
+The parameter `files` is an array of objects. Each object should have these keys:
+
+- `name` *(String)* - The source filename.
+- `contents` *(String)* - The raw contents of the file.
+
 The output is a JSON object; see [Schema](schema.md) for details on how it looks like.
 
 ```js
 styledown.parse([
-  { name: 'components.md', data: '# This is Markdown data' },
-  { name: 'buttons.md', data: '...' },
+  { name: 'components.md', contents: '# This is Markdown data' },
+  { name: 'buttons.md', contents: '...' },
 ])
 ```
 
@@ -26,7 +31,7 @@ styledown.parse([
 
 > `styledown.parseFiles(files, options)`
 
-Reads files asynchronously from disk then parses them. Returns a promise.
+Reads files asynchronously from disk then parses them. Returns a promise, which yields the same data structure as [styledown.parse](#styledownparse). See [Schema](schema.md) for details on how it looks like.
 
 ```js
 styledown.parseFiles([
@@ -44,7 +49,7 @@ Renders to HTML, where `data` is assumed to be the output of [styledown.parse](#
 
 ```js
 var data = styledown.parse([
-  { name: 'buttons.md', data: /*snip*/ }
+  { name: 'buttons.md', contents: /*snip*/ }
 ])
 
 var result = styledown.render(data, filename)

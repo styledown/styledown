@@ -6,18 +6,18 @@ var tocify = require('../lib/tocify')
 test('generates toc', t => {
   var output = styledown.parse([
     { name: 'README.md',
-      data: r(`
+      contents: r(`
         # Table of Contents
 
         * [Buttons](buttons.md)
         * [Panels](panels.md)
       `) },
     { name: 'buttons.md',
-      data: r(`
+      contents: r(`
         # Buttons
       `) },
     { name: 'panels.md',
-      data: r(`
+      contents: r(`
         # Panels
       `) }
   ])

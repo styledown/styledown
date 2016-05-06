@@ -5,7 +5,7 @@ var r = require('redent')
 test('block with code and class', t => {
   var out = styledown.parse([
     { name: 'components.md',
-      data: r(`
+      contents: r(`
         ### header
         This is a header
 
@@ -26,7 +26,7 @@ test('block with code and class', t => {
 test('slugifying', t => {
   var out = styledown.parse([
     { name: 'components.md',
-      data: r(`
+      contents: r(`
         ### shared/header (top)
         This is a header
         ~~~
@@ -39,7 +39,7 @@ test('slugifying', t => {
 test('multiple blocks', t => {
   var out = styledown.parse([
     { name: 'components.md',
-      data: r(`
+      contents: r(`
         # Components
         ### header
         This is a header
@@ -85,7 +85,7 @@ test('parseFiles failure', async t => {
 test('file with nothing', t => {
   var out = styledown.parse([
     { name: 'components.md',
-      data: '' }
+      contents: '' }
   ])
   t.true(out.files['components.md'].title === null)
   t.deepEqual(out.files['components.md'].sections, {})
@@ -95,7 +95,7 @@ test('file with nothing', t => {
 test('discard things without headings', t => {
   var out = styledown.parse([
     { name: 'components.md',
-      data: 'hello' }
+      contents: 'hello' }
   ])
   t.true(out.files['components.md'].title === null)
   t.deepEqual(out.files['components.md'].sections, {})
