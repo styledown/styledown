@@ -59,8 +59,11 @@ These options may be given (all optional):
 
 - `layout` *(String)* - the contents of the layout to be used. Can be an [ejs][] or [jade][] template, or anything supported by [jstransformer].
 - `layoutEngine` *(String)* - the jstransformer engine to use; defaults to `'ejs'`.
+- `block` *(String)* - the block to render. Can be *'body'* (default)  or *'menu'*.
 
 You can use custom jstransformer engines by specifying `layoutEngine`. By overriding it, tt's assumed to be loading the npm package `jstransformer-<engine>`.
+
+If `block: 'menu'` is passed through the options, it will return the markup for the sidebar menu.
 
 [ejs]: https://www.npmjs.com/package/ejs
 [jade]: https://www.npmjs.com/package/jade

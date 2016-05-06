@@ -40,7 +40,6 @@ test('rendering TOC', t => {
   t.regex(html, /<a href="components.html"/)
 })
 
-
 test('rendering TOC with custom extensions', t => {
   var out = styledown.parse([
     { name: 'README.md',
@@ -57,4 +56,21 @@ test('rendering TOC with custom extensions', t => {
   })
 
   t.regex(html, /<a href="components"/)
+})
+
+test('rendering TOC via render()', t => {
+  var out = styledown.parse([
+    { name: 'README.md',
+      data: r(`
+        # Table of Contents
+        * [Components](components.md)
+      `) },
+    { name: 'components.md',
+      data: 'Hello' }
+  ])
+  var html = styledown.render(out, 'components.md', { block: 'menu' })
+
+  t.regex(html, /<ul class="styleguide-menu">/)
+  t.regex(html, /<li class="styleguide-menu-item -level-1">/)
+  t.regex(html, /<a href="components.html"/)
 })
