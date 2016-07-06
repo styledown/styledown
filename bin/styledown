@@ -156,5 +156,5 @@ function printSampleLayout () {
 }
 
 function getExtension (filename) {
-  return filename.replace(/^.*\.([^\.]+)$/, '\1')
+  return filename.replace(/^.*\.([^\.]+)$/, '$1')
 }
