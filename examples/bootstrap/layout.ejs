@@ -12,24 +12,27 @@
 <body>
   <div class='container'>
     <div class='row'>
-      <div class='col-md-10'>
+      <div class='col-md-10 col-md-offset-1'>
         <%- body %>
-      </div>
-      <div class='col-md-2'>
-        <%- renderToc() %>
       </div>
     </div>
   </div>
 
+  <%- renderSidebar() %>
+
   <hr>
   <div class="">
     <div class="container">
-      <h3>Bootstrap styleguides</h3>
-      <p>This is a sample styleguide for Bootstrap that was generated using Styledown, a styleguide generator.
-      <p>
-        <a href="https://github.com/styledown/styledown" class="btn btn-default">About Styledown</a>
-        <a href="https://github.com/styledown/styledown/tree/master/examples/bootstrap" class="btn btn-default">See sources</a>
-      </p>
+      <div class='row'>
+        <div class='col-md-10 col-md-offset-1'>
+          <h3>Bootstrap styleguides</h3>
+          <p>This is a sample styleguide for Bootstrap that was generated using Styledown, a styleguide generator.
+          <p>
+            <a href="https://github.com/styledown/styledown" class="btn btn-default">About Styledown</a>
+            <a href="https://github.com/styledown/styledown/tree/master/examples/bootstrap" class="btn btn-default">See sources</a>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 
