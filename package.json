@@ -15,6 +15,7 @@
     "js-yaml": "3.6.0",
     "jstransformer-ejs": "^0.0.3",
     "jstransformer-jade": "^0.1.0",
+    "lodash.kebabcase": "4.0.1",
     "markdown-it": "6.0.1",
     "markdown-it-named-headings": "1.1.0",
     "meow": "3.7.0",
