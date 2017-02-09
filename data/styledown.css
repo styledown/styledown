@@ -199,13 +199,16 @@
 }
 
 .styleguide-menu-item.-parent.-level-1 > .title {
+  display: block;
   font-weight: bold;
+  padding: 4px 16px;
 }
 
 /* Links */
 .styleguide-menu-item > .link {
   display: block;
   font-weight: normal;
+  padding: 4px 16px;
 }
 
 /* Active links */
@@ -277,7 +280,15 @@
 }
 
 .styleguide-sidebar > .button:before {
-  content: '>';
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-top: solid 1px #333;
+  border-right: solid 1px #333;
+  transform: rotate(45deg);
+  position: relative;
+  left: -3px;
 }
 
 .styleguide-sidebar > :checked ~ .button {
