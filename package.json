@@ -20,7 +20,7 @@
   "dependencies": {
     "cheerio": "0.17.0",
     "highlight.js": "8.1.0",
-    "jade": "1.5.0",
+    "jade": "1.11.0",
     "js-beautify": "1.5.1",
     "marked": "0.3.1",
     "mdconf": "0.0.2",
