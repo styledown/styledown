@@ -213,6 +213,7 @@ Styledown.prototype = {
     removeConfig(this.$);
 
     var pre = this.options.prefix;
+    var caseSensitive = this.options.caseSensitive;
     var $ = this.$;
 
     addClasses($, p);
@@ -220,7 +221,7 @@ Styledown.prototype = {
     sectionize($, 'h2', p, { 'class': p('section'), until: 'h1, h2' });
 
     $('pre').each(function () {
-      unpackExample($(this), p, highlightHTML);
+      unpackExample($(this), p, highlightHTML, caseSensitive);
     });
 
     isolateTextBlocks(this.$, p);
