@@ -14,7 +14,7 @@ before ->
     options.head ?= false
     @sd = new Styledown(html, options)
     @html = @sd.toHTML()
-    @$ = Cheerio.load(@html)
+    @$ = Cheerio.load(@html, lowerCaseTags: false, lowerCaseAttributeNames: false)
 
 chai.Assertion.addMethod 'htmleql', (val, msg) ->
   a = Cheerio.load(@_obj, normalizeWhitespace: true).html()
