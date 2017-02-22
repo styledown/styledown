@@ -44,6 +44,20 @@ describe 'CLI:', ->
       expect(result.out).match /<h3[^>]*>hi<\/h3>/
       expect(result.out).match /<p[^>]*>there<\/p>/
 
+  describe 'case sensitive', ->
+    pipe """
+    /**
+     * Hi:
+     *
+     *     @example
+     *     <h1 caseSensitiveTag="foo"></h1>
+     */
+    """, ['--inline', '--case-sensitive']
+    success()
+
+    it 'keeps HTML casing.', ->
+      expect(result.out).contain '<h1 caseSensitiveTag="foo">'
+
   describe 'pipe --inline', ->
     pipe """
     /**

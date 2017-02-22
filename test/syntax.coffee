@@ -40,3 +40,29 @@ describe 'Syntax highlight', ->
       expect(@$('.sg-code .hljs-attribute').length).gte 2
       expect(@$('.sg-code').html()).match /&lt;/
 
+  describe 'case insensitive code examples', ->
+    beforeEach ->
+      @load '''
+      ### hello
+
+          @example
+          <div myAngularAttribute="true"></div>
+      ''', caseSensitive: false
+
+    it 'keeps the original case', ->
+      expect(@$('[myAngularAttribute]').length).eq 0
+      expect(@$('[myangularattribute]').length).eq 1
+
+  describe 'case sensitive code examples', ->
+    beforeEach ->
+      @load '''
+      ### hello
+
+          @example
+          <div myAngularAttribute="true"></div>
+      ''', caseSensitive: true
+
+    it 'keeps the original case', ->
+      expect(@$('[myAngularAttribute]').length).eq 1
+      expect(@$('[myangularattribute]').length).eq 0
+

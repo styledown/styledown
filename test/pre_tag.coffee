@@ -90,3 +90,5 @@ describe 'Pre tag', ->
 
     it 'makes a <pre> HTML code', ->
       expect(@$("pre").text()).eql '<div class="button"></div>'
+
+
