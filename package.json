@@ -26,7 +26,8 @@
     "mdconf": "0.0.2",
     "mdextract": "^1.0.0",
     "minimist": "^0.2.0",
-    "read-input": "^0.1.0"
+    "read-input": "^0.1.0",
+    "glob": "7.1.2"
   },
   "devDependencies": {
     "browserify": "^5.9.1",

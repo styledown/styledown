@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 var Styledown = require('..'),
-    read = require('read-input');
+    read = require('read-input'),
+    glob = require('glob'); 
 
 var args = require('minimist')(process.argv.slice(2), {
   boolean: ['inline', 'css', 'js', 'conf', 'quiet'],
@@ -48,7 +49,17 @@ if (args.conf) {
   process.exit();
 }
 
-read(args._, function (err, res) {
+
+var files = (args._ || []).reduce(function (result, file) {
+  if(typeof file === 'string') {
+    file = glob.sync(file);
+  }
+
+  result = result.concat(file);
+  return result;
+}, []);
+
+read(files, function (err, res) {
   var errors = res.files.filter(function (f) { return !! f.error; });
 
   if (errors.length) {
