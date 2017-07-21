@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 var Styledown = require('..'),
-    read = require('read-input')
+    read = require('read-input'),
     glob = require('glob'); 
 
 var args = require('minimist')(process.argv.slice(2), {
